@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <DataSourceReference>csms</DataSourceReference>
+      <rd:DataSourceID>516c94ba-ac80-4d3b-aff6-23a9a179cb81</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>1in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="Distt_Id">
+      <DataType>String</DataType>
+      <Prompt>Distt_Id</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Month">
+      <DataType>String</DataType>
+      <Prompt>Month</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox9">
+        <Left>2in</Left>
+        <Top>0.5in</Top>
+        <ZIndex>12</ZIndex>
+        <Width>1.375in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Year: " &amp; Parameters!Year.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox8">
+        <Left>0.375in</Left>
+        <Top>0.5in</Top>
+        <ZIndex>11</ZIndex>
+        <Width>1.375in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Month: " &amp; MonthName(Parameters!Month.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <Left>3.75in</Left>
+        <Top>0.5in</Top>
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <ZIndex>10</ZIndex>
+        <Width>2.25in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="District: " &amp; Fields!district_name.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox10">
+        <Left>7in</Left>
+        <Top>0.75in</Top>
+        <ZIndex>9</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Deposit     (Qty in Qtls.)</Value>
+      </Textbox>
+      <Textbox Name="textbox7">
+        <Left>6in</Left>
+        <Top>0.75in</Top>
+        <ZIndex>8</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Lifting       (Qty in Qtls.)</Value>
+      </Textbox>
+      <Textbox Name="textbox6">
+        <Left>5in</Left>
+        <Top>0.75in</Top>
+        <ZIndex>7</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Allotment (Qty in Qtls.)</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Left>3.75in</Left>
+        <Top>0.75in</Top>
+        <ZIndex>6</ZIndex>
+        <Width>1.25in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Lead  Up To (Km.)</Value>
+      </Textbox>
+      <Textbox Name="textbox3">
+        <Left>2.5in</Left>
+        <Top>0.75in</Top>
+        <ZIndex>5</ZIndex>
+        <Width>1.25in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Transporter  Type</Value>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <Left>0.375in</Left>
+        <Top>0.75in</Top>
+        <rd:DefaultName>textbox2</rd:DefaultName>
+        <ZIndex>4</ZIndex>
+        <Width>2.125in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Transporter Name</Value>
+      </Textbox>
+      <Table Name="table1">
+        <Left>0.375in</Left>
+        <DataSetName>stmTO</DataSetName>
+        <Top>1.125in</Top>
+        <ZIndex>3</ZIndex>
+        <Width>7.625in</Width>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Transporter_Name">
+                      <rd:DefaultName>Transporter_Name</rd:DefaultName>
+                      <ZIndex>5</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Transporter_Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Transport_Type">
+                      <rd:DefaultName>Transport_Type</rd:DefaultName>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Transport_Type.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Lead">
+                      <rd:DefaultName>Lead</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Lead_Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Cumulative_Qty">
+                      <rd:DefaultName>Cumulative_Qty</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Fields!Cumulative_Qty.Value=0,0,Fields!Cumulative_Qty.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Lifted_Qty">
+                      <rd:DefaultName>Lifted_Qty</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Fields!Lifted_Qty.Value=0,0,Fields!Lifted_Qty.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Deposit">
+                      <rd:DefaultName>Deposit</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Fields!Deposit.Value=0,0,Fields!Deposit.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <FontSize>8pt</FontSize>
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>2.125in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.25in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.25in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>0.25in</Height>
+      </Table>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>TopCenter</Position>
+          <Layout>Row</Layout>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title />
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Transporter Name</Caption>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>stmTO</DataSetName>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Alloted Qty.</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Lifted Qty.</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Deposited Qty.</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>1.625in</Top>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>LightGrey</BackgroundColor>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Qty. in Qtls.</Caption>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <ZIndex>2</ZIndex>
+        <Type>Column</Type>
+        <Width>7.125in</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Transporter_Name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!Transporter_Name.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Cumulative_Qty.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                    <Color>Green</Color>
+                  </Style>
+                  <Value>="  " &amp; Sum(Fields!Cumulative_Qty.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>Truck_Movement_analysis</ReportName>
+                    <Parameters>
+                      <Parameter Name="Transporter">
+                        <Value>=Fields!Transporter_ID.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Dist_Id">
+                        <Value>=Parameters!Distt_Id.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Transporter_Name">
+                        <Value>=Fields!Transporter_Name.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Lifted_Qty.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                    <Color>Blue</Color>
+                  </Style>
+                  <Value>="  " &amp; Sum(Fields!Lifted_Qty.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Deposit.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                    <Color>Purple</Color>
+                  </Style>
+                  <Value>="  " &amp; Sum(Fields!Deposit.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+      <Textbox Name="textbox1">
+        <Left>2.375in</Left>
+        <Top>0.25in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>4.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Statement of Transportation Against (FCI Release Order)</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.4375in</Left>
+        <Width>5.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>M.P. STATE CIVIL SUPPLIES CORPORATION LIMITED</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>3.75in</Height>
+  </Body>
+  <rd:ReportID>abd7202b-bf93-43d7-937d-361aa5f666e1</rd:ReportID>
+  <LeftMargin>1in</LeftMargin>
+  <DataSets>
+    <DataSet Name="stmTO">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT  Transporter_Table.Transporter_Name, Transporter_Table.Transporter_ID,Transporter_Table.Lead,Lead_Distance.Lead_Name,TO_Allot_Lift.Cumulative_Qty,TO_Allot_Lift.Pending_Qty, TO_Allot_Lift.Lifted_Qty ,sum(tbl_Receipt_Details.Recd_Qty) as Deposit  ,m_Transport_Type.Transport_Type,districtsmp.district_name ,districtsmp.district_Code from dbo. Transporter_Table 
+
+left join dbo.TO_Allot_Lift on Transporter_Table.Transporter_ID=TO_Allot_Lift.Transporter_ID and TO_Allot_Lift.Distt_Id=@Distt_Id and  TO_Allot_Lift.Month=@Month and  TO_Allot_Lift.Year=@Year 
+
+left join dbo.tbl_Receipt_Details on Transporter_Table.Transporter_ID=tbl_Receipt_Details.Transporter and tbl_Receipt_Details.Month=@Month and  tbl_Receipt_Details.Year=@Year
+ and tbl_Receipt_Details.S_of_arrival='03'
+left join  dbo.m_Transport_Type on Transporter_Table.Transport_ID=m_Transport_Type.Transport_ID
+
+left join pds.districtsmp on  Transporter_Table.Distt_ID=districtsmp.district_code
+left join dbo.Lead_Distance on Transporter_Table.Lead=Lead_Distance.Lead_ID
+where  Transporter_Table.Distt_ID=@Distt_Id
+
+group by  Transporter_Table.Transporter_Name,TO_Allot_Lift.Cumulative_Qty,TO_Allot_Lift.Pending_Qty, TO_Allot_Lift.Lifted_Qty,m_Transport_Type.Transport_Type,Transporter_Table.Lead,districtsmp.district_name,districtsmp.district_Code, Transporter_Table.Transporter_ID,Lead_Distance.Lead_Name</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Distt_Id">
+            <Value>=Parameters!Distt_Id.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Month">
+            <Value>=Parameters!Month.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Transporter_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Transporter_Name</DataField>
+        </Field>
+        <Field Name="Transporter_ID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Transporter_ID</DataField>
+        </Field>
+        <Field Name="Lead">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Lead</DataField>
+        </Field>
+        <Field Name="Lead_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Lead_Name</DataField>
+        </Field>
+        <Field Name="Cumulative_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Cumulative_Qty</DataField>
+        </Field>
+        <Field Name="Pending_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Pending_Qty</DataField>
+        </Field>
+        <Field Name="Lifted_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Lifted_Qty</DataField>
+        </Field>
+        <Field Name="Deposit">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Deposit</DataField>
+        </Field>
+        <Field Name="Transport_Type">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Transport_Type</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="district_Code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_Code</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>8.125in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

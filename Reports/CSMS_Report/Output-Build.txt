@@ -1,0 +1,13 @@
+------ Build started: Project: CSMS-Report, Configuration: Debug ------
+[rsOverlappingReportItems] The textbox ‘textbox45’ and the textbox ‘textbox5’ overlap. Overlapping report items are not supported in all renderers.
+[rsOverlappingReportItems] The textbox ‘textbox7’ and the textbox ‘textbox14’ overlap. Overlapping report items are not supported in all renderers.
+[rsOverlappingReportItems] The textbox ‘textbox49’ and the textbox ‘textbox48’ overlap. Overlapping report items are not supported in all renderers.
+[rsOverlappingReportItems] The line ‘line3’ and the textbox ‘textbox3’ overlap. Overlapping report items are not supported in all renderers.
+[rsOverlappingReportItems] The line ‘line3’ and the textbox ‘textbox66’ overlap. Overlapping report items are not supported in all renderers.
+Build complete -- 0 errors, 5 warnings
+------ Deploy started: Project: CSMS-Report, Configuration: Debug ------
+Deploying to http://staging.mp.nic.in/ReportServer
+Error rsAccessDenied : The permissions granted to user 'SWWW\csmsRS' are insufficient for performing this operation.
+Deploy complete -- 1 errors, 0 warnings
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========
+========== Deploy: 0 succeeded, 1 failed, 0 skipped ==========

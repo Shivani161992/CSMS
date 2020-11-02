@@ -1,0 +1,11 @@
+﻿.textbox
+{
+    border-right: #a5acb2 1px solid;
+    border-top: #a5acb2 1px solid;
+    border-left: #a5acb2 1px solid;
+    color: black;
+    border-bottom: #a5acb2 1px solid;
+    font-size: 8pt;
+    font-family: tahoma,  sans-serif;
+    background-color: #ffffff
+}

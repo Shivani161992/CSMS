@@ -1,0 +1,157 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AgencyMaster.master.cs" Inherits="MasterPage_AgencyMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+   <asp:ContentPlaceHolder id="head" runat="server">
+   <title> MP Procurement</title>
+    </asp:ContentPlaceHolder>
+     <script type="text/javascript">
+    window.history.forward(-1); 
+    </script>
+     <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+   
+     <script type="text/javascript" src="../sdmenu/sdmenu.js">
+
+</script>
+     
+ <%--<script type="text/javascript" src="../js/calendar_eu.js"></script>  --%>   
+    <link rel="stylesheet" type="text/css" href="../CSS/calendar.css" />
+   
+  <%--  <link href="../CSS/Style.css" rel="stylesheet" type="text/css" />--%>
+       
+       <script type="text/javascript">
+    function CheckIsNumeric(e,tx)
+    {         
+        var AsciiCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;                        
+        if ((AsciiCode < 46 && AsciiCode != 8) || (AsciiCode > 57 ) || (AsciiCode == 47 ))
+        {
+            alert('Please enter only numbers.');
+            return false;
+        }                
+        var num=tx.value;        
+        var len=num.length;
+        var indx=-1;
+        indx=num.indexOf('.');
+        if (indx != -1)
+        {
+            if ((AsciiCode == 46 ))
+            {
+                alert('Point must be apear only one time.');
+                return false;
+            }
+            var dgt=num.substr(indx,len);
+            var count= dgt.length;
+            //alert (count);
+            if (count > 5 && AsciiCode != 8)  
+            {
+                alert("Only 5 decimal digits allowed.");
+                return false;
+            }
+        }
+    }
+    </script>
+
+       
+     
+</head>
+<body  style="margin-left:0px; margin-top:0px; background-color:#ffffff" > 
+    <form id="form1" runat="server">
+    <table border="0" cellpadding ="0" cellspacing ="0" >
+    <tr>
+    <td style="height: 582px">
+   <table border="0" cellpadding ="0" cellspacing ="0" width="900px">
+   <tr>
+   <td  colspan="2" style="width:967px; height: 56px; background-color: beige;" >
+
+       <asp:Image ID="Image1" runat="server" ImageUrl="~/mpproc/Images/MP-header.jpg" Width="978px"  Height="56px" BorderColor="#C0C000" BorderWidth="2px" />
+      
+   
+   </td>
+   
+   </tr>
+   <tr>
+   <td colspan="2" align="center"  style="background-color: #cccc66; height: 30px;" >
+   <table> 
+   <tr>
+   <td>     
+     <asp:Label ID="lblLf" runat="server" Text="Login As :-" Font-Size="10pt" ForeColor="Indigo"></asp:Label>
+       <asp:Label ID="lbl_logInfo" runat="server" Font-Bold="True" ForeColor="Indigo" Font-Size="10pt"></asp:Label>
+      
+   </td>
+       <td>
+    <asp:LinkButton ID="Link_Logout" runat="server" PostBackUrl="~/mpproc/Logout.aspx" OnClick="Link_Logout_Click" Font-Bold="True" ForeColor="RoyalBlue" Font-Size="10pt">Logout</asp:LinkButton></td>
+   </tr>
+   </table>
+
+   </td>
+   </tr>
+   <tr>
+   <td  style="width:108px; height: 411px;" valign="top">
+    <asp:Panel ID="Panel1" runat="server" Height="300px" Width="150px" ScrollBars="Both">
+
+            <div id="my_menu" class="sdmenu">
+
+<div>
+<span id="span1" runat="server" >Procurement-PC</span>
+<asp:HyperLink ID="HL_EStAll" runat="server" Width="170px"  NavigateUrl="~/mpproc/Procurement/allocationEstimatedToPurchaseCenter.aspx">Estimated Allocation to Purchase Centres</asp:HyperLink>
+<asp:HyperLink ID="HL_WheatProc" runat="server" Width="170px"  NavigateUrl="~/mpproc/Procurement/WheatProcureFarmerWiseEntry.aspx">WheatProcureFarmerWiseEntry</asp:HyperLink>  
+<asp:HyperLink ID="HL_GaunnyPay" runat="server" Width="170px"  NavigateUrl="~/mpproc/Procurement/Gunny_and_paymentsDetails.aspx">Gunny and Paymant Details</asp:HyperLink>        
+<asp:HyperLink ID="HL_WheatTrans" runat="server" Width="170px"  NavigateUrl="~/mpproc/Procurement/WheatTransferedfromPCtoSC.aspx">Wheat Transfered from PC to SC</asp:HyperLink>        
+
+
+  </div>
+  
+  <div>
+<span id="span2" runat="server" >Masters</span>
+    
+    <asp:HyperLink ID="HL_FarmaerD" runat="server" Width="170px"  NavigateUrl="~/mpproc/Masters/FarmerRegistration.aspx">Farmer Registration</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" Width="170px"  NavigateUrl="~/mpproc/Masters/UpdateFarmerRegistration.aspx">Update Farmer Registration</asp:HyperLink>
+    
+  </div>
+  
+  <div>
+<span id="span3" runat="server" >Reports</span>
+    
+    <asp:HyperLink ID="HL_WheatRep" runat="server" Width="170px"  NavigateUrl="~/mpproc/Procurement/frmReports.aspx">Reports</asp:HyperLink>
+    
+  </div>
+  </div>
+    
+    </asp:Panel>
+  
+   </td>
+   
+   <td style="width:750px; height: 411px;" >
+   <center>
+   <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+   <%--<asp:Panel ID="Panel2" runat="server" Height="400px" Width="800px" ScrollBars="Auto">
+      <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </asp:Panel>--%>
+       
+   </center>
+   </td>
+   </tr>
+ <%--  <tr>
+    <td colspan="2" align="center" style="width:900px; height:4px; background-color:#cccc66">
+    
+    </td>
+   </tr>--%>
+  <%-- <tr>
+   <td colspan="2" align="center" style="width:900px; height: 50px;">
+    <div>            
+         <asp:Image ID="Image2" runat="server"  ImageUrl="~/Images/Nic-Logo_blue.gif" width="200" height="50" />
+     </div>      
+   </td>
+   </tr>--%>
+   </table>
+   </td>
+   </tr>
+  </table>
+
+    </form>
+</body>
+</html>

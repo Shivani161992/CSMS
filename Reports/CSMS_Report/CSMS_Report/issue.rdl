@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <DataSourceReference>csms</DataSourceReference>
+      <rd:DataSourceID>8af7b4ec-e453-453f-8fdd-85f93080b9b0</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>1in</RightMargin>
+  <ReportParameters>
+    <ReportParameter Name="dono">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Delivery Order No</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox5">
+        <Top>0.375in</Top>
+        <ZIndex>2</ZIndex>
+        <Width>1in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!delivery_order_no.Value, "DataSet2")</Value>
+      </Textbox>
+      <Textbox Name="Commodity_Name">
+        <Left>1in</Left>
+        <Top>0.375in</Top>
+        <rd:DefaultName>Commodity_Name</rd:DefaultName>
+        <ZIndex>1</ZIndex>
+        <Width>4.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!Commodity_Name.Value, "DataSet1")</Value>
+      </Textbox>
+      <Table Name="table1">
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox7">
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <ZIndex>7</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <ZIndex>6</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="issue">
+                      <rd:DefaultName>issue</rd:DefaultName>
+                      <ZIndex>5</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <rd:DefaultName>textbox9</rd:DefaultName>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <DataSetName>DataSet2</DataSetName>
+        <Top>0.625in</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="delivery_order_no">
+                      <rd:DefaultName>delivery_order_no</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="bags">
+                      <rd:DefaultName>bags</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!bags.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="qty_issue">
+                      <rd:DefaultName>qty_issue</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!qty_issue.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="quantity">
+                      <rd:DefaultName>quantity</rd:DefaultName>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!quantity.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <ZIndex>11</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>division</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <ZIndex>10</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Bags</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <ZIndex>9</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>issue qty</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <ZIndex>8</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>lift qty</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>1.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.5in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.5in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>0.75in</Height>
+      </Table>
+    </ReportItems>
+    <Height>1.5in</Height>
+  </Body>
+  <rd:ReportID>9be8c35b-9b85-44bc-8ad0-5c70b8ea4e49</rd:ReportID>
+  <LeftMargin>1in</LeftMargin>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT  distinct tbl_MetaData_STORAGE_COMMODITY .Commodity_Name
+from dbo.  do_fps INNER JOIN
+           tbl_MetaData_STORAGE_COMMODITY ON do_fps.commodity = tbl_MetaData_STORAGE_COMMODITY .Commodity_Id
+where do_fps.delivery_order_no=@dono</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@dono">
+            <Value>=Parameters!dono.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT pds.districtsmp.district_name, issue_against_do.qty_issue, issue_against_do.issue_date, issue_against_do.gate_pass, 
+           issue_against_do.bags, delivery_order_mpscsc.delivery_order_no, delivery_order_mpscsc.district_code, 
+           delivery_order_mpscsc.issueCentre_code, delivery_order_mpscsc.permit_no, delivery_order_mpscsc.issue_type, 
+           delivery_order_mpscsc.issue_name, delivery_order_mpscsc.allotment_month, delivery_order_mpscsc.allotment_year, 
+           delivery_order_mpscsc.do_validity, delivery_order_mpscsc.permit_validity, delivery_order_mpscsc.do_date, 
+           delivery_order_mpscsc.permit_date, delivery_order_mpscsc.created_date, delivery_order_mpscsc.updated_date, 
+           delivery_order_mpscsc.payment_mode, delivery_order_mpscsc.dd_no, delivery_order_mpscsc.dd_date, 
+           delivery_order_mpscsc.quantity, delivery_order_mpscsc.amount, delivery_order_mpscsc.tot_amount, 
+           delivery_order_mpscsc.bank_id, delivery_order_mpscsc.commodity_id, DATEADD(day, delivery_order_mpscsc.do_validity, 
+           delivery_order_mpscsc.do_date) AS validDate, m_LeadSoc.LeadSoc_nameU, tbl_MetaData_STORAGE_COMMODITY .Commodity_Name
+from dbo.  delivery_order_mpscsc LEFT OUTER JOIN
+           issue_against_do ON delivery_order_mpscsc.allotment_year = issue_against_do.allotment_year AND 
+           delivery_order_mpscsc.allotment_month = issue_against_do.allotment_month AND 
+           delivery_order_mpscsc.issueCentre_code = issue_against_do.issueCentre_code AND 
+           delivery_order_mpscsc.district_code = issue_against_do.district_code AND 
+           delivery_order_mpscsc.delivery_order_no = issue_against_do.delivery_order_no INNER JOIN
+           pds.districtsmp ON delivery_order_mpscsc.district_code = pds.districtsmp.district_code INNER JOIN
+           m_LeadSoc ON delivery_order_mpscsc.issue_name = m_LeadSoc.LeadSoc_Code INNER JOIN
+           tbl_MetaData_STORAGE_COMMODITY ON delivery_order_mpscsc.commodity_id = tbl_MetaData_STORAGE_COMMODITY .Commodity_Id  WHERE delivery_order_mpscsc .delivery_order_no=@dono</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@dono">
+            <Value>=Parameters!dono.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="qty_issue">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>qty_issue</DataField>
+        </Field>
+        <Field Name="issue_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>issue_date</DataField>
+        </Field>
+        <Field Name="gate_pass">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>gate_pass</DataField>
+        </Field>
+        <Field Name="bags">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>bags</DataField>
+        </Field>
+        <Field Name="delivery_order_no">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>delivery_order_no</DataField>
+        </Field>
+        <Field Name="district_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="issueCentre_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>issueCentre_code</DataField>
+        </Field>
+        <Field Name="permit_no">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>permit_no</DataField>
+        </Field>
+        <Field Name="issue_type">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>issue_type</DataField>
+        </Field>
+        <Field Name="issue_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>issue_name</DataField>
+        </Field>
+        <Field Name="allotment_month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>allotment_month</DataField>
+        </Field>
+        <Field Name="allotment_year">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>allotment_year</DataField>
+        </Field>
+        <Field Name="do_validity">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>do_validity</DataField>
+        </Field>
+        <Field Name="permit_validity">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>permit_validity</DataField>
+        </Field>
+        <Field Name="do_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>do_date</DataField>
+        </Field>
+        <Field Name="permit_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>permit_date</DataField>
+        </Field>
+        <Field Name="created_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>created_date</DataField>
+        </Field>
+        <Field Name="updated_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>updated_date</DataField>
+        </Field>
+        <Field Name="payment_mode">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>payment_mode</DataField>
+        </Field>
+        <Field Name="dd_no">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>dd_no</DataField>
+        </Field>
+        <Field Name="dd_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>dd_date</DataField>
+        </Field>
+        <Field Name="quantity">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>quantity</DataField>
+        </Field>
+        <Field Name="amount">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>amount</DataField>
+        </Field>
+        <Field Name="tot_amount">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>tot_amount</DataField>
+        </Field>
+        <Field Name="bank_id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>bank_id</DataField>
+        </Field>
+        <Field Name="commodity_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>commodity_id</DataField>
+        </Field>
+        <Field Name="validDate">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>validDate</DataField>
+        </Field>
+        <Field Name="LeadSoc_nameU">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LeadSoc_nameU</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Width>6.50001in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

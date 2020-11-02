@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DataSourceWheat</DataSourceReference>
+      <CommandText>SELECT        CommodityProcurementByAgencyFromFarmer.QtyProcured, CommodityProcurementByAgencyFromFarmer.ProcurementDate, 
+                         CommodityProcurementByAgencyFromFarmer.Amt_Payable_to_farmer, CommodityProcurementByAgencyFromFarmer.Amt_Paid, 
+                         CommodityProcurementByAgencyFromFarmer.Cheque_No, CommodityProcurementByAgencyFromFarmer.Cheque_date, 
+                         CommodityProcurementByAgencyFromFarmer.RakbaNo, PurchaseCenterMaster.PurchaseCenterName, FarmerDetails.FarmerName, FarmerDetails.FatherName, 
+                         FarmerDetails.KhasaraNo, FarmerDetails.RationCardNo, FarmerDetails.RationCardType, FarmerDetails.PatwariHalkaNo, FarmerDetails.B1_No
+FROM            FarmerDetails INNER JOIN
+                         CommodityProcurementByAgencyFromFarmer INNER JOIN
+                         PurchaseCenterMaster ON CommodityProcurementByAgencyFromFarmer.PCID = PurchaseCenterMaster.PcId ON 
+                         FarmerDetails.FarmerId = CommodityProcurementByAgencyFromFarmer.FarmerId</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="QtyProcured">
+        <DataField>QtyProcured</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ProcurementDate">
+        <DataField>ProcurementDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Amt_Payable_to_farmer">
+        <DataField>Amt_Payable_to_farmer</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Amt_Paid">
+        <DataField>Amt_Paid</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Cheque_No">
+        <DataField>Cheque_No</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Cheque_date">
+        <DataField>Cheque_date</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="RakbaNo">
+        <DataField>RakbaNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PurchaseCenterName">
+        <DataField>PurchaseCenterName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FarmerName">
+        <DataField>FarmerName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FatherName">
+        <DataField>FatherName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="KhasaraNo">
+        <DataField>KhasaraNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RationCardNo">
+        <DataField>RationCardNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RationCardType">
+        <DataField>RationCardType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PatwariHalkaNo">
+        <DataField>PatwariHalkaNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="B1_No">
+        <DataField>B1_No</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

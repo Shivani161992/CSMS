@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <rd:DataSourceID>658fe9fe-1b1a-4b25-8212-e433cde1be0e</rd:DataSourceID>
+      <DataSourceReference>csms</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="amonth">
+      <DataType>String</DataType>
+      <Prompt>amonth</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ayear">
+      <DataType>String</DataType>
+      <Prompt>ayear</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>0.25in</RightMargin>
+  <LeftMargin>0.25in</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox2">
+        <rd:DefaultName>textbox2</rd:DefaultName>
+        <Width>6.5in</Width>
+        <Style>
+          <FontSize>12.1pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>1.25in</Left>
+        <Value>MADHYA  PRADESH  STATE  CIVIL  SUPPLIES  CORPORATION  LIMITED</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.25in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>47d82026-a4d2-4649-980e-34738953a059</rd:ReportID>
+  <PageWidth>11in</PageWidth>
+  <DataSets>
+    <DataSet Name="stgraphlift">
+      <Fields>
+        <Field Name="Division">
+          <DataField>Division</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Division_code">
+          <DataField>Division_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="district_name">
+          <DataField>district_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="district_code">
+          <DataField>district_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="allot_qty">
+          <DataField>allot_qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="issue_qty">
+          <DataField>issue_qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="lift_qty">
+          <DataField>lift_qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>csms</DataSourceName>
+        <CommandText>SELECT   Left(division.Division,Len(division.Division)-9) as Division,division.Division_code, pds.districtsmp.district_name,districtsmp.district_code ,SUM(sum_trans_do.allot_qty) AS allot_qty, SUM(sum_trans_do.issue_qty) 
+           AS issue_qty,SUM(sum_trans_do.lift_qty) AS lift_qty
+from dbo.  division   LEFT JOIN pds.districtsmp ON division.Division_code = pds.districtsmp.Division_code
+       LEFT JOIN  dbo.sum_trans_do  ON  pds.districtsmp.district_code=sum_trans_do.district_code   and sum_trans_do.trans_month=@amonth and sum_trans_do.trans_year=@ayear
+where  districtsmp.district_code&lt;&gt;99  
+GROUP BY division.Division,division.Division_code, pds.districtsmp.district_name,districtsmp.district_code order by division.Division_code,districtsmp.district_code</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@amonth">
+            <Value>=Parameters!amonth.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ayear">
+            <Value>=Parameters!ayear.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>10.5in</Width>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox5">
+        <Width>1in</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>4</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5.25in</Left>
+        <Height>0.25in</Height>
+        <Value>=Parameters!ayear.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <Width>1.125in</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>3</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.5in</Left>
+        <Height>0.25in</Height>
+        <Value>=monthname(Parameters!amonth.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox3">
+        <Width>0.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>2</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75in</Left>
+        <Height>0.25in</Height>
+        <Value>Year :</Value>
+      </Textbox>
+      <Textbox Name="textbox1">
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Width>0.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>1</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>2.875in</Left>
+        <Height>0.25in</Height>
+        <Value>Month :</Value>
+      </Textbox>
+      <Chart Name="chart2">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontFamily>Arial Narrow</FontFamily>
+            <FontSize>8pt</FontSize>
+          </Style>
+          <Position>TopCenter</Position>
+          <Layout>Row</Layout>
+        </Legend>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>DIVISION / DISTRICT</Caption>
+              <Style>
+                <FontSize>8pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>stgraphlift</DataSetName>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>White</BackgroundColor>
+            <BackgroundGradientEndColor>White</BackgroundGradientEndColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <PointWidth>0</PointWidth>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Status</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>&lt; 75% Lifted Quantity</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Issued Quantity</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>&gt; 75% Lifted Quantity</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>0.25in</Top>
+        <Subtype>Plain</Subtype>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>% of Lifting Against Issued Qty.</Caption>
+              <Style>
+                <FontSize>8pt</FontSize>
+                <FontWeight>700</FontWeight>
+              </Style>
+            </Title>
+            <Style>
+              <FontFamily>Arial Narrow</FontFamily>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Max>100</Max>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Column</Type>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="Division">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Division_code.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=LCase(Fields!Division.Value)</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="District">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!district_code.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!district_name.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(Fields!issue_qty.Value=0,0,(Fields!lift_qty.Value*100/Fields!issue_qty.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Verdana</FontFamily>
+                    <FontSize>6pt</FontSize>
+                    <FontWeight>100</FontWeight>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=iif(Fields!issue_qty.Value=0,0,(Fields!lift_qty.Value*100/Fields!issue_qty.Value))</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>=iif(iif(Fields!issue_qty.Value=0,0,(Fields!lift_qty.Value*100/Fields!issue_qty.Value))&lt;75 ,"red","Lime")</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value />
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Style>
+                  <BackgroundColor>Red</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(Fields!issue_qty.Value=0,0,100)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <Color>Blue</Color>
+                    <FontFamily>Verdana</FontFamily>
+                    <FontSize>6pt</FontSize>
+                    <FontWeight>100</FontWeight>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=iif(Fields!issue_qty.Value=0,0,100)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>Blue</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value />
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=Fields!issue_qty.Value</Value>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>Lime</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+          <BackgroundGradientEndColor>White</BackgroundGradientEndColor>
+        </Style>
+        <Title>
+          <Caption>State Report (Lifted Quantity Against DO)</Caption>
+          <Style>
+            <FontSize>12pt</FontSize>
+            <FontWeight>700</FontWeight>
+          </Style>
+        </Title>
+        <Height>4.25in</Height>
+      </Chart>
+    </ReportItems>
+    <Height>4.625in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

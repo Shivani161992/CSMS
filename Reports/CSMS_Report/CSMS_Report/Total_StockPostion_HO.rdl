@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <DataSourceReference>csms</DataSourceReference>
+      <rd:DataSourceID>2821cfac-5664-432e-a375-30be94af3155</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>0.5in</BottomMargin>
+  <RightMargin>0.05in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="Commodity">
+      <DataType>String</DataType>
+      <Prompt>Commodity</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Month">
+      <DataType>String</DataType>
+      <Prompt>Month</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox9">
+        <Left>2.25in</Left>
+        <Top>0.875in</Top>
+        <ZIndex>4</ZIndex>
+        <Width>1.75in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Month : " &amp; MonthName(Parameters!Month.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox7">
+        <Left>0.0625in</Left>
+        <Top>0.875in</Top>
+        <ZIndex>3</ZIndex>
+        <Width>1.75in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Commodity : " &amp; Fields!Commodity_Name.Value</Value>
+      </Textbox>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontSize>8pt</FontSize>
+          </Style>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title />
+        <Height>4in</Height>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>District Name </Caption>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>SPHO</DataSetName>
+        <Filters>
+          <Filter>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue />
+            </FilterValues>
+            <FilterExpression />
+          </Filter>
+        </Filters>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Opening Balance</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Received Quantity</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Dispatched Quantity</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Available Stock</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>1.25in</Top>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>LightGrey</BackgroundColor>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Quantity in Qtls.</Caption>
+              <Style>
+                <FontSize>8pt</FontSize>
+              </Style>
+            </Title>
+            <Style />
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <MinorTickMarks>Inside</MinorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <ZIndex>2</ZIndex>
+        <Type>Column</Type>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!district_name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!district_name.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Opening_Balance.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>= Sum(Fields!Recieved_Procure.Value) + Sum(Fields!Recieved_Otherg.Value)+ Sum(Fields!Recieved_FCI.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Sale_Do.Value)+Sum(Fields!Sale_otherg.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=(Sum(Fields!Opening_Balance.Value)+Sum(Fields!Recieved_Procure.Value)+Sum(Fields!Recieved_Otherg.Value)+Sum(Fields!Recieved_FCI.Value))-(Sum(Fields!Sale_Do.Value)+Sum(Fields!Sale_otherg.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+      <Textbox Name="textbox8">
+        <Left>3.375in</Left>
+        <Top>0.375in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>2.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>STOCK  REGISTER</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.75in</Left>
+        <Width>5.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>M.P. STATE CIVIL SUPPLIES CORPORATION LIMITED</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>5.375in</Height>
+  </Body>
+  <rd:ReportID>84b33696-7f2a-46ae-a71c-85eeea07d4ac</rd:ReportID>
+  <LeftMargin>0.05in</LeftMargin>
+  <DataSets>
+    <DataSet Name="SPHO">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT          division.Division_code,division.Division,  pds.districtsmp.district_code, pds.districtsmp.district_name, tbl_MetaData_DEPOT.DepotName,tbl_MetaData_STORAGE_COMMODITY . Commodity_Name,tbl_Stock_Registor.DistrictId,tbl_Stock_Registor.Recieved_Procure,tbl_Stock_Registor.Recieved_Otherg,tbl_Stock_Registor.Recieved_FCI,tbl_Stock_Registor.Sale_Do,
+tbl_Stock_Registor.Sale_otherg,tbl_Stock_Registor.Opening_Balance
+FROM                dbo.division LEFT JOIN  pds.districtsmp ON division.Division_code=districtsmp.Division_code
+Left Join 
+
+                             dbo.tbl_MetaData_DEPOT ON pds.districtsmp.district_code = Substring(tbl_MetaData_DEPOT.DistrictId,3,2)
+left Join dbo.tbl_Stock_Registor on tbl_MetaData_DEPOT .DepotID= tbl_Stock_Registor.DepotID  and tbl_Stock_Registor.Commodity_ID=@Commodity  and tbl_Stock_Registor.Month=@Month 
+and tbl_Stock_Registor.Year=@Year
+
+left join dbo.tbl_MetaData_STORAGE_COMMODITY on tbl_MetaData_STORAGE_COMMODITY . Commodity_Id=@Commodity</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Commodity">
+            <Value>=Parameters!Commodity.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Month">
+            <Value>=Parameters!Month.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Division_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division_code</DataField>
+        </Field>
+        <Field Name="Division">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division</DataField>
+        </Field>
+        <Field Name="district_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="DepotName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepotName</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+        <Field Name="DistrictId">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DistrictId</DataField>
+        </Field>
+        <Field Name="Recieved_Procure">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Recieved_Procure</DataField>
+        </Field>
+        <Field Name="Recieved_Otherg">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Recieved_Otherg</DataField>
+        </Field>
+        <Field Name="Recieved_FCI">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Recieved_FCI</DataField>
+        </Field>
+        <Field Name="Sale_Do">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Sale_Do</DataField>
+        </Field>
+        <Field Name="Sale_otherg">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Sale_otherg</DataField>
+        </Field>
+        <Field Name="Opening_Balance">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Opening_Balance</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>9in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>0.5in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

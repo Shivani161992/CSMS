@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>csms</Name>
+  <DataSourceID>4063f33c-028a-44a7-b50f-e39506f69c91</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=sql5.mp.nic.in;Initial Catalog=MPSCSC</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

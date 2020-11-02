@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <DataSourceReference>csms</DataSourceReference>
+      <rd:DataSourceID>8a96d5ea-4b40-40a0-9284-144cf8fb327b</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>0.2in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="fromDate">
+      <DataType>String</DataType>
+      <Prompt>From Date</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="toDate">
+      <DataType>String</DataType>
+      <Prompt>To Date</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Dist_Id">
+      <DataType>String</DataType>
+      <Prompt>Dist_Id</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox21">
+        <Left>3.625in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>21</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Commodity</Value>
+      </Textbox>
+      <Textbox Name="textbox16">
+        <Left>9.75in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Bags</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Left>4.25in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>19</ZIndex>
+        <Width>0.5in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Bags</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <Left>5.5in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>18</ZIndex>
+        <Width>0.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Challan No.</Value>
+      </Textbox>
+      <Textbox Name="district_name">
+        <Left>3.875in</Left>
+        <Top>0.75in</Top>
+        <rd:DefaultName>district_name</rd:DefaultName>
+        <ZIndex>17</ZIndex>
+        <Width>2.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="District : " &amp; Fields!district_name.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox17">
+        <Left>7.625in</Left>
+        <Top>1in</Top>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Receipt Details</Value>
+      </Textbox>
+      <Textbox Name="textbox15">
+        <Top>1in</Top>
+        <ZIndex>15</ZIndex>
+        <Width>7.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Dispatch Details</Value>
+      </Textbox>
+      <Textbox Name="textbox11">
+        <Left>8.5in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>14</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Time </Value>
+      </Textbox>
+      <Textbox Name="textbox9">
+        <Left>7in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>13</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Time </Value>
+      </Textbox>
+      <Textbox Name="textbox27">
+        <Left>9.125in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>12</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Qty.(Qtls)</Value>
+      </Textbox>
+      <Textbox Name="textbox26">
+        <Left>7.625in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>11</ZIndex>
+        <Width>0.875in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Receipt Date</Value>
+      </Textbox>
+      <Textbox Name="textbox24">
+        <Left>6.25in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>10</ZIndex>
+        <Width>0.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Disp. Date</Value>
+      </Textbox>
+      <Textbox Name="textbox14">
+        <Left>4.75in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>9</ZIndex>
+        <Width>0.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Truck No</Value>
+      </Textbox>
+      <Table Name="table1">
+        <DataSetName>dsTM</DataSetName>
+        <Top>1.5in</Top>
+        <TableGroups>
+          <TableGroup>
+            <Grouping Name="TC">
+              <GroupExpressions>
+                <GroupExpression>=Fields!TO_Number.Value</GroupExpression>
+                <GroupExpression>=Fields!Challan_No.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+          </TableGroup>
+        </TableGroups>
+        <ZIndex>8</ZIndex>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="RO_No_1">
+                      <HideDuplicates>dsTM</HideDuplicates>
+                      <rd:DefaultName>RO_No_1</rd:DefaultName>
+                      <ZIndex>14</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!RO_No.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="TO_Number">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>TO_Number</rd:DefaultName>
+                      <ZIndex>13</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!TO_Number.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <ZIndex>12</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=day(Fields!TO_Date.Value)&amp;"/"&amp; month(Fields!TO_Date.Value)&amp;"/"&amp;year(Fields!TO_Date.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <ZIndex>11</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Transporter.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <ZIndex>10</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Qty_send.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox23">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>textbox23</rd:DefaultName>
+                      <ZIndex>9</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Commodity_Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <ZIndex>8</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!No_of_Bags.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Vehicle_No">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>Vehicle_No</rd:DefaultName>
+                      <ZIndex>7</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Vehicle_No.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Challan_No">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>Challan_No</rd:DefaultName>
+                      <ZIndex>6</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Challan_No.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Challan_Date">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>Challan_Date</rd:DefaultName>
+                      <ZIndex>5</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=day(Fields!Challan_Date.Value)&amp;"/"&amp; month(Fields!Challan_Date.Value)&amp;"/"&amp;year(Fields!Challan_Date.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Dispatch_Time.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="arrival_date">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>arrival_date</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=IIf((day(Fields!arrival_date.Value)&amp;"/"&amp; month(Fields!arrival_date.Value)&amp;"/"&amp;year(Fields!arrival_date.Value))&lt;&gt;"1/1/1",day(Fields!arrival_date.Value)&amp;"/"&amp; month(Fields!arrival_date.Value)&amp;"/"&amp;year(Fields!arrival_date.Value),"")</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Arrival_time">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>Arrival_time</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Arrival_time.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Recd_Qty">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>Recd_Qty</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Recd_Qty.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox18">
+                      <HideDuplicates>TC</HideDuplicates>
+                      <rd:DefaultName>textbox18</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontSize>8pt</FontSize>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!RecdBags.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.5in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.5in</Width>
+          </TableColumn>
+        </TableColumns>
+      </Table>
+      <Textbox Name="textbox12">
+        <Left>2.875in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>7</ZIndex>
+        <Width>0.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Qty.(Qtls)</Value>
+      </Textbox>
+      <Textbox Name="textbox13">
+        <Left>2in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>6</ZIndex>
+        <Width>0.875in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Transporter</Value>
+      </Textbox>
+      <Textbox Name="textbox7">
+        <Top>0.75in</Top>
+        <ZIndex>5</ZIndex>
+        <Width>3.875in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Duration From:" &amp; " " &amp; day(Parameters!fromDate.Value)&amp;"/"&amp; month(Parameters!fromDate.Value)&amp;"/"&amp;year(Parameters!fromDate.Value)&amp;"  To  " &amp; day(Parameters!toDate.Value)&amp;"/"&amp; month(Parameters!toDate.Value)&amp;"/"&amp;year(Parameters!toDate.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox8">
+        <Left>3.375in</Left>
+        <Top>0.375in</Top>
+        <ZIndex>4</ZIndex>
+        <Width>2.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Truck Movement Details</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.125in</Left>
+        <ZIndex>3</ZIndex>
+        <Width>6.0625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>="Madhya Pradesh State Civil Supplies Corporation ... " &amp; First(Fields!district_name.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox19">
+        <Left>1.25in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>2</ZIndex>
+        <Width>0.75in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>TO Date</Value>
+      </Textbox>
+      <Textbox Name="textbox20">
+        <Left>0.625in</Left>
+        <Top>1.25in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>TO No</Value>
+      </Textbox>
+      <Textbox Name="textbox22">
+        <Top>1.25in</Top>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>RO.No.</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>1.75in</Height>
+  </Body>
+  <rd:ReportID>b3945fae-733b-45e4-ac20-fa5271f57112</rd:ReportID>
+  <LeftMargin>0.2in</LeftMargin>
+  <DataSets>
+    <DataSet Name="dsTM">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT        Lift_A_RO.*, tbl_MetaData_STORAGE_COMMODITY .Commodity_Name AS Commodity_Name, tbl_MetaData_DEPOT.DepotName AS DepotName, 
+
+                         districtsmp.district_name AS district_name, DepoCode.DepoName AS DepoName,Transport_Order_againstRo.TO_Date,Transport_Order_againstRo.Quantity, 
+
+tbl_Receipt_Details.Arrival_time,tbl_Receipt_Details.Recd_Qty,tbl_Receipt_Details.arrival_date,tbl_Receipt_Details.No_of_Bags as RecdBags
+
+FROM            dbo.Lift_A_RO LEFT JOIN
+                         dbo.tbl_MetaData_STORAGE_COMMODITY ON Lift_A_RO.Commodity = tbl_MetaData_STORAGE_COMMODITY .Commodity_ID LEFT JOIN
+                         dbo.tbl_MetaData_DEPOT ON Lift_A_RO.Issue_center = tbl_MetaData_DEPOT.DepotID LEFT JOIN
+                         pds.districtsmp ON Lift_A_RO.Dist_Id = districtsmp.district_code
+ LEFT JOIN
+                         DepoCode ON Lift_A_RO.FCIdepo = DepoCode.DepoCode
+                   left join dbo.Transport_Order_againstRo on  Lift_A_RO.TO_Number= Transport_Order_againstRo.TO_Number  and Lift_A_RO.Send_District= Transport_Order_againstRo.toDistrict  and Lift_A_RO.Issue_center=Transport_Order_againstRo.toIssueCenter
+
+left join  dbo.tbl_Receipt_Details on Lift_A_RO.TO_Number= tbl_Receipt_Details.TO_Number and Lift_A_RO.Send_District=tbl_Receipt_Details.Dist_Id and Lift_A_RO.Issue_center=tbl_Receipt_Details.Depot_ID and Lift_A_RO.Challan_No=tbl_Receipt_Details.challan_no
+
+
+where Lift_A_RO.Challan_Date &gt;=@fromDate  and Lift_A_RO.Challan_Date &lt;=@toDate  and Lift_A_RO.Dist_Id=@Dist_Id
+
+order by  Lift_A_RO.RO_NO,Lift_A_RO.TO_Number,Lift_A_RO.Challan_No</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@fromDate">
+            <Value>=Parameters!fromDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@toDate">
+            <Value>=Parameters!toDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Dist_Id">
+            <Value>=Parameters!Dist_Id.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Dist_Id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Dist_Id</DataField>
+        </Field>
+        <Field Name="RO_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RO_No</DataField>
+        </Field>
+        <Field Name="RO_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>RO_Date</DataField>
+        </Field>
+        <Field Name="RO_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>RO_Qty</DataField>
+        </Field>
+        <Field Name="Commodity">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity</DataField>
+        </Field>
+        <Field Name="Scheme">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Scheme</DataField>
+        </Field>
+        <Field Name="Balance_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Balance_Qty</DataField>
+        </Field>
+        <Field Name="FCIdistrict">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdistrict</DataField>
+        </Field>
+        <Field Name="FCIdepo">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdepo</DataField>
+        </Field>
+        <Field Name="FCIdepotype">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdepotype</DataField>
+        </Field>
+        <Field Name="TO_Number">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TO_Number</DataField>
+        </Field>
+        <Field Name="Transporter">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Transporter</DataField>
+        </Field>
+        <Field Name="Vehicle_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Vehicle_No</DataField>
+        </Field>
+        <Field Name="Challan_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Challan_No</DataField>
+        </Field>
+        <Field Name="Challan_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Challan_Date</DataField>
+        </Field>
+        <Field Name="Qty_send">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Qty_send</DataField>
+        </Field>
+        <Field Name="Category">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Category</DataField>
+        </Field>
+        <Field Name="Crop_year">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Crop_year</DataField>
+        </Field>
+        <Field Name="Godown">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Godown</DataField>
+        </Field>
+        <Field Name="Gunny_type">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Gunny_type</DataField>
+        </Field>
+        <Field Name="No_of_Bags">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>No_of_Bags</DataField>
+        </Field>
+        <Field Name="Send_District">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Send_District</DataField>
+        </Field>
+        <Field Name="Issue_center">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Issue_center</DataField>
+        </Field>
+        <Field Name="GatePass_id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>GatePass_id</DataField>
+        </Field>
+        <Field Name="Dispatch_Time">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Dispatch_Time</DataField>
+        </Field>
+        <Field Name="Moisture">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Moisture</DataField>
+        </Field>
+        <Field Name="Month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Month</DataField>
+        </Field>
+        <Field Name="Year">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Year</DataField>
+        </Field>
+        <Field Name="Created_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Created_Date</DataField>
+        </Field>
+        <Field Name="Updated_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Updated_date</DataField>
+        </Field>
+        <Field Name="Deleted_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Deleted_date</DataField>
+        </Field>
+        <Field Name="IsRecieved">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>IsRecieved</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+        <Field Name="DepotName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepotName</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="DepoName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepoName</DataField>
+        </Field>
+        <Field Name="TO_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>TO_Date</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="Arrival_time">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Arrival_time</DataField>
+        </Field>
+        <Field Name="Recd_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Recd_Qty</DataField>
+        </Field>
+        <Field Name="arrival_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>arrival_date</DataField>
+        </Field>
+        <Field Name="RecdBags">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>RecdBags</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>10.25in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

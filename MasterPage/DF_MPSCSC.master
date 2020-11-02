@@ -1,0 +1,143 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DF_MPSCSC.master.cs" Inherits="MasterPage_DF_MPSCSC" %>
+
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Portal for MPSCSC</title>
+    <link rel="stylesheet" href ="../MyCss/comon.css" type ="text/css" />   
+    <link rel="stylesheet" href ="../MyCss/xp_comon.css" type ="text/css"  />    
+    <link rel="stylesheet" href ="../MyCss/menu.css" type ="text/css" />
+    <link rel="stylesheet" href ="../MyCss/xp_menu.css" type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+    <script type="text/javascript">
+    //var browser=navigator.appName;
+    //var b_version=navigator.userAgent.toLowerCase();
+    //var version=parseFloat(b_version);
+//alert(navigator.javascriptEnabled);
+//var str =document.getElementById('HyperLink1').id ;
+//alert( b_version);
+//str.blink();
+//var uri="my test.asp?name=ståle&car=saab";
+//document.write(encodeURI(uri)+ "<br />");
+//document.write(decodeURI(uri));
+//document.write("Java enabled: " + navigator.javaEnabled());
+
+    var sheets = document.styleSheets ;   
+    sheets[0].disabled = true ; 
+    sheets[1].disabled = true ;   
+    sheets[2].disabled = true ; 
+    sheets[3].disabled = true ;       
+        var windt=navigator.userAgent.toLowerCase();
+        var winindx='null';
+        var win_xp='null';
+        winindx=windt.match('win');        
+        win_xp=windt.match('nt 5.1');           
+        if(win_xp == 'nt 5.1' && winindx=='win')
+        {
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }
+        else
+        {           
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }    
+    
+    </script> 
+   <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript" src="../js/calendar_eu.js"></script>      
+       <link rel="stylesheet" type="text/css" href="../CSS/calendar.css" />
+ <script type="text/javascript">
+    window.history.forward(); 
+    </script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+<script type="text/javascript">
+function CheckCalDate(tx){
+var AsciiCode = event.keyCode;
+var txt=tx.value;
+var txt2 = String.fromCharCode(AsciiCode);
+var txt3=txt2*1;
+if ((AsciiCode > 0))
+{
+alert('Please Click on Calander Controll to Enter Date');
+event.cancelBubble = true;
+event.returnValue = false;
+}
+}
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main" >
+        <div id="header">
+            <asp:Image ID="Image1" runat="server" ImageUrl ="~/Images/scsc.jpg" />
+        </div>
+        <div id="divwel" style="width: 776px">
+            Welcome :<asp:Label ID="Label1" runat="server" Text="" Font-Italic ="true" Font-Bold ="true"  ></asp:Label>(District
+            Food Office) &nbsp;|<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/DistrictFood/FrmLogOut.aspx">SignOut</asp:LinkButton>
+        </div>
+    </div>
+    <table border="0" cellpadding="0" cellspacing="0" class ="menumargin1">
+    <tr>
+    <td rowspan ="3" valign="top">
+     <asp:Panel ID="Panel1" runat="server" Height="290px" Width="150px" ScrollBars="Auto">
+    <div id="my_menu" class="sdmenu">
+    
+<div>
+<span>Permit Details</span>
+<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/DistrictFood/permit_order.aspx">Permit Order</asp:HyperLink>
+<asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/DistrictFood/Pending_Permit_Print.aspx">Pending Permit Order </asp:HyperLink>
+</div>    
+<div>
+<span>Reports</span>
+<asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/DistrictFood/frmReports.aspx">View Report</asp:HyperLink>
+</div>
+<div>
+<span>Change Password</span>
+<asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/DistrictFood/Change_Password_Dist.aspx">Change Password</asp:HyperLink>
+</div>
+   </div> 
+   </asp:Panel>  
+        <asp:Panel ID="Panel2" runat="server" Height="80px" ScrollBars="Both" Width="150px">
+            <ucl:footer ID="foot" runat="server" />
+        </asp:Panel>
+    </td>
+    <td class="middleContainer" valign="top" rowspan="2">
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </td>
+    </tr>
+        <tr>
+        </tr>
+    
+    </table>
+    
+    <div>
+    <table>
+    <tr>
+    
+    </tr>
+    </table>
+        
+    </div>
+     <div id="footerarea">
+         &nbsp;</div>   
+    </form>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Godown_SurveyorMaster.master.cs" Inherits="CSMSSurveyorLogin_Godown_SurveyorMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+</head>
+<body>
+    <style>
+        .GSHeaderTable
+        {
+            width: 100%;
+            /*background: rgba(30,29,31,1);
+            background: -moz-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30,29,31,1)), color-stop(100%, rgba(223,64,90,1)));
+            background: -webkit-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: linear-gradient(135deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );*/
+            background: rgba(234, 229, 173, 0.74);
+            border-radius: 32px;
+        }
+
+        .GSHeaderColumn
+        {
+            width: 100%;
+            /*color: #e74c3c;*/
+            color: #ff6b5b;
+            font-size: 25px;
+            font-family: 'Bellefair';
+            letter-spacing: 4px;
+        }
+
+        .GSMenuTable
+        {
+            width: 100%;
+            background: brown;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 32px;
+        }
+
+        .GSMenuColumn
+        {
+            width: 33%;
+            height: 20px;
+            color: #eabe97;
+            font-size: 15px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+        }
+
+        .signlogout
+        {
+            color: #eabe97;
+            font-size: 15px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+           text-decoration:none;
+        }
+        .signlogout:hover
+        {
+             text-decoration:underline;
+        }
+    </style>
+
+    <form id="form1" runat="server">
+        <center>
+                <table class="GSHeaderTable">
+                    <tr>
+                        <td class="GSHeaderColumn">
+                             &nbsp;<asp:Image ID="Image1" ImageUrl="~/Images/g3409.png" Width="50px" Height="30px" CssClass="image" runat="server" />
+&nbsp;
+
+                                Madhya Pradesh State Civil Supplies Corporation Ltd.
+                        </td>
+                    </tr>
+                </table>
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%; ">
+
+                    </td>
+                </tr>
+            </table>
+            <table class="GSMenuTable">
+                    <tr>
+                        <td class="GSMenuColumn" style="text-align:left; padding-left:10px">
+                        <asp:Label ID="lbldate" runat="server">
+
+                        </asp:Label>
+                        </td>
+                        <td class="GSMenuColumn" style="text-align:Center">
+                         
+                             <asp:Label ID="lblsurveyorname" runat="server">
+
+                        </asp:Label>
+                        </td>
+                        <td class="GSMenuColumn" style="text-align:right;  padding-right:10px">
+                                  <a href="FormLogOut.aspx" class="signlogout"> Log Out
+                    </a>
+                          
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        <div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

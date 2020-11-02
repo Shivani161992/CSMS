@@ -1,0 +1,169 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DistLoginOperations_Master.master.cs" Inherits="MasterPage_DistLoginOperations_Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <style>
+            .DistLoginheader
+            {
+                width: 100%;
+            }
+
+            .DistLoginheaderColumn
+            {
+                font-family: 'Bellefair';
+                letter-spacing: 2px;
+                font-size: 30px;
+                color: #2c3e50;
+                text-align: left;
+            }
+
+            .DistLoginMenutable
+            {
+                width: 100%;
+                background-color: #2c3e50;
+                border-radius: 32px;
+                background: linear-gradient(#2c3e50, yellow, #2c3e50);
+                font-family: 'Bellefair';
+                letter-spacing: 2px;
+            }
+
+            .DistLoginMenuColumn
+            {
+                width: 20%;
+                text-align: center;
+                color: #fff;
+            }
+
+            .DistLoginDPY
+            {
+                color: #FFF;
+                background-color: #2c3e50;
+                border-radius: 32px 2px 2px 32px;
+            }
+
+                .DistLoginDPY:hover
+                {
+                    background-color: #3498db;
+                }
+
+            .DistLoginPM
+            {
+                color: #FFF;
+                background-color: #2c3e50;
+            }
+
+                .DistLoginPM:hover
+                {
+                    color: #FFF;
+                    background-color: #3498db;
+                    border-radius: 2px;
+                }
+
+            .DistLoginPDS
+            {
+                color: #FFF;
+                background-color: #2c3e50;
+            }
+
+                .DistLoginPDS:hover
+                {
+                    color: #FFF;
+                    background-color: #3498db;
+                    border-radius: 2px;
+                }
+
+            .DistLoginPro
+            {
+                color: #FFF;
+                background-color: #2c3e50;
+            }
+
+                .DistLoginPro:hover
+                {
+                    color: #FFF;
+                    background-color: #3498db;
+                    border-radius: 2px;
+                }
+
+            .DistLoginOthers
+            {
+                color: #FFF;
+                background-color: #2c3e50;
+                border-radius: 0px 32px 32px 0px;
+            }
+
+                .DistLoginOthers:hover
+                {
+                    color: #FFF;
+                    background-color: #3498db;
+                    border-radius: 2px 32px 32px 2px;
+                }
+            .link
+            {
+                 text-align: center;
+                color: #fff;
+                text-decoration:none;
+
+            }
+        </style>
+        <center>
+                <table class="DistLoginheader">
+                    <tr>
+                        <td colspan="3" class="DistLoginheaderColumn">
+                            <asp:Image ID="Image1" ImageUrl="~/Images/g3409.png" Width="50px" Height="30px" CssClass="image" runat="server" />
+&nbsp;Madhya Pradesh State Civil Supplies Corporation Ltd. </td>
+                    </tr>
+                    <tr>
+                        <td style="height:10px; width:30%; text-align:left; font-size:12px;">
+                          
+                        </td>
+                        <td style="height:10px;  width:40%; text-align:center; font-size:12px;">
+                            Login
+                        </td>
+                        <td style="height:10px;  width:30%; text-align:right; font-size:12px;">
+                            Sign Out
+                        </td>
+                    </tr>
+                </table>
+                <table class="DistLoginMenutable">
+                    
+                    <tr class="DistLoginMenuRow">
+                          <td class="DistLoginMenuColumn DistLoginDPY">
+                             Dwar Pradya Yojna
+                        </td>
+                        <td class="DistLoginMenuColumn DistLoginPM">
+<a href="../District/PaddyMillingHome.aspx" class="link">Paddy Milling</a>
+                        </td>
+                       <td class="DistLoginMenuColumn DistLoginPDS">
+PDS Movement
+                        </td>
+                       
+                          <td class="DistLoginMenuColumn DistLoginPro">
+                             Procurement
+                        </td>
+                       <td class="DistLoginMenuColumn DistLoginOthers">
+                             Others
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        <div>
+            <br />
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+
+        </div>
+    </form>
+</body>
+</html>

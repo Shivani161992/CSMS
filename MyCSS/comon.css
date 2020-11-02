@@ -1,0 +1,428 @@
+﻿body { 
+background-color: #fff;
+margin: 0px;
+padding: 0px;
+}
+#main
+{
+	width:700px;
+	margin-left :0px;
+	margin-right :0px;
+	text-align :center ;
+	height :70px;
+	}
+#mnu
+{
+	margin-left :0px;
+	margin-right :0px;
+	text-align :center ;
+	width :600px;
+	
+}
+#footernic
+{
+	margin-left :37px;
+}
+.midpanal
+{
+	margin-left :200px;
+}
+#toplevel
+{
+	decimal:right;
+	
+	margin-left :200px;
+ 
+}
+.toptable
+{
+	margin-left:100px;
+}
+#divHO
+{
+	background :(../Images/nnn.jpg);
+	background-image :url(../Images/nnn.jpg);
+		width:600px;
+		height:400px;
+		font-family :Verdana ;
+		font-family :Verdana;
+		font-size :10px;
+		color:Black ;
+		margin-left :0px;
+		margin-top :0px;
+	
+}
+.tdho
+{
+	margin-left :50px;
+	margin-top :60px;
+	font-family :Verdana;
+	font-size :10px;
+	color:Black ;
+	
+}
+	
+#divwel
+	{
+		background :(../Images/tittle.jpg);
+		background-image :url(../Images/tittle.jpg);
+		width :300px;
+		font-family :Verdana ;
+		color :White ;
+		margin-left :0px;
+		margin-top :0px;
+	}
+	#divwelTitle
+	{	
+		width :400px;
+		font-family :Verdana ;
+		margin-left :150px;
+		margin-top :15px;
+		font-style :italic ;
+		text-align :center ;
+	}
+	#divwelR
+	{
+		background :(../Images/tittle.jpg);
+		background-image :url(../Images/tittle.jpg);
+		width :400px;
+		font-family :Verdana ;
+		color :White ;
+		margin-left :0px;
+		margin-top :0px;
+	}
+	#divheading
+	{
+		
+		background-image :url(../Images/heading.jpg);
+		width :300px;
+		font-family :Verdana ;
+		color :White ;
+		margin-left :40px;
+		margin-top :10px;
+	  font-weight  :bold;
+	  height :20px;
+	}
+#leftpanel
+{
+	padding-left :0px;
+	width:150px;
+	text-align :left;
+	border :solid 1px black;
+	top: 300px;
+	left: 13px;
+	height:600px;
+	decimal :left ;
+}
+#trans
+{
+	margin-left :100px;
+	margin-top :30px;
+	border :1px;
+}
+#transT
+{
+	margin-left :0px;
+	margin-top :20px;
+	border :1px;
+}
+#transCP
+{
+	border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+background-image:url('../Images/nnn.jpg');
+	width:591px;
+	height :400px;
+	margin-left :0px;
+	margin-top :0px;
+}
+#RailCP
+{
+	background-image:url(../Images/nnn.jpg);
+	border :1px;
+	width:600px;
+	height :400px;
+	margin-left :0px;
+	margin-top :0px;
+}
+#transCPm
+{
+	margin-left :0px;
+	margin-top :55px;
+}
+#transRail
+{
+	margin-left :120px;
+	margin-top :55px;
+}
+#transcheme 
+{
+	margin-left :0px;
+	margin-top :25px;
+	border :1px;
+}
+	
+.leftContainer{
+		width : 164px;
+		height :100% ;
+		background-color :#540202 ;
+				
+}
+.rightContainer{
+		width : 163px;
+		height :510px ;
+		background-color :#540202 ;
+		
+		
+}
+.imagecontainer img
+{
+
+border:solid 1px black;
+background-color :Gray ;
+}
+
+#topadSpace
+{
+height:70px;
+width:750px ;
+background-color :White  ;
+	
+}
+.middleContainer{
+	
+	text-align :center ;
+	padding : 5px 5px 5px 5px;
+	vertical-align :top;
+	
+}
+.middleContainerL{
+	
+	text-align :center ;
+	padding : 5px 5px 5px 5px;
+	vertical-align :top;
+	margin-left:20px;
+	
+}
+.mastercontent
+{
+	margin-left :200px;
+	margin-top :130px;
+	
+	
+	}
+	#mastercontent1
+{
+	margin-left :40px;
+	margin-top :60px;
+	
+	
+	}
+	
+
+		
+
+
+#footerbig
+{
+	background:url(../images/footer_bg.gif) repeat-x 0 0 #2F2F1B; 
+	color:#C3C491; 
+	padding:22px 0 0 0;
+	text-decoration :none;  
+}
+#footermm
+{
+	
+	width:900px;
+	margin-left :0px;
+	margin-right :0px;
+	text-align :center ;
+	}
+	#footer
+{
+	
+	width:900px;
+	margin-left :0px;
+	margin-right :0px;
+	text-align :center ;
+	}
+#footer p{
+	text-align:center; 
+	margin:4px 0 0 0;
+	font-size:13px;
+	 line-height:16px;
+	}
+#footer p a{
+	color:#FFFFFF; 
+	text-decoration:none;
+	background-color:inherit;
+	}
+#footer p a:hover{
+	color:#C3C491;
+	background-color:inherit;
+	}
+#footer ul{
+	
+	text-align:center;	margin:0 0 0 0px; height:22px;
+	}
+#footer ul li{
+	decimal:left; padding:0 3px;
+	 font-size:13px;
+	  color:#FFFFFF; 
+	line-height:22px;
+	 background-color:inherit;
+	}
+#footer ul li a{
+	color:#FFFFFF; 
+	line-height:22px;
+	 background-color:inherit; 
+	 text-decoration:none;
+	}
+#footer ul li a:hover{
+	color:#C3C491;
+	 background-color:inherit;
+	}
+
+.adminmain
+{
+width:100%;	
+border :solid 1px red;
+}
+.adminleft
+{
+height:350px;
+width:20%;	
+background-color :Maroon ;
+line-height :30px ;
+}
+.adminleft a
+{
+font-family :Verdana ;
+font-size :12px;
+font-weight :bold ;
+color :White;
+text-decoration :none;
+}
+.adminleft a:hover
+{
+color :Lime ;
+}
+.adminright
+{
+width:80%;
+}
+.admincontainer
+{
+	padding :10px 10px 10px 10px;
+	font-family :Verdana ;
+	font-size :12px;
+}
+
+.boxheader
+{
+	height:30px;
+	background-color :Maroon ;
+	text-align :center ;
+	color :Silver ;
+	font-weight :bold ;
+}
+.boxbody
+{
+	padding-top :20px;
+	padding-bottom :20px;
+	padding-left :100px;
+	line-height:40px;
+}
+.boxbody td
+{
+	padding-right :20px;
+}
+
+.boxfooter
+{
+	height:40px;
+	background-color :Maroon ;
+	text-align :center ;
+}
+
+.TopComment
+{
+font-family :Verdana ;
+font-size :10px;
+padding :10px 10px 10px 15px;	
+}
+
+.btnformat
+{
+	font-weight :bold;
+}
+
+.imagebox img
+{
+	width:550px;
+}
+
+.textbody
+{
+text-align :justify ;
+padding-top :10px;
+padding-left :20px;
+padding-right :20px;
+font-family :Verdana ;
+font-size :12px;
+line-height :20px;	
+width:520px;
+}
+.textbody h2
+{
+	font-size :18px;
+	}
+.textbody h2 b
+{
+	color:Red;
+	}
+.textbody td
+{
+	padding-top :10px;
+	vertical-align :top ;
+	}
+	
+.dateContainer
+{
+
+	padding : 10px 0px 0px 0px;
+	color :White;
+	background-color :#540202;
+	font-family :Verdana ;
+	font-size :12px;
+	font-weight :bold ;
+	line-height:20px;
+	width:200px;
+	text-align :center ;
+}
+.dateContainer a
+{
+
+	color:White;
+	text-decoration :none;
+}
+.dateContainer a:hover
+{
+
+	color:Green ;
+	padding-left:2px; 
+	text-decoration :none;
+}
+
+.imgbox
+{
+max-width :530px;
+max-height :400px;	
+
+}
+
+.lefttop
+{
+line-height:normal ;	
+}

@@ -1,0 +1,219 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MillerMaster.master.cs" Inherits="Millers_Login_MillerMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        body
+        {
+            background-color: #2c3e50;
+        }
+
+        .main
+        {
+            position: fixed;
+            width: 100%;
+            background-color: #2c3e50;
+        }
+
+        .header
+        {
+            color: #fff;
+            font-size: 35px;
+            font-family: sans-serif;
+          
+        }
+
+        .subheader
+        {
+            color: #fff;
+            text-align: right;
+        }
+
+        .menu
+        {
+            height: 23px;
+            box-shadow: 10px 10px 15px rgba(0,0,0,0.5);
+        }
+
+        .Home
+        {
+            width: 20%;
+            text-align: center;
+            color: #FFF;
+            background-color: #e74c3c;
+            font-family: sans-serif;
+        }
+
+            .Home:hover
+            {
+                height: 30px;
+                font-size: 22px;
+            }
+
+        .Details
+        {
+            width: 20%;
+            text-align: center;
+            color: #FFF;
+            background-color: #233444;
+            font-family: sans-serif;
+        }
+
+            .Details:hover
+            {
+                background-color: #3498db;
+                height: 30px;
+                font-size: 22px;
+            }
+
+        .Agreements
+        {
+            width: 20%;
+            text-align: center;
+            color: #FFF;
+            background-color: #233444;
+            font-family: sans-serif;
+        }
+
+            .Agreements:hover
+            {
+                background-color: #9b59b6;
+                height: 30px;
+                font-size: 22px;
+            }
+
+        .Prints
+        {
+            width: 20%;
+            text-align: center;
+            color: #FFF;
+            background-color: #233444;
+            font-family: sans-serif;
+        }
+
+            .Prints:hover
+            {
+                background-color: #e67e22;
+                height: 30px;
+                font-size: 22px;
+            }
+
+        .FAQs
+        {
+            width: 20%;
+            text-align: center;
+            color: #FFF;
+            background-color: #233444;
+            font-family: sans-serif;
+        }
+
+            .FAQs:hover
+            {
+                background-color: #16a085;
+                height: 30px;
+                font-size: 22px;
+            }
+
+        .linkdecor
+        {
+            text-decoration: none;
+            color: #FFF;
+            font-family: sans-serif;
+        }
+
+        .footer
+        {
+            width: 100%;
+            text-align: center;
+            color: #FFF;
+            background-color: #121c25;
+            font-family: sans-serif;
+            height: 30px;
+            position: fixed;
+        }
+
+        .linkbutton
+        {
+            text-decoration: none;
+            padding-right:10px;
+        }
+
+            .linkbutton:hover
+            {
+                color: #3498db;
+                text-decoration: underline;
+                text-underline-position: below;
+            }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="main">
+                <tr>
+                    <td colspan="5" class="header">
+                        <asp:Image ID="Image1" ImageUrl="~/Images/g3409.png" Width="50px" Height="30px" CssClass="image" runat="server" />
+                        Madhya Pradesh State Civil Supplies Corporation Ltd.
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="5" class="subheader">
+                        <asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="False" ForeColor="White" CssClass="linkbutton" PostBackUrl="~/State/FrmLogOut.aspx" CausesValidation="False">Log Out</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr class="menu">
+                    <td class="Home">
+                        <a href="Miller_Home.aspx" class="linkdecor">Home</a>
+
+                    </td>
+                    <td class="Details">
+                        <a href="Miller_Details.aspx" class="linkdecor">Details</a>
+                    </td>
+                    <td class="Agreements">
+                        <a href="#" class="linkdecor">Agreements</a>
+                    </td>
+                    <td class="Prints">
+                        <a href="MillerLoginPrints.aspx" class="linkdecor">Prints</a>
+                    </td>
+                    <td class="FAQs">
+                        <a href="#" class="linkdecor">FAQs</a>
+                    </td>
+                </tr>
+            </table>
+
+
+            <br />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+</body>
+</html>
+
+
+
+
+
+
+<br />
+
+<br />
+<table class="footer">
+    <tr>
+        <td>CopyRight By MPSCSC
+        </td>
+    </tr>
+</table>

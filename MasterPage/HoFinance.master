@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HoFinance.master.cs" Inherits="MasterPage_HoFinance" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ho Finance</title>
+    <link rel="stylesheet" href="../CSS/menucss.css">
+
+    <script src="../js/jquery-latest.min.js" type="text/javascript"></script>
+
+    <%--<script src="script.js"></script>--%>
+
+    <script type="text/javascript" src="../js/calendar_eu.js"></script>
+
+    <link rel="stylesheet" href="../CSS/calendar.css" />
+
+    <script type="text/javascript" src="../js/chksql.js"></script>
+
+    <script type="text/javascript" src="../js/md5.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: #fffeb0">
+    <form id="form1" runat="server">
+    <table style="width: 100%">
+        <tr>
+            <td colspan="4">
+                <table style="width: 100%;">
+                    <tr>
+                        <td colspan="4">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/scsc.jpg" Width="100%" Height="120px" />
+                            <div id='cssmenu'>
+                                <ul>
+                                    <li class="has-sub" runat="server" id="home"><a href='../HOFinance/HoFinance_Welcome.aspx?id=home'>
+                                        <span>Home</span></a></li>
+                                    <%--<li class='has-sub' runat="server" id="Desh"><a href="../HOFinance/Fin_HoDeshboard.aspx?id=Desh">Deshboard</a></li>--%>
+                                    <li class='has-sub' runat="server" id="entry"><a href="#">Entries</a>
+                                        <ul>
+                                            <li class='has-sub'><a href="../HOFinance/Ho_Fin_SchemeAllotmentEntry.aspx?id=entry">
+                                                Allotments</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/Fin_StockProcument_Insert.aspx?id=entry">Stock
+                                                Entries</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/HO_Finance_EconomicCostStatement.aspx?id=entry">
+                                                Economic Cost Entry</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/Fin_SaleofSubsidyrceived.aspx?id=entry">
+                                                Sale of Subsidy Received</a></li>
+                                        </ul>
+                                    </li>
+                                    <%-- <li class='has-sub'><a href='#'><span>Products</span></a>
+                                        <ul>
+                                            <li class='has-sub'><a href='#'><span>Product 1</span></a>
+                                                <ul>
+                                                    <li><a href='#'><span>Sub Product</span></a></li>
+                                                    <li class='last'><a href='#'><span>Sub Product</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li class='has-sub'><a href='#'><span>Product 2</span></a>
+                                                <ul>
+                                                    <li><a href='#'><span>Sub Product</span></a></li>
+                                                    <li class='last'><a href='#'><span>Sub Product</span></a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>--%>
+                                    <li class='has-sub' runat="server" id="rpt"><a href="#">Reports</a>
+                                        <ul>
+                                            <li class='has-sub'><a href="../HOFinance/HO_Finance_PrereceiptBill.aspx?id=rpt">Pre-Receipt</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/Fin_UtilizationCerti.aspx?id=rpt">Utilization
+                                                Certificate</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/HoFinance_MonthwiseAllotmentsSchemesReport.aspx?id=rpt">
+                                                View Scheme Allotments</a>
+                                                <ul>
+                                                    <li><a href="../HOFinance/Fin_AllotmentOfftake_report.aspx?id=rpt"><span>Allotment &
+                                                        Offtake</span></a></li>
+                                                    <li class='last'><a href="../HOFinance/HoFinance_MonthwiseAllotmentsSchemesReport.aspx?id=rpt">
+                                                        View Scheme Allotments</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class='has-sub'><a href="../HOFinance/HO_Finance_EconomicCostStatement_Report.aspx?id=rpt">
+                                                Economic Cost Statement</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/StockReports.aspx?id=rpt">Stock Account </a>
+                                            </li>
+                                            <li class='has-sub'><a href="../HOFinance/Fin_DistrictSubsidy_AllDist_Report.aspx?id=rpt">
+                                                W1 R1</a></li>
+                                            <li class='has-sub'><a href="../HOFinance/Fin_SchemeWiseAllotment_District.aspx">W2
+                                                R2</a></li>
+                                            <%--<li><a href='#'>Sub Link 4</a></li>--%>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../MainLogin.aspx">Logout</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table style="width: 100%;">
+                    <tr>
+                        <td colspan="4" style="background-color: White; width: 1000px;">
+                            <div>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: Gray">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

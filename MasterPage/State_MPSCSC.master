@@ -1,0 +1,530 @@
+ <%@ Master Language="C#" AutoEventWireup="true" CodeFile="State_MPSCSC.master.cs" Inherits="State_MPSCSC" %>
+
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>TO for PC Delete</title>
+    <link href="../CSS/mpscsc_css.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/comon.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/xp_comon.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/menu.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/xp_menu.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+    <script type="text/javascript" src="../calendar_eu.js"></script>
+    <link rel="stylesheet" href="../calendar.css" />
+    <script type="text/javascript" src="../js/chksql.js"></script>
+    <script type="text/javascript" src="../js/md5.js"></script>
+
+    <asp:ContentPlaceHolder runat="server" ID="critical_js_files">
+        <%--//SCRIPTS THAT YOU DO NOT LOAD ON SOME CHILD PAGES--%>
+        <script type="text/javascript" src="../calendar_eu.js"></script>
+        <link rel="stylesheet" href="../calendar.css" />
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        //var browser=navigator.appName;
+        //var b_version=navigator.userAgent.toLowerCase();
+        //var version=parseFloat(b_version);
+        //alert(navigator.javascriptEnabled);
+        //var str =document.getElementById('HyperLink1').id ;
+        //alert( b_version);
+        //str.blink();
+        //var uri="my test.asp?name=ståle&car=saab";
+        //document.write(encodeURI(uri)+ "<br />");
+        //document.write(decodeURI(uri));
+        //document.write("Java enabled: " + navigator.javaEnabled());
+
+        var sheets = document.styleSheets;
+        sheets[0].disabled = true;
+        sheets[1].disabled = true;
+        sheets[2].disabled = true;
+        sheets[3].disabled = true;
+        var windt = navigator.userAgent.toLowerCase();
+        var winindx = 'null';
+        var win_xp = 'null';
+        winindx = windt.match('win');
+        win_xp = windt.match('nt 5.1');
+        if (win_xp == 'nt 5.1' && winindx == 'win') {
+            sheets[0].disabled = false;
+            sheets[2].disabled = false;
+        }
+        else {
+            sheets[0].disabled = false;
+            sheets[2].disabled = false;
+        }
+
+    </script>
+    <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+    </script>
+    <script type="text/javascript">
+        window.history.forward();
+    </script>
+    <script type="text/javascript">
+        // <![CDATA[
+        var myMenu;
+        window.onload = function () {
+            myMenu = new SDMenu("my_menu");
+            myMenu.init();
+        };
+        // ]]>
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .GSHeaderColumn
+        {
+            width: 100%;
+            /*color: #e74c3c;*/
+            color: #cccfd0;
+            font-size: 25px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+            height: 50px;
+        }
+
+        .GSHeaderTable
+        {
+            width: 100%;
+            background: #404B69;
+        }
+
+            .GSHeaderTable:hover
+            {
+                width: 100%;
+                background: #404B69;
+                background: linear-gradient(#283149, #404B69);
+            }
+
+        .SMSubMenu
+        {
+            width: 100%;
+            background: #283149;
+            color: #cccfd0;
+        }
+
+            .SMSubMenu:hover
+            {
+                width: 100%;
+                background: #283149;
+                background: linear-gradient(#12192d, #283149);
+            }
+
+        .SMSubHO
+        {
+            width: 100%;
+            background: #283149;
+            color: #cccfd0;
+        }
+
+
+        .SMMenuColumn
+        {
+            width: 33%;
+            height: 20px;
+            color: #cccfd0;
+            font-size: 15px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+        }
+
+        .signlogout
+        {
+            font-size: 15px;
+            font-family: 'Bellefair';
+            color: #cccfd0;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+            .signlogout:hover
+            {
+                text-decoration: underline;
+            }
+
+        .SMBlankTable
+        {
+            background: #404B69;
+        }
+
+            .SMBlankTable:hover
+            {
+                box-shadow: 0 15px 25px rgba(0,0,0,.1);
+            }
+
+        .SMMenuDD
+        {
+            width: 20%;
+            height: 20px;
+            color: #ea9866;
+            font-size: 15px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+        }
+    </style>
+
+    <style>
+        .dropbtn
+        {
+            background-color: #283149;
+            color: white;
+            /*padding: 16px;*/
+            font-size: 14px;
+            color: #aba3ec;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+            border: none;
+            width: 100%;
+        }
+
+        .dropdown
+        {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content
+        {
+            display: none;
+            position: absolute;
+            text-align: left;
+            background-color: #f1f1f1;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a
+            {
+                color: #404B69;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                font-size: 12px;
+            }
+
+                .dropdown-content a:hover
+                {
+                    background-color: #cccfd038;
+                    color: #ff6b5b;
+                    text-decoration: none;
+                    font-size: 12px;
+                }
+
+        .dropdown:hover .dropdown-content
+        {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn
+        {
+            background-color: rgba(0,0,0,0.33);
+            border-radius: 8px;
+        }
+    </style>
+
+    <style>
+        .modal-header, h4, .close
+        {
+            background-color: #404B69;
+            color: white !important;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .modal-footer
+        {
+            background-color: #cccfd038;
+        }
+
+        .MasFont
+        {
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+            color:#fff;
+        }
+        .MasFont:hover
+        {
+            text-decoration:none;
+             color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+            <tr>
+
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="GSHeaderTable">
+                        <tr>
+                            <td class="GSHeaderColumn" style="text-align: center;">&nbsp;
+                                <asp:Image ID="Image1" ImageUrl="~/Images/g3409.png" Width="50px" Height="30px" CssClass="image" runat="server" />
+                                &nbsp;
+
+                                Madhya Pradesh State Civil Supplies Corporation Ltd.
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table style="width: 100%;" class="SMBlankTable">
+                        <tr>
+                            <td style="width: 100%;">
+                                <table style="width: 100%;" class="SMSubHO">
+                                    <tr>
+                                        <td class="SMMenuColumn" style="text-align: left; padding-left: 10px">
+                                            <asp:Label ID="lbldate" runat="server">
+
+                                            </asp:Label>
+                                        </td>
+                                        <td class="SMMenuColumn" style="text-align: Center">
+
+                                            <asp:Label ID="Label1" runat="server" Text="" Font-Bold="true"></asp:Label>
+                                        </td>
+                                        <td class="SMMenuColumn" style="text-align: right; padding-right: 10px">
+                                            <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" class="signlogout" PostBackUrl="~/State/FrmLogOut.aspx" CausesValidation="False">Sign Out</asp:LinkButton>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; height: 5px;">
+                        <tr>
+                            <td style="width: 100%; height: 10px;"></td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%;" class="SMBlankTable">
+                        <tr>
+                            <td style="width: 100%;">
+                                <table style="width: 100%;" class="SMSubMenu">
+                                    <tr>
+                                        <td class="SMMenuDD" style="text-align: center;">
+                                            <div class="dropdown" style="width: 100%;">
+                                                <button class="dropbtn" style="width: 100%;">Reports &#9776</button>
+                                                <div class="dropdown-content">
+                                                    <a href="../State/ChanaMasurReport.aspx">Chana, Massor, Sarson</a>
+                                                    <a href="#">Dwar Pradya Yojna</a>
+                                                    <a href="#">Gunny Bags</a>
+                                                    <a href="../State/FrmPaddyMillingRpt.aspx">Paddy Milling</a>
+                                                    <a href="#">PDS Movement</a>
+                                                    <a href="#">Procurement</a>
+                                                    <a href="#">Salt & Sugar</a>
+                                                    <a href="#">Others</a>
+                                                </div>
+                                            </div>
+
+
+
+                                        </td>
+                                        <td class="SMMenuDD" style="text-align: Center">
+                                            <div class="dropdown" style="width: 100%;">
+                                                <button class="dropbtn" style="width: 100%;">Masters</button>
+                                                <div class="dropdown-content">
+                                                    <a href="#">Link 1</a>
+                                                    <a href="#">Link 2</a>
+                                                    <a href="#">Link 3</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="SMMenuDD" style="text-align: Center;">
+                                            <div class="dropdown" style="width: 100%;">
+                                                <button class="dropbtn" style="width: 100%;">Modules &#9776</button>
+                                                <div class="dropdown-content">
+                                                    <a href="../State/ChannaMassorSarson_Home.aspx">Chana, Massor, Sarson</a>
+                                                    <a href="#">Dwar Pradya Yojna</a>
+                                                    <a href="../State/GunnyBags_Home.aspx">Gunny Bags</a>
+                                                    <a href="../State/PaddyMillingHome.aspx">Paddy Milling</a>
+                                                    <a href="../State/MovementOrderHome.aspx">PDS Movement</a>
+                                                    <a href="#">Procurement</a>
+                                                    <a href="#">Salt & Sugar</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="SMMenuDD" style="text-align: Center;">
+                                            <div class="dropdown" style="width: 100%;">
+                                                <button class="dropbtn" style="width: 100%;">Operations</button>
+                                                <div class="dropdown-content">
+                                                    <a href="#">Link 1</a>
+                                                    <a href="#">Link 2</a>
+                                                    <a href="#">Link 3</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="SMMenuDD" style="text-align: Center;">
+                                            <div class="dropdown" style="width: 100%;">
+                                                <button class="dropbtn" style="width: 100%;">Others &#9776</button>
+                                                <div class="dropdown-content">
+                                                    <a href="#">Link 1</a>
+                                                    <a id="myBtn">Login</a>
+                                                    <a href="../State/Change_Password_HO.aspx">Change Password</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 100%;"></td>
+                        </tr>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td rowspan="10" valign="top" style="width: 153px">
+                                <asp:Panel ID="Panel1" runat="server" Height="500px" Width="150px" ScrollBars="Both">
+                                    <div id="my_menu" class="sdmenu">
+                                        <div>
+                                            <span id="span4" runat="server">Reports</span>
+                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/State/NewFrmReport_State.aspx">View Report</asp:HyperLink>
+                                        </div>
+                                        <div>
+                                            <span id="span5" runat="server">CMS</span>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/State/Nafed_BagsMaster.aspx">Bags Master</asp:HyperLink>
+                                        </div>
+
+                                        <div id="allocation" runat="server" visible="false">
+                                            <span id="span1" runat="server" visible="false">Allocation</span>
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/frmStAlloc.aspx">State Allocation</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/frmStAlloc1.aspx">State Allocation Scheme-Wise</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLinkdq" runat="server" NavigateUrl="~/State/alloc_mpscsc.aspx">District Quarterly Allocation</asp:HyperLink>
+                                        </div>
+                                        <div>
+                                            <span id="span2" runat="server">Masters</span>
+
+                                            <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/State/display_msg_Entry.aspx">Message Master</asp:HyperLink>
+                                            <asp:HyperLink ID="hypInsMster" runat="server" NavigateUrl="~/State/Insp_Master.aspx">Inspector Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/State/Godown_Distance.aspx">PM Godown Distance Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="~/State/PM_InsName_Team_Mas.aspx">PM_Inspector Name Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/State/PM_Ins_GroupName_Master.aspx">PM Group Name Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="~/State/PM_Depart_Master.aspx">PM Department Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/State/Inspector_Master_Team.aspx">PM Inspector Group Formation</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/State/Tranportation_Costing.aspx">Transportation Cost</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hyp_fcirate" runat="server" NavigateUrl="~/State/FCI_Rates.aspx">FCI Rate Master</asp:HyperLink>
+                                            <asp:HyperLink ID="hyp_gdnmap" runat="server" NavigateUrl="~/State/GodownMap.aspx">Godown Maping with Society</asp:HyperLink>
+                                            <asp:HyperLink ID="hypfci" runat="server" NavigateUrl="~/State/FCI_GodownMapping.aspx">FCI Godown Maping</asp:HyperLink>
+                                            <asp:HyperLink ID="hypsector" runat="server" NavigateUrl="~/State/SectorMaster.aspx">Sector Master</asp:HyperLink>
+                                            <asp:HyperLink ID="Hyperbillrate" runat="server" NavigateUrl="~/State/Penalty_billrate_master.aspx">Penalty Rate Master</asp:HyperLink>
+                                            <asp:HyperLink ID="Hyperbranch" runat="server" NavigateUrl="~/State/Branch_Master.aspx">Branch Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/State/Commodity_Master.aspx">Commodity Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/State/Scheme_Master.aspx">Scheme Master</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hypratemaster" runat="server" NavigateUrl="~/State/StateRate_Master.aspx">DO Rate Master</asp:HyperLink>
+
+                                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/State/Sugar_Factory.aspx" Visible="false">Sugar Factory</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/State/Rack_master.aspx">Rake Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/State/RR_Entry.aspx">R.R.Entry</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/State/DepotMaster.aspx">Issue Center Master</asp:HyperLink>
+
+                                            <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/State/DM_EnquiryForm.aspx">DM Personal Details</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink33" runat="server" NavigateUrl="~/State/GodownMappingKharif2017.aspx"> Godown Mapping Kharif 2017</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink32" runat="server" NavigateUrl="~/GodownMappingWheat2018/HO_GodownMapping2018.aspx"> Godown Mapping Wheat 2018-2019</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink34" runat="server" NavigateUrl="~/Miller_Registeration/MillerMappingWithSociety.aspx"> Miller To Society Mapping</asp:HyperLink>
+
+                                        </div>
+                                        <div>
+                                            <span id="Span56" runat="server">DPY Masters</span>
+                                            <asp:HyperLink ID="HyperLinkdtm" runat="server" NavigateUrl="~/State/dpy_to_validdate.aspx">Transportation Date Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLinkInsNgo" runat="server" NavigateUrl="~/State/ageny_entries_for_all.aspx">Insert Ngo</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLinkdpyadjus" runat="server" NavigateUrl="~/State/ratio_master_dpy.aspx">DPY Allotment Adjustment</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLinkgb" runat="server" NavigateUrl="~/State/daily_godown_details.aspx">Godown Balance Managment</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="span6" runat="server">Sugar/Salt</span>
+                                            <asp:HyperLink ID="Hl_supplyregistration" runat="server" NavigateUrl="~/State/Supplier_Registration.aspx">Supplier Registration</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/State/ZoneMaster_frm.aspx">Zone Rate Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/State/SupplyOrder_frm.aspx">Sugar Supply Order</asp:HyperLink>
+                                            <asp:HyperLink ID="hyp_delSO" runat="server" NavigateUrl="~/State/Del_Supplyorder.aspx">Delete Supply Order</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hypchnIC" runat="server" NavigateUrl="~/State/Supplier_ChangeIC.aspx">Change Dispatch Issue Center</asp:HyperLink>
+
+                                        </div>
+
+                                        <div>
+                                            <span id="span3" runat="server">Operations</span>
+                                            <asp:HyperLink ID="del_close" runat="server" NavigateUrl="~/State/Del_ClosingB.aspx">Delete Closing Balance</asp:HyperLink>
+                                            <asp:HyperLink ID="hypisusrc" runat="server" NavigateUrl="~/State/SearchID.aspx">Search by IssueId</asp:HyperLink>
+                                            <asp:HyperLink ID="delto" runat="server" NavigateUrl="~/State/DeleteTO.aspx">Delete T.O.</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/State/Search_receiptEntry.aspx">Search Receipt Procurement</asp:HyperLink>
+                                            <asp:HyperLink ID="hypwhr" runat="server" NavigateUrl="~/State/DeleteWHREntry.aspx">Delete WHR Entry</asp:HyperLink>
+                                            <asp:HyperLink ID="Hyperwhr" runat="server" NavigateUrl="~/State/DepositerForm_Del.aspx">Delete WHR Request</asp:HyperLink>
+                                            <asp:HyperLink ID="Hyperdc" runat="server" NavigateUrl="~/State/DC_Delete.aspx">Delete DC No.</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hypdelProcu" runat="server" NavigateUrl="~/State/Deletefrm_Procurement.aspx">Delete Receipt Procurement</asp:HyperLink>
+                                            <asp:HyperLink ID="hypdelAccno" runat="server" NavigateUrl="~/State/DelAcceptance.aspx">Delete Acceptance</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink30" runat="server" NavigateUrl="~/State/Del_Pulse_Acceptance.aspx">Delete Pulse Acceptance</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/State/Del_AcceptanceNote.aspx">Delete AN with Receipt Procurement</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/State/Delete_ mpscsc_LARO.aspx">Delete R.O.</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/State/Delete_ZoneRateMaster.aspx">Delete Tender Rate</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLinkprocbill" runat="server" NavigateUrl="~/State/Proc_BillDelete.aspx">Delete Procurement Bill</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/State/Doorstep_Transbill_Delete.aspx">Delete Doorstep Bill</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/State/TO_PC_IC_Del.aspx">Delete TO for PC</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/State/Delete_Dwarpraday_prabhari.aspx">Delete DPY Officers</asp:HyperLink>
+                                            <%--<asp:HyperLink ID="Hyp_updt" runat="server" NavigateUrl="~/State/Update_Stock_Details.aspx">Update Stock  service</asp:HyperLink>--%>
+                                        </div>
+
+                                        <%-- <div>
+                                            <span id="span5" runat="server">Change Password</span>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/State/Change_Password_HO.aspx">ChangePassword</asp:HyperLink>
+                                        </div>--%>
+                                    </div>
+                                </asp:Panel>
+                                <asp:Panel ID="Panel2" runat="server" Height="90px" ScrollBars="Both" Width="150px">
+                                    <ucl:footer ID="foot" runat="server" />
+                                </asp:Panel>
+                            </td>
+                            <td class="middleContainer" valign="top">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                    <div class="px" align="center">
+                        <img src="../images/bot01.jpg" width="780" height="9" alt="" border="0">
+                    </div>
+                    <table border="0" cellspacing="0" cellpadding="0" width="780" align="center" style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid">
+                        <tr>
+                            <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">Site Designed and Hosted By:</td>
+                            <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">Contents Provided By:</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <asp:HyperLink ID="HyperLink49" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+                                        ForeColor="Navy" Height="50px" Width="310px" Font-Bold="True">National Informatics Centre, Madhya Pradesh
+Ministry of Communications and Information Technology
+Department of Information Technology</asp:HyperLink>&nbsp;
+                                </p>
+                            </td>
+                            <td height="50">
+                                <p class="bot">
+                                    <b><a href="">
+                                        <asp:HyperLink ID="HyperLink50" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+                                            ForeColor="Navy" Height="40px" Width="338px">Madhya Pradesh State Civil Supplies Corporation Ltd. Block-1, 3rd Floor, Paryavas Bhavan, Jail Road, Bhopal- 462011 India  Phones : 91-755-2551539, Fax :91-755-2551289 Email : mpscsc@sancharnet.in </asp:HyperLink></a></b>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+      
+      
+    </form>
+</body>
+</html>

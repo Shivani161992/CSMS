@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPCFPCL_Master.master.cs" Inherits="MBCFPCL_MPCFPCL_Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+      <style>
+        .GSHeaderTable
+        {
+            width: 100%;
+            /*background: rgba(30,29,31,1);
+            background: -moz-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30,29,31,1)), color-stop(100%, rgba(223,64,90,1)));
+            background: -webkit-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            background: linear-gradient(135deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );*/
+            background:#062743;
+            /*border-radius:8px;*/
+           }
+
+        .GSHeaderColumn
+        {
+            width:10%;
+            /*color: #e74c3c;*/
+            color: #C4FFDD;
+            font-size: 14px;
+            font-family: 'Bellefair';
+            letter-spacing: 4px;
+            border-radius:32px;
+        }
+
+        .GSMenuTable
+        {
+            width: 100%;
+            background: brown;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 32px;
+        }
+
+        .GSMenuColumn
+        {
+            width: 33%;
+            height: 20px;
+            color: #eabe97;
+            font-size: 14px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+        }
+
+        .signlogout
+        {
+            color: #C4FFDD;
+            font-size: 14px;
+            font-family: 'Bellefair';
+            letter-spacing: 2px;
+           text-decoration:none;
+        }
+        .signlogout:hover
+        {
+            color: #C4FFDD;
+             text-decoration:underline;
+        }
+    </style>
+
+    <form id="form1" runat="server">
+         <center>
+                <table class="GSHeaderTable">
+                    <tr>
+                        <td class="GSHeaderColumn">
+                             <asp:Label ID="lbldate" runat="server">
+
+                        </asp:Label>
+                        </td>
+                         <td class="GSHeaderColumn" style="width:80px; text-align:center;">
+                             <asp:Label ID="lblDistName" runat="server"> </asp:Label>
+                        </td>
+                        <td class="GSHeaderColumn" style="text-align:right; font-size:12px;">
+                            <a href="LogOut.aspx" class="signlogout"> Log Out</a>
+                        </td>
+                    </tr>
+                </table>
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:100%; ">
+
+                    </td>
+                </tr>
+            </table>
+         
+            </center>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

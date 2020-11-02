@@ -1,0 +1,212 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/SCSC_master.master" AutoEventWireup="true" CodeFile="Del_DepositerForm.aspx.cs" Inherits="District_Del_DepositerForm" Title="Del Depositer" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<center >    
+    <table style="width: 710px; font-family: Calibri; background-color: #FFCC66;" 
+            border="1" cellpadding="0" cellspacing="0"> 
+        <tr>
+            <td colspan="2" style="background-color: #333333; color: #333333;">
+                <center style="color: #CCFFFF; font-family: Calibri; font-size: medium">
+    <asp:Label ID="Label2" runat="server" Text="Depositer form Delete(Procurement)" 
+                    ForeColor="Black" Font-Bold="True" style="color: #FFFFFF"></asp:Label> </center></td>
+        </tr>
+        <tr>
+            <td align="center" style="font-size: 10pt; position: static; background-color: #cfdcc8">
+                <asp:Label ID="Label3" runat="server" Text="Select Commodity" Width="173px"></asp:Label></td>
+            <td align="center" style="font-size: 10pt; width: 528px; position: static; background-color: #cfdcc8;
+                text-align: left">
+                <asp:DropDownList ID="ddlcommodtiy" runat="server" AutoPostBack="True" 
+                    Width="180px">
+                </asp:DropDownList></td>
+        </tr>
+       
+        <tr>
+            <td align="center" 
+                style="background-color: #cfdcc8; font-size: 10pt; position: static;">
+                Issue Centre</td>
+            <td align="center" 
+                
+                
+                style="background-color: #cfdcc8; font-size: 10pt; position: static; text-align: left; width: 528px;">
+                <asp:DropDownList ID="ddl_IssueCentre" runat="server" Width="180px" 
+                    onselectedindexchanged="ddl_IssueCentre_SelectedIndexChanged" AutoPostBack="True" 
+                   >
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" 
+                style="background-color: #cfdcc8; font-size: 10pt; position: static;">
+                Depositer form No.</td>
+            <td align="center" 
+                
+                
+                style="background-color: #cfdcc8; font-size: 10pt; position: static; text-align: left; width: 528px;">
+                <asp:DropDownList ID="ddlWHRNumber" runat="server"  Width="254px" OnSelectedIndexChanged="ddlWHRNumber_SelectedIndexChanged"
+                    >
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" 
+                style="background-color: #cfdcc8; font-size: 10pt; position: static;" 
+                colspan="2">
+                <asp:Button ID="btn_search" runat="server" onclick="btn_search_Click" 
+                    Text="View Detail" />
+            </td>
+        </tr>
+            <tr>
+            <td  colspan="2" style="background-color: #cfdcc8; font-size: 10pt; position: static;">
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Italic="True" 
+                    ForeColor="Red" Visible="False"></asp:Label></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <asp:Panel ID="Panel1" runat="server" ScrollBars="Vertical" Width="716px" 
+                    BorderColor="Black" Visible="False">
+                
+                    <table style="width: 100%" border="1">
+                        <tr>
+                            <td style="font-size: small">
+                                Deposter Date:</td>
+                            <td>
+                                <asp:Label ID="lbl_Deposit_Date" runat="server" style="font-size: small"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small">
+                                Godown:</td>
+                            <td>
+                                <asp:Label ID="lbl_Godown" runat="server" style="font-size: small"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                
+            <asp:GridView ID="dgridchallan" runat="server" AutoGenerateColumns="False" 
+                        
+                        OnRowDataBound="dgridchallan_RowDataBound" PageSize="15" 
+                        PagerSettings-Visible ="true" ShowFooter = "True" CellPadding="4" 
+                        ForeColor="Black" GridLines="Horizontal" 
+                        OnPageIndexChanging="dgridchallan_PageIndexChanging" Width="687px" 
+                        OnPageIndexChanged="dgridchallan_PageIndexChanged" 
+                        EnableModelValidation="True" BorderColor="#CCCCCC" 
+                        style="font-size: small" 
+                        DataKeyNames="CommodityId,godown" BackColor="White" 
+                        BorderStyle="None" BorderWidth="1px"  >
+        <HeaderStyle  CssClass="gridheader" BackColor="#333333" Font-Bold="True" 
+                    ForeColor="White"   />
+        <Columns>
+                       
+            <asp:TemplateField HeaderText="Delete Depositer No.">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chk_del" runat="server" 
+                        oncheckedchanged="chk_del_CheckedChanged" Checked="True" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Acceptance Note" DataField="Acceptance_No" />
+            <asp:BoundField DataField="TC_Number" HeaderText="TC No." ReadOnly="True" 
+                SortExpression="TC_Number">
+            <ItemStyle CssClass="griditemlaro" />
+            <HeaderStyle CssClass="gridlarohead" />
+            </asp:BoundField>
+            <asp:BoundField DataField="PurchaseCenterName" HeaderText="Purchase Centre" 
+                Visible="False" />
+            <asp:BoundField DataField="Truck_No" HeaderText="Truck No." ReadOnly="True" 
+                SortExpression="Truck_Number">
+            <ItemStyle CssClass="griditemlaro" />
+            <HeaderStyle CssClass="gridlarohead" />
+            </asp:BoundField>
+            <asp:TemplateField HeaderText="Acceptance Date">
+                <FooterTemplate>
+                    Total Accepted Qty
+                </FooterTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="lblChallan" runat="server" 
+                        Text='<%# Eval("Acceptance_Date").ToString()%>'>
+                </asp:Label>
+                </ItemTemplate>
+                <HeaderStyle CssClass="gridlarohead" />
+                <ItemStyle CssClass="griditemlaro" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Accepted Qty" SortExpression="Recd_Qty">
+                <EditItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Accept_Qty") %>'></asp:Label>
+                </EditItemTemplate>
+                <FooterTemplate>
+                    <asp:Label ID="lbl_acqt" runat="server" Font-Names="Vani" Font-Size="Small" 
+                        ForeColor="Black" style="font-family: Calibri"></asp:Label>
+                </FooterTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Accept_Qty") %>'></asp:Label>
+                </ItemTemplate>
+                <HeaderStyle CssClass="gridlarohead" />
+                <ItemStyle CssClass="griditemlaro" />
+            </asp:TemplateField>
+            <asp:BoundField DataField="IssueID" HeaderText="IssueID" 
+                SortExpression="IssueID">
+                <HeaderStyle CssClass="gridlarohead" />
+                <ItemStyle CssClass="griditemlaro" />
+            </asp:BoundField>
+            <asp:TemplateField HeaderText="Commodity_" Visible="False">
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("CommodityId") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("CommodityId") %>'></asp:Label>
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="godown" HeaderText="Godown_id" ReadOnly="True" 
+                Visible="False" />
+        </Columns>
+             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+             <SelectedRowStyle BackColor="#CC3333" ForeColor="White" Font-Bold="True" />
+             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+    </asp:GridView>
+    </asp:Panel>
+            
+            </td>
+        </tr>
+        <tr><td colspan="2" style="text-align: center">
+        
+            <asp:Button ID="bn_del" runat="server" onclick="bn_del_Click" Text="Delete" />
+        </td></tr>
+        <tr>
+            <td colspan="2">
+                <asp:HiddenField ID="hd_qty" runat="server" />
+                <asp:HiddenField ID="hd_godown" runat="server" />
+                <asp:HiddenField ID="hd_bag" runat="server" />
+            </td>
+        </tr>
+    </table>
+    
+    
+
+        <table border ="0" cellpadding ="0" cellspacing ="0" class="gridfooter">
+        <tr>
+                        <td>
+                            <div >
+                                <asp:LinkButton ID="Firstbutton" Text='<img border="0" src="../images/firstpage.gif" align="absmiddle">'
+                                    CommandArgument="0" runat="server" OnCommand="FooterPagerClick" CausesValidation ="false"  />&nbsp;
+                                <asp:LinkButton ID="Prevbutton" Text='<img border="0" src="../images/prevpage.gif" align="absmiddle">'
+                                    CommandArgument="prev" runat="server" OnCommand="FooterPagerClick" CausesValidation ="false" />&nbsp;
+                                <asp:LinkButton ID="Nextbutton" Text='<img border="0" src="../images/nextpage.gif" align="absmiddle">'
+                                    CommandArgument="next" runat="server" OnCommand="FooterPagerClick" CausesValidation ="false" />&nbsp;
+                                <asp:LinkButton ID="Lastbutton" Text='<img border="0" src="../images/lastpage.gif" align="absmiddle">'
+                                    CommandArgument="last" runat="server" OnCommand="FooterPagerClick" CausesValidation ="false" />&nbsp;&nbsp;
+                             
+                                <asp:Label ID="lbl_message" runat="server" Visible="False"></asp:Label>
+                             
+                                <asp:HiddenField ID="hd_commodity" runat="server" 
+                                   />
+                             
+                            </div>
+                        </td>
+                    </tr>
+        </table>
+    
+         </center>
+
+
+</asp:Content>
+

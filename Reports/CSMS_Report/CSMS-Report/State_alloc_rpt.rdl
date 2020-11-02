@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="state_alloc">
+      <DataSourceReference>state_alloc</DataSourceReference>
+      <rd:DataSourceID>65f85b08-87e2-4113-9d80-efa3e0c6bd9a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>0.5in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="Month">
+      <DataType>String</DataType>
+      <Prompt>Month</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Division">
+      <DataType>String</DataType>
+      <Prompt>Division</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DistName">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>DistName</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontSize>8pt</FontSize>
+          </Style>
+          <Position>TopCenter</Position>
+          <Layout>Table</Layout>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title />
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>District Name</Caption>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <Left>0.0625in</Left>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>ds_state</DataSetName>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Rice APL</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Rice BPL</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Rice AAY</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Wheat APL</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Wheat BPL</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Wheat AAY</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Sugar</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Kerosene </Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Salt</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>0.25in</Top>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>LightGrey</BackgroundColor>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Quantity In Qtls.</Caption>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <ZIndex>2</ZIndex>
+        <Type>Column</Type>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!district_name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!district_name.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!rice_apl_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>="  " &amp; "  " &amp; Sum(Fields!rice_apl_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>DarkGoldenrod</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!rice_bpl_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!rice_bpl_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>Goldenrod</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!rice_aay_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!rice_aay_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>Gold</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!wheat_apl_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!wheat_apl_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>Green</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!wheat_bpl_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!wheat_bpl_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>#00c000</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!wheat_aay_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!wheat_aay_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>Lime</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!sugar_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!sugar_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>#ffc0c0</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!kerosene_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!kerosene_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>#8080ff</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!salt_alloc.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>6pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!salt_alloc.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>lifting_state_alloc</ReportName>
+                    <Parameters>
+                      <Parameter Name="Month">
+                        <Value>=Parameters!Month.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Year">
+                        <Value>=Parameters!Year.Value</Value>
+                      </Parameter>
+                      <Parameter Name="Division">
+                        <Value>=Fields!Division_code.Value</Value>
+                      </Parameter>
+                      <Parameter Name="DistName">
+                        <Value>=Fields!Division.Value</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+                <Style>
+                  <BackgroundColor>Thistle</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+      <Textbox Name="textbox1">
+        <Left>4.5in</Left>
+        <ZIndex>1</ZIndex>
+        <Width>3.25in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Division : " &amp; Parameters!DistName.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Left>1.25in</Left>
+        <rd:DefaultName>textbox5</rd:DefaultName>
+        <Width>3.25in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Year : " &amp; Parameters!Year.Value &amp; "    Month  :" &amp; MonthName (Parameters!Month.Value)</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>4.25in</Height>
+  </Body>
+  <PageHeader>
+    <ReportItems>
+      <Textbox Name="textbox8">
+        <Left>3.125in</Left>
+        <Top>0.25in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>2in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Value>State Allocation Details</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.46875in</Left>
+        <Width>6.0625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Madhya Pradesh State Civil Supplies Corporation Limited"</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.5in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+  </PageHeader>
+  <rd:ReportID>e471add5-14d4-47ca-9426-7ac7f2f580a7</rd:ReportID>
+  <LeftMargin>0.5in</LeftMargin>
+  <DataSets>
+    <DataSet Name="ds_state">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT       division.Division_code,division.Division,districtsmp.district_name AS district_name,districtsmp.district_code, state_alloc.*
+
+
+        FROM  pds.division LEFT JOIN  pds.districtsmp ON division.Division_code=districtsmp.Division_code
+ Left Join 
+
+pds.state_alloc on districtsmp.district_code=state_alloc.district_code and   state_alloc.month =@Month and state_alloc.year=@Year
+ where  pds.districtsmp. Division_code= @Division
+
+order by districtsmp.district_name</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Month">
+            <Value>=Parameters!Month.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Division">
+            <Value>=Parameters!Division.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>state_alloc</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Division_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division_code</DataField>
+        </Field>
+        <Field Name="Division">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="district_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="district_code_1">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="year">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>year</DataField>
+        </Field>
+        <Field Name="month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>month</DataField>
+        </Field>
+        <Field Name="Ip_address">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Ip_address</DataField>
+        </Field>
+        <Field Name="rice_apl_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>rice_apl_alloc</DataField>
+        </Field>
+        <Field Name="rice_bpl_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>rice_bpl_alloc</DataField>
+        </Field>
+        <Field Name="rice_aay_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>rice_aay_alloc</DataField>
+        </Field>
+        <Field Name="wheat_apl_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>wheat_apl_alloc</DataField>
+        </Field>
+        <Field Name="wheat_bpl_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>wheat_bpl_alloc</DataField>
+        </Field>
+        <Field Name="wheat_aay_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>wheat_aay_alloc</DataField>
+        </Field>
+        <Field Name="sugar_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>sugar_alloc</DataField>
+        </Field>
+        <Field Name="kerosene_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>kerosene_alloc</DataField>
+        </Field>
+        <Field Name="salt_alloc">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>salt_alloc</DataField>
+        </Field>
+        <Field Name="date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>date</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>8.9375in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

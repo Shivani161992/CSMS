@@ -1,0 +1,79 @@
+
+/* CSS Document */
+
+
+ h1, h2, h3, h4, h5, ul, p, dl{
+	padding:0; margin:0;
+	}
+ul{
+	list-style-type:none; font-size:0;
+	}
+
+/*--------------< < << header part start >> > >---------------*/
+
+/*--------------< < << What Special In 2007 >> > >---------------*/
+
+.subdiv2{
+	_Height:280px; 
+	width:225px; decimal:left; margin:0; background:url(../images/sub_div_bg.gif) repeat-y 0 0 #D6D7A0; color:#5C5C5C;
+	}
+
+.subdiv2 p.top{
+	background:url(../images/sub_div_top.gif) no-repeat 0 0; width:225px; height:13px; font-size:0;
+	}
+.subdiv2 p.bot{
+	background:url(../images/sub_div_bot.gif) no-repeat 0 0; width:225px; height:20px; font-size:0;
+	}
+.subdiv2 h2{
+	background:url(../images/member_h2.gif) no-repeat 0 0 #fffffe; margin:0 5px 0 5px; display:block; padding:0 0 0 44px; 
+	height:41px; color:#FFFFFF; font:bold 16px/41px Arial, Helvetica, sans-serif;
+	}
+.subdiv2 h2.event{
+	background:url(../images/latest_h2_bg.gif) no-repeat 0 0; padding:0 0 0 58px; width:157px;
+	}
+
+.subdiv2 h2.testi{
+	background:url(../images/testimonia_h2_bg.gif) no-repeat 0 0; margin-bottom:19px; padding:0 0 0 51px;
+	}
+
+.subdiv2 .subdiv3{
+	width:192px; margin:15px 0 0 18px;
+	}
+.subdiv2 h4{
+	color:#830808; background-color:#FFFFFF; font-size:11px; font-weight:normal; line-height:18px; margin:0 2px 0 20px;
+	display:block;
+	}
+.subdiv2 h4.green{
+	color:#5A6C04; background-color:#FFFFFF; font-size:11px;line-height:16px; margin:0 2px 5px 20px;
+	display:block; font-weight:bold;
+	}
+.subdiv2 .subdiv1 h3{
+	color:#136C66; background-color:#FFFFFF; font:bold 11px/16px Arial, Helvetica, sans-serif;
+	decimal:left; width:140px;
+	}
+.subdiv2 .subdiv1 h4{
+	decimal:left; width:140px; margin:0; padding:0; font-weight:bold;
+	}
+.subdiv2 .subdiv1 p{
+	font-size:10px; text-decoration:underline; width:140px; decimal:left;
+	}
+.subdiv2 .subdiv1 img{
+	display:block; font-size:0; decimal:right;
+	}
+.subdiv2 p.marTop{
+	padding:13px 0 0 0;
+	}
+.subdiv2 p.more{
+	margin:12px 0 0 160px;
+	}
+.subdiv2 p.more a{
+	width:50px; height:16px; background:url(../images/more.gif) no-repeat 0 0 #fffffe; text-decoration:none; text-align:center;
+	font-weight:bold; font-size:10px; color:#FFFFFF; display:block;
+	}
+.subdiv2 p.more a:hover{
+	background:url(../images/more_h.gif) no-repeat 0 0;
+	}
+.subdiv2 p.text{
+	font-size:11px; font-weight:bold; line-height:16px; padding:0 0 5px 0; margin: 0 0 0 20px;
+	}
+/*--------------< < << Highlights >> > >---------------*/

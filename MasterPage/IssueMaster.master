@@ -1,0 +1,305 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="IssueMaster.master.cs" Inherits="MasterPage2" Debug="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>WelCome Issue Center</title>
+    <link rel="stylesheet" href="../MyCss/comon.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/xp_comon.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/menu.css" type="text/css" />
+    <link rel="stylesheet" href="../MyCss/xp_menu.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+    <script type="text/javascript" src="../js/chksql.js"></script>
+    <script type="text/javascript" src="../js/md5.js"></script>
+    <script type="text/javascript">
+        //var browser=navigator.appName;
+        //var b_version=navigator.userAgent.toLowerCase();
+        //var version=parseFloat(b_version);
+        //alert(navigator.javascriptEnabled);
+        //var str =document.getElementById('HyperLink1').id ;
+        //alert( b_version);
+        //str.blink();
+        //var uri="my test.asp?name=ståle&car=saab";
+        //document.write(encodeURI(uri)+ "<br />");
+        //document.write(decodeURI(uri));
+        //document.write("Java enabled: " + navigator.javaEnabled());
+
+        var sheets = document.styleSheets;
+        sheets[0].disabled = true;
+        sheets[1].disabled = true;
+        sheets[2].disabled = true;
+        sheets[3].disabled = true;
+        var windt = navigator.userAgent.toLowerCase();
+        var winindx = 'null';
+        var win_xp = 'null';
+        winindx = windt.match('win');
+        win_xp = windt.match('nt 5.1');
+        if (win_xp == 'nt 5.1' && winindx == 'win') {
+            sheets[0].disabled = false;
+            sheets[2].disabled = false;
+        }
+        else {
+            sheets[0].disabled = false;
+            sheets[2].disabled = false;
+        }
+
+    </script>
+    <script type="text/javascript" src="../js/calendar_eu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/calendar.css" />
+
+    <script type="text/javascript">
+        function CheckCalDate(tx) {
+            var AsciiCode = event.keyCode;
+            var txt = tx.value;
+            var txt2 = String.fromCharCode(AsciiCode);
+            var txt3 = txt2 * 1;
+            if ((AsciiCode > 0)) {
+                alert('Please Click on Calander Controll to Enter Date');
+                event.cancelBubble = true;
+                event.returnValue = false;
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+    </script>
+    <script type="text/javascript">
+        window.history.forward(0);
+    </script>
+    <script type="text/javascript">
+        // <![CDATA[
+        var myMenu;
+        window.onload = function () {
+            myMenu = new SDMenu("my_menu");
+            myMenu.init();
+        };
+        // ]]>
+    </script>
+
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" bgcolor="#ffffff">
+
+    <form id="form2" runat="server">
+
+        <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+            <tr>
+                <td width="50%" background="../images/bg.gif">
+                    <img src="../images/px1.gif" width="1" height="1" alt="" border="0"></td>
+                <td valign="bottom" background="../images/bg_left.gif">
+                    <img src="../images/bg_left.gif" alt="" width="17" height="16" border="0"></td>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/header.jpg" Width="100%" /></td>
+                        </tr>
+                        <tr>
+                            <td style="background-image: url(../Images/tittle.jpg); color: white; height: 19px; background-color: Black" align="center">
+                                <asp:Label ID="lblwelcome" runat="server" Font-Bold="True" Font-Italic="False" Text="Welcome" ForeColor="White"></asp:Label>
+                                :<asp:Label ID="Label1" runat="server" Font-Italic="True" Font-Bold="True" ForeColor="AliceBlue"></asp:Label>-<asp:Label
+                                    ID="Label2" runat="server" Font-Bold="True" ForeColor="#C0FFC0"></asp:Label>|<asp:Label
+                                        ID="lblissuecenter" runat="server" Font-Bold="True" Font-Italic="False" Text="Issue Center" ForeColor="White"></asp:Label>
+                                |<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" ForeColor="White" PostBackUrl="~/IssueCenter/FrmLogOut.aspx" Font-Italic="True" CausesValidation="false">SignOut</asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td rowspan="3" class="menumargin" valign="top" style="height: 399px; width: 151px;">
+                                <asp:Panel ID="Panel1" runat="server" Height="380px" Width="150px" ScrollBars="Auto">
+                                    <div id="my_menu" class="sdmenu">
+                                        <div>
+                                            <span id="span_proc" runat="server">Procurement</span>
+
+                                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/IssueCenter/UparjanReceipt_Year.aspx">Receipt</asp:HyperLink>
+
+
+
+
+                                            <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/Report_IssueCenter/CheckList.aspx">Check List</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Report_IssueCenter/chcklist_2dates.aspx">Check List 2 Date</asp:HyperLink>
+
+                                            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/IssueCenter/Uparjan_AcceptanceYear.aspx">Acceptence Note</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hypserchid" runat="server" NavigateUrl="~/IssueCenter/SearchId.aspx">Search by ID</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/IssueCenter/UparjanDepositer_Year.aspx">Depositer Form</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/IssueCenter/WHREntry_ICHome.aspx">WHR Entry</asp:HyperLink>
+                                            <asp:HyperLink ID="hyprejecnote" runat="server" NavigateUrl="~/IssueCenter/TruckRejection_Option.aspx">Issue Rejection Note</asp:HyperLink>
+                                            <asp:HyperLink ID="hypdelproc" runat="server" NavigateUrl="~/IssueCenter/DeleteProcRcpt_Home.aspx">Delete Procurement Receipt</asp:HyperLink>
+                                            <asp:HyperLink ID="hyprejprocurement" runat="server" NavigateUrl="~/IssueCenter/RejectProcurement_Home.aspx">Reject Truck</asp:HyperLink>
+
+
+                                        </div>
+
+                                        <div>
+                                            <span id="span2" runat="server">Receipt Details</span>
+                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/IssueCenter/mpsc_move_challan.aspx">Receipt Others</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="~/IssueCenter/PulseReceiving.aspx">Tuar Daal</asp:HyperLink>
+                                            <asp:HyperLink ID="hypSugar" runat="server" NavigateUrl="~/IssueCenter/SugarSalt_Entry_New.aspx">Receipt Sugar/Salt</asp:HyperLink>
+
+                                            <%--<asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/IssueCenter/Receipt_Entry_CMR.aspx">Receipt Entry CMR</asp:HyperLink>--%>
+                                            <%--<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/IssueCenter/EditMovement_page.aspx">Edit Receipt Detail</asp:HyperLink>--%>
+
+
+                                            <%-- <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/IssueCenter/IssueACNo.aspx">Issue Acceptence Note</asp:HyperLink>--%>
+
+
+                                            <asp:HyperLink ID="hypreturnrail" runat="server" NavigateUrl="~/IssueCenter/returnfrm_RailHead.aspx">Return from Rack</asp:HyperLink>
+
+                                            <asp:HyperLink ID="hypdelReceipt" runat="server" NavigateUrl="~/IssueCenter/DeleteReceipt.aspx">Delete Receipt Entry</asp:HyperLink>
+
+
+                                        </div>
+
+                                        <div>
+                                            <span id="span6" runat="server">Issue</span>
+                                            <asp:HyperLink ID="Hydoorstep" runat="server" NavigateUrl="~/IssueCenter/DwarPraday_Screens.aspx">Dwarpraday Yojana</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/IssueCenter/do_type.aspx">Delivery Order</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/IssueCenter/DOTypes_Selection.aspx">Issue Against DO</asp:HyperLink>
+
+                                            <%--<asp:HyperLink ID="Hpr_miller" runat="server" NavigateUrl="~/IssueCenter/IssueAgainst_DOfor_Millers.aspx">Issue Against Paddy to Miller</asp:HyperLink>--%>
+
+                                            <asp:HyperLink ID="hypdel_do" runat="server" NavigateUrl="~/IssueCenter/Delivered_DoorStep_FPS.aspx">Delivered to FPS</asp:HyperLink>
+
+                                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/IssueCenter/Edit_delivery.aspx">Edit Delivery Order</asp:HyperLink>
+                                            <asp:HyperLink ID="DH27" runat="server" NavigateUrl="~/IssueCenter/Delete_DeliveryOrder.aspx">Delete DO </asp:HyperLink>
+
+                                        </div>
+                                        <%--<div>
+<span id="span3" runat="server">Dispatch Detail</span>
+<asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/IssueCenter/mpscsc_TruckChallan.aspx">Dispatch(Own District/Depot)</asp:HyperLink>
+<asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/IssueCenter/EditTruckChallan_page.aspx">Edit (Own District/Depot)</asp:HyperLink>
+<asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/IssueCenter/Pending_TruckChallan.aspx">Pending (Own District/Depot)</asp:HyperLink> 
+
+</div>--%>
+                                        <div>
+                                            <span id="span4" runat="server">Gunny Bags</span>
+                                            <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/IssueCenter/Gunny_BagsHome.aspx">Gunny Bags Home</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="span3" runat="server">Paddy Milling</span>
+                                            <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/IssueCenter/PaddyMillingHome.aspx">Paddy Milling Home</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="span9" runat="server">Dispatch</span>
+                                            <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/IssueCenter/Dispatch_FCI_byRoad.aspx">By Road</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/IssueCenter/Dispatch_FCI_byRack.aspx">By Rack</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/IssueCenter/Issue_Gunny_tosociety.aspx">Gunny Issue to Society</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="~/IssueCenter/MovementOrderHome.aspx">PDS Movement Order</asp:HyperLink>
+                                            <asp:HyperLink ID="hypdeletedisp" runat="server" NavigateUrl="~/IssueCenter/DeleteDispatch.aspx">Delete Dispatch</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="print" runat="server">Print Receipt</span>
+                                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/IssueCenter/mpsc_gatepass_page.aspx">Print Receipt Details</asp:HyperLink>
+                                            <asp:HyperLink ID="hypReprintAcceptN" runat="server" NavigateUrl="~/IssueCenter/frm_Procurment_Print.aspx">Print Procurement</asp:HyperLink>
+                                            <asp:HyperLink ID="hypprrejnote" runat="server" NavigateUrl="~/IssueCenter/Reprint_RejectionNote.aspx">Print Rejection Note</asp:HyperLink>
+                                            <asp:HyperLink ID="hypprintDo" runat="server" NavigateUrl="~/IssueCenter/Reprint_DoorStepDO.aspx">Reprint DoorStep DO </asp:HyperLink>
+                                            <asp:HyperLink ID="HyperTO" runat="server" NavigateUrl="~/IssueCenter/Reprint_DeliveryChallan.aspx">Reprint Delivery Challan </asp:HyperLink>
+                                            <%--<asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="~/IssueCenter/Reprint_CMR_Acpt_Reject.aspx">Reprint CMR Acceptance / Rejection </asp:HyperLink>--%>
+                                            <%--<asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="~/IssueCenter/Reprint_Dhan_Challan.aspx">Reprint Dhan Challan </asp:HyperLink>--%>
+                                        </div>
+
+                                        <div>
+                                            <span id="span7" runat="server">Reports</span>
+
+                                            <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/IssueCenter/frmReports.aspx">View Report </asp:HyperLink>
+
+                                            <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/IssueCenter/Truck_Movement_Details.aspx">Truck Movement Details</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="span1" runat="server">Initialization</span>
+                                            <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/IssueCenter/Opening_Balances.aspx">Opening Balance</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/IssueCenter/Edit_Opening_Balances.aspx">Edit Opening Balance</asp:HyperLink>
+                                        </div>
+                                        <div>
+                                            <span id="span5" runat="server">Masters</span>
+                                            <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/IssueCenter/leadsoc_creat.aspx" Visible="false">Lead Society Master</asp:HyperLink>
+                                            <%--<asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/IssueCenter/Godown_Master_New.aspx">Godown Master</asp:HyperLink>--%>
+                                            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/IssueCenter/Bank_Master.aspx" Visible="false">Bank Master</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/IssueCenter/Scheme_Transfer.aspx">Scheme Transfer</asp:HyperLink>
+                                            <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="~/IssueCenter/Insp_Mas.aspx">Inspector Master</asp:HyperLink>
+                                        </div>
+
+                                        <div>
+                                            <span id="spsn_fps" runat="server">Truck Challan FPS</span>
+                                            <asp:HyperLink ID="lnk_Truckchalan_fps" runat="server" NavigateUrl="~/IssueCenter/Truck_Chalan_FPS.aspx">Truck Challan (FPS)</asp:HyperLink>
+
+                                        </div>
+
+                                        <div>
+                                            <span id="span8" runat="server">Change Password</span>
+                                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/IssueCenter/ChangePassword_Issue.aspx">Change Password</asp:HyperLink>
+                                        </div>
+                                    </div>
+
+                                </asp:Panel>
+                                <%--<asp:Panel ID="Panel2" runat="server" BorderColor="White" Height="90px" ScrollBars="Both"
+                Width="150px">
+            <ucl:footer ID="foot" runat="server" />
+            </asp:Panel>--%>
+                            </td>
+
+                            <td class="middleContainer" valign="top" rowspan="2">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+
+                    <div class="px" align="center">
+                        <img src="../images/bot01.jpg" width="780" height="9" alt="" border="0">
+                    </div>
+                    <table border="0" cellspacing="0" cellpadding="0" width="780" align="center" style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid">
+                        <tr>
+                            <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">Site Designed and Hosted By:</td>
+                            <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">Contents Provided By:</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <asp:HyperLink ID="HyperLink23" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+                                        ForeColor="Navy" Height="50px" Width="310px" Font-Bold="True">National Informatics Centre, Madhya Pradesh
+Ministry of Communications and Information Technology
+Department of Information Technology</asp:HyperLink>&nbsp;
+                                </p>
+                            </td>
+                            <td height="50">
+                                <p class="bot">
+                                    <b><a href="">
+                                        <asp:HyperLink ID="HyperLink24" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+                                            ForeColor="Navy" Height="40px" Width="338px">Madhya Pradesh State Civil Supplies Corporation Ltd. Block-1, 3rd Floor, Paryavas Bhavan, Jail Road, Bhopal- 462011 India  Phones : 91-755-2551539, Fax :91-755-2551289 Email : mpscsc@sancharnet.in </asp:HyperLink></a></b>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <td valign="bottom" background="../images/bg_right.gif">
+                        <img src="../images/bg_right.gif" alt="" width="17" height="16" border="0"></td>
+                    <td width="50%" background="../images/bg.gif">
+                        <img src="../images/px1.gif" width="1" height="1" alt="" border="0"></td>
+            </tr>
+        </table>
+
+    </form>
+
+
+</body>
+</html>
+

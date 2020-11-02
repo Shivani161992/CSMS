@@ -1,0 +1,133 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DCCB_Master.master.cs" Inherits="MasterPage_DCCB_Master" %>
+
+<%@ Register TagPrefix="ucl" TagName="header" Src="~/Controls/header.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="leftpanel" Src="~/Controls/leftpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="rightpanel" Src="~/Controls/rightpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Portal for MPSCSC</title>
+     <link rel="stylesheet" href ="../MyCss/comon.css" type ="text/css" />   
+    <link rel="stylesheet" href ="../MyCss/xp_comon.css" type ="text/css"  />    
+    <link rel="stylesheet" href ="../MyCss/menu.css" type ="text/css" />
+    <link rel="stylesheet" href ="../MyCss/xp_menu.css" type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+    <script type="text/javascript" src="../js/calendar_eu.js"></script>      
+       <link rel="stylesheet" type="text/css" href="../CSS/calendar.css" />
+    <script type="text/javascript">
+    //var browser=navigator.appName;
+    //var b_version=navigator.userAgent.toLowerCase();
+    //var version=parseFloat(b_version);
+//alert(navigator.javascriptEnabled);
+//var str =document.getElementById('HyperLink1').id ;
+//alert( b_version);
+//str.blink();
+//var uri="my test.asp?name=ståle&car=saab";
+//document.write(encodeURI(uri)+ "<br />");
+//document.write(decodeURI(uri));
+//document.write("Java enabled: " + navigator.javaEnabled());
+
+    var sheets = document.styleSheets ;   
+    sheets[0].disabled = true ; 
+    sheets[1].disabled = true ;   
+    sheets[2].disabled = true ; 
+    sheets[3].disabled = true ;       
+        var windt=navigator.userAgent.toLowerCase();
+        var winindx='null';
+        var win_xp='null';
+        winindx=windt.match('win');        
+        win_xp=windt.match('nt 5.1');           
+        if(win_xp == 'nt 5.1' && winindx=='win')
+        {
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }
+        else
+        {           
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }    
+    
+    </script> 
+   <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+ <script type="text/javascript">
+    window.history.forward(); 
+    </script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main" >
+        <div id="header">
+            <asp:Image ID="Image1" runat="server" ImageUrl ="~/Images/scsc.jpg" />
+        </div>
+        <div id="divwel" style="width: 780px">
+            Welcome :<asp:Label ID="Label1" runat="server" Text="" Font-Italic ="true" Font-Bold ="true"  ></asp:Label> |DCCB Login |<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/FrmLogOut.aspx">SignOut</asp:LinkButton>
+        </div>
+    </div>
+    <table border="0" cellpadding="0" cellspacing="0" class ="menumargin1">
+    <tr>
+    <td rowspan ="3" valign="top" align="left">
+        <asp:Panel ID="Panel1" runat="server" Height="250px" Width="150px" ScrollBars="Both">
+       
+    <div id="my_menu" class="sdmenu">
+<div>
+<span>Permit Detail</span>
+<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/DCCB/permit_order.aspx">New</asp:HyperLink>
+<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/DCCB/Pending_Permit_Print.aspx">Pending PO for Print</asp:HyperLink>
+
+</div>
+<div>
+<span>Change Password</span>
+<asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/DCCB/Change_Password_DCCB.aspx">Change Password</asp:HyperLink>
+</div>
+   </div> 
+    </asp:Panel> 
+        <asp:Panel ID="Panel2" runat="server" Height="90px" ScrollBars="Both" Width="150px">
+            <ucl:footer ID="foot" runat="server" />
+        </asp:Panel>
+    </td>
+    <td class="middleContainer" valign="top" rowspan="3">
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+        &nbsp;</td>
+    </tr>
+    <tr>
+    <td style="height: 20px"> </td>
+    </tr>
+        <tr>
+            <td style="height: 20px">
+            </td>
+        </tr>
+        
+    </table>
+    
+    <div>
+    <table>
+    <tr>
+    
+    </tr>
+    </table>
+        
+    </div>
+    <div id="footerarea">
+        &nbsp;</div>   
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>cs_opdms</Name>
+  <DataSourceID>1ed808f1-4fea-44ae-a9bb-929f58e02c65</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=sql.mp.nic.in;Initial Catalog=opdms</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

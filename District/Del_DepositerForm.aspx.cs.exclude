@@ -1,0 +1,677 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using Data;
+using DataAccess;
+using System.Data.SqlClient;
+
+public partial class District_Del_DepositerForm : System.Web.UI.Page
+{
+    public SqlConnection cons = new SqlConnection(ConfigurationManager.ConnectionStrings["connstorage"].ToString());
+    public SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString());
+
+    public SqlConnection con_WPMS = new SqlConnection(ConfigurationManager.ConnectionStrings["con_Proc_online_WPMS2016"].ToString());
+
+    //public SqlConnection con_paddy = new SqlConnection(ConfigurationManager.AppSettings["Appconstr_PPMS2015_16"].ToString());
+    //public SqlConnection con_Maze = new SqlConnection(ConfigurationManager.AppSettings["Appconstr_MPMS2015_16"].ToString());
+    
+    public SqlConnection con_paddy = new SqlConnection(ConfigurationManager.ConnectionStrings["Appconstr_PPMS2015_16"].ToString());
+    public SqlConnection con_Maze = new SqlConnection(ConfigurationManager.ConnectionStrings["Appconstr_MPMS2015_16"].ToString());
+
+    SqlCommand cmd = new SqlCommand();
+    DistributionCenters distobj = null;
+    MoveChallan mobj = null;
+    protected Common ComObj = null, cmn = null;
+    public string time;
+    public string sid = "";
+    public string did = "";
+    public string snid = "";
+    public string getdatef = "";
+    public static string distid;
+
+    public static string mscheme = "101";
+
+    public string Districtid = "";
+
+    decimal aceqty = 0;
+    Int32 accbags = 0;
+
+    public static string mcomdtyu;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        ComObj = new Common(ConfigurationManager.AppSettings["ConnectionString"].ToString());
+        distobj = new DistributionCenters(ComObj);
+
+        if (Session["dist_id"] != null)
+        {
+            Districtid = Session["dist_id"].ToString();
+
+            if (!IsPostBack)
+            {
+
+                GetCommodity();
+
+                bn_del.Visible = false;
+
+                GetDepot();
+            }
+        }
+        
+    }
+
+    void GetCommodity()
+    {
+
+        try
+        {
+            if (con_paddy != null)
+            {
+
+                if (con_paddy.State == ConnectionState.Closed)
+                {
+
+                    con_paddy.Open();   /// con_paddy karna hai
+                }
+
+                string qrysel = "select crop,crpcode from Crop_Master where crpcode not in ('8')";
+
+                SqlDataAdapter da = new SqlDataAdapter(qrysel, con_paddy);   /// con_paddy karna hai 
+                /// 
+                DataSet ds = new DataSet();
+
+                da.Fill(ds);
+
+                if (ds != null)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ddlcommodtiy.DataSource = ds.Tables[0];
+                        ddlcommodtiy.DataTextField = "crop";
+                        ddlcommodtiy.DataValueField = "crpcode";
+                        ddlcommodtiy.DataBind();
+                        ddlcommodtiy.Items.Insert(0, "--Select--");
+
+                    }
+                }
+
+            }
+            else
+            {
+            }
+        }
+
+        catch (Exception)
+        {
+
+            if (con_paddy.State == ConnectionState.Open)
+            {
+
+                con_paddy.Close();   /// con_paddy karna hai
+            }
+        }
+        finally
+        {
+            if (con_paddy.State == ConnectionState.Open)
+            {
+
+                con_paddy.Close();   /// con_paddy karna hai
+            }
+        }
+    }
+
+    public void GetDepot()
+    {
+        if (con.State == ConnectionState.Closed)
+        {
+            con.Open();
+        }
+
+        string ord = "Select DepotID , DepotName from tbl_MetaData_DEPOT where DistrictId = '23" + Districtid + "' order by DepotName";
+        SqlCommand cmd = new SqlCommand(ord, con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        if (ds.Tables[0].Rows.Count == 0)
+        {
+        }
+        else
+        {
+            ddl_IssueCentre.DataSource = ds.Tables[0];
+            ddl_IssueCentre.DataTextField = "DepotName";
+            ddl_IssueCentre.DataValueField = "DepotId";
+
+            ddl_IssueCentre.DataBind();
+
+            ddl_IssueCentre.Items.Insert(0, "--Select--");
+        }
+
+        if (con.State == ConnectionState.Open)
+        {
+            con.Close();
+        }
+    }
+
+    public void check_whr()
+    {
+
+    }
+
+    protected void btn_search_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = true;
+        bn_del.Visible = true;
+        fillgrid();
+    }
+
+    decimal CheckNull(string Val)
+    {
+        string st = "";
+        string ValS = ((Val != st) ? (Val) : "0");
+        decimal ValF = decimal.Parse(ValS);
+        return ValF;
+    }
+
+    protected void ddl_IssueCentre_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        if (con.State == ConnectionState.Closed)
+        {
+            con.Open();
+        }
+
+        if (ddlcommodtiy.SelectedValue == "1")
+        {
+            string qry = "Select distinct WHR_Request from Acceptance_Note_Detail2016 where Distt_ID = '" + Districtid + "' and IssueCenter_ID = '" + ddl_IssueCentre.SelectedValue.ToString() + "' and WHR_Request is not null and WHR_Request !='0' and CommodityId in ('22')  order by WHR_Request";
+
+            SqlCommand cmdAcc = new SqlCommand(qry, con);
+
+            SqlDataAdapter daAcc = new SqlDataAdapter(cmdAcc);
+
+            DataSet dsAcc = new DataSet();
+            daAcc.Fill(dsAcc);
+
+            if (dsAcc != null)
+            {
+                if (dsAcc.Tables[0].Rows.Count > 0)
+                {
+                    ddlWHRNumber.DataSource = dsAcc.Tables[0];
+                    ddlWHRNumber.DataTextField = "WHR_Request";
+
+                    ddlWHRNumber.DataBind();
+                    ddlWHRNumber.Items.Insert(0, "--Select--");
+
+                }
+            }
+        }
+
+        if (ddlcommodtiy.SelectedValue == "2" || ddlcommodtiy.SelectedValue == "3")
+        {
+            string qry = "Select distinct WHR_Request from Acceptance_Note_Detail where Distt_ID = '" + Districtid + "' and IssueCenter_ID = '" + ddl_IssueCentre.SelectedValue.ToString() + "' and WHR_Request is not null and WHR_Request !='0' and CommodityId in ('13','14')  order by WHR_Request";
+
+            SqlCommand cmdAcc = new SqlCommand(qry, con);
+
+            SqlDataAdapter daAcc = new SqlDataAdapter(cmdAcc);
+
+            DataSet dsAcc = new DataSet();
+            daAcc.Fill(dsAcc);
+
+            if (dsAcc != null)
+            {
+                if (dsAcc.Tables[0].Rows.Count > 0)
+                {
+                    ddlWHRNumber.DataSource = dsAcc.Tables[0];
+                    ddlWHRNumber.DataTextField = "WHR_Request";
+
+                    ddlWHRNumber.DataBind();
+                    ddlWHRNumber.Items.Insert(0, "--Select--");
+
+                }
+            }
+        }
+
+        if (ddlcommodtiy.SelectedValue == "4" || ddlcommodtiy.SelectedValue == "5" || ddlcommodtiy.SelectedValue == "6" || ddlcommodtiy.SelectedValue == "7")
+        {
+            string qry = "Select distinct WHR_Request from Acceptance_Note_Detail where Distt_ID = '" + Districtid + "' and IssueCenter_ID = '" + ddl_IssueCentre.SelectedValue.ToString() + "' and WHR_Request is not null and WHR_Request !='0' and CommodityId in ('12','8','11','40')  order by WHR_Request";
+
+            SqlCommand cmdAcc = new SqlCommand(qry, con);
+
+            SqlDataAdapter daAcc = new SqlDataAdapter(cmdAcc);
+
+            DataSet dsAcc = new DataSet();
+            daAcc.Fill(dsAcc);
+
+            if (dsAcc != null)
+            {
+                if (dsAcc.Tables[0].Rows.Count > 0)
+                {
+                    ddlWHRNumber.DataSource = dsAcc.Tables[0];
+                    ddlWHRNumber.DataTextField = "WHR_Request";
+
+                    ddlWHRNumber.DataBind();
+                    ddlWHRNumber.Items.Insert(0, "--Select--");
+
+                }
+            }
+        }
+
+        if (con.State == ConnectionState.Open)
+        {
+            con.Close();
+        }
+
+    }
+
+    protected void bn_del_Click(object sender, EventArgs e)
+    {
+
+        for (int i = 0; i < dgridchallan.Rows.Count; i++)
+        {
+
+            if (((CheckBox)dgridchallan.Rows[i].FindControl("chk_del")).Checked == true)
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                string distid = Districtid;
+
+                string issuecenerid = ddl_IssueCentre.SelectedValue;
+
+                string challan = dgridchallan.Rows[i].Cells[2].Text.ToString();
+
+                string acceptnum = ddlWHRNumber.SelectedValue;
+
+                string trucknum = dgridchallan.Rows[i].Cells[4].Text.ToString();
+                hd_bag.Value = dgridchallan.Rows[i].Cells[6].Text.ToString();
+                hd_qty.Value = dgridchallan.Rows[i].Cells[7].Text.ToString();
+                string acnote = dgridchallan.Rows[i].Cells[1].Text.ToString();
+                hd_godown.Value = dgridchallan.DataKeys[i].Values[1].ToString();
+                hd_commodity.Value = dgridchallan.DataKeys[i].Values[0].ToString();
+
+                if (cons.State == ConnectionState.Closed)
+                {
+                    cons.Open();
+                }
+
+                //string mystr = "SELECT *FROM [tbl_Storage_Arrival_Stock] where  AcceptanceNo='" + acceptnum + "'  and Commodity_Id='" + hd_commodity.Value + "' ";
+                DataSet dsk = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT *FROM [tbl_Storage_Arrival_Stock] where  AcceptanceNo='" + acceptnum + "'  and Commodity_Id='" + hd_commodity.Value + "' ", cons);
+
+                da.Fill(dsk);
+
+                // SqlCommand   cmdwhr = new SqlCommand(mystr, cons);
+                //SqlDataReader sqldr = cmdwhr.ExecuteReader();
+                //sqldr.Read();
+
+                //if (sqldr.HasRows)
+                if (dsk.Tables[0].Rows.Count > 0)   //code for dataset
+                {
+                    Label1.Visible = true;
+                    Label1.Text = "whr created!Entry cannot deleted ";
+                }
+                else
+                {
+                    # region Wheat
+                    if (ddlcommodtiy.SelectedValue == "1")
+                    {
+                        string inslog = "Insert into Acceptance_Note_Detail2016_Log select * from Acceptance_Note_Detail2016 where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and  TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd = new SqlCommand(inslog, con);
+
+                        if (con_WPMS.State == ConnectionState.Closed)
+                        {
+                            con_WPMS.Open();
+                        }
+
+                        string delcon = "Update Acceptance_Note_Detail2016 set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdcon = new SqlCommand(delcon, con);
+
+                        string inslog1 = "Insert into Acceptance_Note_Detail_DelLog select * from Acceptance_Note_Detail where Distt_ID = '23" + distid + "' and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "'  and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd1 = new SqlCommand(inslog1, con_WPMS);
+
+                        string delwpms = "Update Acceptance_Note_Detail set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '23" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdwpms = new SqlCommand(delwpms, con_WPMS);
+
+                        try
+                        {
+                            int x = cmd.ExecuteNonQuery();
+
+                            int y = cmd1.ExecuteNonQuery();
+
+                            int a = cmdcon.ExecuteNonQuery();
+
+                            int b = cmdwpms.ExecuteNonQuery();
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Deleted Sucessfully'); </script> ");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Label1.Text = ex.Message;
+                            Label1.Visible = true;
+
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Error! To Delete This Entry'); </script> ");
+                            return;
+                        }
+
+                        finally
+                        {
+
+
+                            if (con_WPMS.State == ConnectionState.Open)
+                            {
+                                con_WPMS.Close();
+                            }
+
+                            if (con.State == ConnectionState.Open)
+                            {
+                                con.Close();
+                            }
+                            if (cons.State == ConnectionState.Open)
+                            {
+                                cons.Close();
+                            }
+                        }
+                    }
+                    # endregion
+
+                    # region Paddy
+                    if (ddlcommodtiy.SelectedValue == "2" || ddlcommodtiy.SelectedValue == "3")
+                    {
+                        string inslog = "Insert into Acceptance_Note_Detail_DelLog select * from Acceptance_Note_Detail where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and  TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd = new SqlCommand(inslog, con);
+
+                        if (con_paddy.State == ConnectionState.Closed)
+                        {
+                            con_paddy.Open();
+                        }
+
+                        string delcon = "Update Acceptance_Note_Detail set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdcon = new SqlCommand(delcon, con);
+
+                        string inslog1 = "Insert into Acceptance_Note_Detail_DelLog select * from Acceptance_Note_Detail where Distt_ID = '23" + distid + "' and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "'  and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd1 = new SqlCommand(inslog1, con_paddy);
+
+                        string delwpms = "Update Acceptance_Note_Detail set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '23" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdwpms = new SqlCommand(delwpms, con_paddy);
+
+                        try
+                        {
+                            int x = cmd.ExecuteNonQuery();
+
+                            int y = cmd1.ExecuteNonQuery();
+
+                            int a = cmdcon.ExecuteNonQuery();
+
+                            int b = cmdwpms.ExecuteNonQuery();
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Deleted Sucessfully'); </script> ");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Label1.Text = ex.Message;
+                            Label1.Visible = true;
+
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Error! To Delete This Entry'); </script> ");
+                            return;
+                        }
+
+                        finally
+                        {
+                            if (con_paddy.State == ConnectionState.Open)
+                            {
+                                con_paddy.Close();
+                            }
+
+                            if (con.State == ConnectionState.Open)
+                            {
+                                con.Close();
+                            }
+                            if (cons.State == ConnectionState.Open)
+                            {
+                                cons.Close();
+                            }
+                        }
+                    }
+                    # endregion
+
+                    # region Jowar,Maize
+                    if (ddlcommodtiy.SelectedValue == "4" || ddlcommodtiy.SelectedValue == "5" || ddlcommodtiy.SelectedValue == "6" || ddlcommodtiy.SelectedValue == "7")
+                    {
+                        if (con_Maze.State == ConnectionState.Closed)
+                        {
+                            con_Maze.Open();
+                        }
+
+                        string inslog = "Insert into Acceptance_Note_Detail_DelLog select * from Acceptance_Note_Detail where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and  TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd = new SqlCommand(inslog, con);
+
+                        string delcon = "Update Acceptance_Note_Detail set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and  WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdcon = new SqlCommand(delcon, con);
+
+                        string inslog1 = "Insert into Acceptance_Note_Detail_DelLog select * from Acceptance_Note_Detail where Distt_ID = '23" + distid + "' and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "'  and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmd1 = new SqlCommand(inslog1, con_Maze);
+
+                        string delwpms = "Update Acceptance_Note_Detail set WHR_Request = NULL , Updates_Date =  getdate() where Distt_ID = '23" + distid + "'  and Acceptance_No='" + acnote + "' and TC_Number = '" + challan + "' and WHR_Request = '" + ddlWHRNumber.SelectedValue + "'";
+
+                        SqlCommand cmdwpms = new SqlCommand(delwpms, con_Maze);
+
+                        try
+                        {
+                            int x = cmd.ExecuteNonQuery();
+
+                            int y = cmd1.ExecuteNonQuery();
+
+                            int a = cmdcon.ExecuteNonQuery();
+
+                            int b = cmdwpms.ExecuteNonQuery();
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Deleted Sucessfully'); </script> ");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Label1.Text = ex.Message;
+                            Label1.Visible = true;
+
+                            Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Error! To Delete This Entry'); </script> ");
+                            return;
+                        }
+
+                        finally
+                        {
+                            if (con_Maze.State == ConnectionState.Open)
+                            {
+                                con_Maze.Close();
+                            }
+
+                            if (con.State == ConnectionState.Open)
+                            {
+                                con.Close();
+                            }
+                            if (cons.State == ConnectionState.Open)
+                            {
+                                cons.Close();
+                            }
+                        }
+                    }
+                    # endregion
+
+                }
+            }
+
+        }
+        dgridchallan.DataBind();
+
+        //ddl_district_SelectedIndexChanged(sender, e);
+        ddl_IssueCentre_SelectedIndexChanged(sender, e);
+        Panel1.Visible = false;
+        bn_del.Visible = false;
+
+    }
+
+    protected void chk_del_CheckedChanged(object sender, EventArgs e)
+    {
+
+
+
+        foreach (GridViewRow row in dgridchallan.Rows)
+        {
+
+            if (((CheckBox)row.FindControl("chk_del")).Checked == true)
+            {
+                //((CheckBox)row.FindControl("chk_receipt")).Enabled = true;
+            }
+            else
+            {
+
+
+                //((CheckBox)row.FindControl("chk_receipt")).Enabled = false;
+            }
+
+        }
+
+    }
+
+    public string getdate(string DDDate)
+    {
+        return Convert.ToDateTime(DDDate).ToString("dd/MMM/yyyy");
+    }
+    void fillgrid()
+    {
+        con.Open();
+        mobj = new MoveChallan(ComObj);
+        string qry = "SELECT Acceptance_Note_Detail2016.*,tbl_MetaData_GODOWN.Godown_Name,tbl_MetaData_DEPOT.DepotName, tbl_MetaData_STORAGE_COMMODITY .Commodity_Name as Commodity_Name,Society.Society_Name +','+ SocPlace +',' + Society_Id as PurchaseCenterName FROM dbo.Acceptance_Note_Detail2016 left join dbo.tbl_MetaData_STORAGE_COMMODITY on Acceptance_Note_Detail2016.CommodityId=tbl_MetaData_STORAGE_COMMODITY .Commodity_Id left join dbo.Society on Acceptance_Note_Detail2016.Purchase_Center= Society.Society_Id inner join tbl_MetaData_DEPOT on Acceptance_Note_Detail2016.IssueCenter_ID=tbl_MetaData_DEPOT.DepotID inner join tbl_MetaData_GODOWN on tbl_MetaData_GODOWN.Godown_ID=Acceptance_Note_Detail2016.godown where Distt_ID='" + Districtid + "' and WHR_Request='" + ddlWHRNumber.SelectedValue.ToString() + "' and IssueCenter_ID ='" + ddl_IssueCentre.SelectedValue.ToString() + "' order by Acceptance_Note_Detail2016.Acceptance_Date desc";
+        DataSet ds = mobj.selectAny(qry);
+        if (ds.Tables[0].Rows.Count == 0)
+        {
+
+            Label1.Visible = true;
+            Label1.Text = "Currently no Record is present";
+            dgridchallan.DataBind();
+
+        }
+        else
+        {
+            Label1.Visible = false;
+            dgridchallan.DataSource = ds.Tables[0];
+            dgridchallan.DataBind();
+
+            lbl_Deposit_Date.Text = getdate(ds.Tables[0].Rows[0]["Acceptance_Date"].ToString());
+            lbl_Godown.Text = ds.Tables[0].Rows[0]["Godown_Name"].ToString(); ;
+
+        }
+        con.Close();
+
+
+    }
+
+    protected string getDate_MDY(string inDate)
+    {
+        System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-GB");
+        DateTime dtProjectStartDate = Convert.ToDateTime(inDate);
+        System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        return (Convert.ToDateTime(dtProjectStartDate).ToString("MM/dd/yyyy"));
+    }
+
+    protected void dgridchallan_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            //decimal rowTotal = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Totalamt"));
+
+            string griddate = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Acceptance_Date"));
+
+            getdatef = getdate(griddate);
+
+
+            Label lbl = (Label)e.Row.FindControl("lblChallan");
+            lbl.Text = getdatef;
+            aceqty += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Accept_Qty"));
+
+            //accbags += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "Bags"));
+
+        }
+
+        if (e.Row.RowType == DataControlRowType.Footer)
+        {
+            Label lblqty1 = (Label)e.Row.FindControl("lbl_acqt");
+
+            lblqty1.Text = aceqty.ToString();
+
+            //Label lblricebag1 = (Label)e.Row.FindControl("lbl_acbag");
+
+            //lblricebag1.Text = accbags.ToString();
+
+        }
+    }
+
+    public void FooterPagerClick(object sender, CommandEventArgs e)
+    {
+
+        string arg;
+        arg = e.CommandArgument.ToString();
+
+        switch (arg)
+        {
+            case "next":
+
+                if ((dgridchallan.PageIndex < (dgridchallan.PageCount - 1)))
+                {
+                    dgridchallan.PageIndex += 1;
+                }
+
+                break;
+
+            case "prev":
+
+                if ((dgridchallan.PageIndex > 0))
+                {
+                    dgridchallan.PageIndex -= 1;
+                }
+
+                break;
+
+            case "last":
+
+                dgridchallan.PageIndex = (dgridchallan.PageCount - 1);
+                break;
+
+            default:
+
+                dgridchallan.PageIndex = Convert.ToInt32(arg);
+                break;
+        }
+        fillgrid();
+
+
+    }
+
+    protected void dgridchallan_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+
+    }
+    protected void dgridchallan_PageIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+}

@@ -1,0 +1,44 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using Data;
+using DataAccess;
+using System.Security.Cryptography;
+
+public partial class PcGdn_Insp_InspMaster : System.Web.UI.MasterPage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["User_id"] != null)
+        {
+            string userid = Session["User_id"].ToString().Trim();
+
+            string user = Session["user"].ToString();
+
+            string distid = Session["District_id"].ToString().Trim();
+
+            string distname = Session["District"].ToString();
+
+            Label1.Text = user;
+
+            Label2.Text = distname;
+
+            if (!IsPostBack)
+            {
+               
+
+            }
+        }
+        else
+        {
+            Response.Redirect("http://mpscsc.mp.gov.in");
+        }
+    }
+}

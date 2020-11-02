@@ -1,0 +1,162 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="StateMasterPage.master.cs" Inherits="mpproc_MasterPage_StateMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>State</title>
+      <script type="text/javascript">
+    window.history.forward(-1); 
+    </script>
+    <script type="text/javascript" src="../js/calendar_eu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../MyCSS/comon.css" />
+     <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+     <script type="text/javascript" src="../sdmenu/sdmenu.js">
+       
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+     
+       <script type="text/javascript" src="../js/calendar_eu.js"></script>      
+       <link rel="stylesheet" type="text/css" href="../CSS/calendar.css" />
+       
+       
+       <script type="text/javascript">
+    function CheckIsNumeric(e,tx)
+    {         
+        var AsciiCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;                        
+        if ((AsciiCode < 46 && AsciiCode != 8) || (AsciiCode > 57 ) || (AsciiCode == 47 ))
+        {
+            alert('Please enter only numbers.');
+            return false;
+        }                
+        var num=tx.value;        
+        var len=num.length;
+        var indx=-1;
+        indx=num.indexOf('.');
+        if (indx != -1)
+        {
+            if ((AsciiCode == 46 ))
+            {
+                alert('Point must be apear only one time.');
+                return false;
+            }
+            var dgt=num.substr(indx,len);
+            var count= dgt.length;
+            //alert (count);
+            if (count > 5 && AsciiCode != 8)  
+            {
+                alert("Only 5 decimal digits allowed.");
+                return false;
+            }
+        }
+    }
+    </script>
+
+</head>
+<body  style="margin-left:0px; margin-top:0px; background-color:#ffffff" > 
+    <form id="form1" runat="server">
+    <table border="0" cellpadding ="0" cellspacing ="0" >
+    <tr>
+    <td style="height: 582px">
+   <table border="0" cellpadding ="0" cellspacing ="0" width="900px">
+   <tr>
+   <td  colspan="2" style="width:967px; height: 56px; background-color: beige;" >
+
+       <asp:Image ID="Image1" runat="server" ImageUrl="~/mpproc/Images/MP-header.jpg" Width="978px"  Height="56px" BorderColor="#C0C000" BorderWidth="2px" />
+      
+   
+   </td>
+   
+   </tr>
+   <tr>
+   <td colspan="2" align="center"  style="height:8px;  background-color: #cccc66;" >
+   <table> 
+   <tr>
+   <td style="height: 30px">
+    <asp:LinkButton ID="Link_Logout" runat="server" PostBackUrl="~/mpproc/Logout.aspx">Logout</asp:LinkButton>
+   
+    <br />
+    
+       <asp:Label ID="lblLf" runat="server" Text="Login As :-" Font-Size="10pt" ForeColor="Indigo"></asp:Label>
+ 
+       <asp:Label ID="lbl_logInfo" runat="server" Font-Size="10pt" ForeColor="Indigo"></asp:Label>
+   
+   
+   </td>
+   </tr>
+   </table>
+
+   </td>
+   </tr>
+   <tr>
+   <td   valign="top" style="width: 39px">
+    <asp:Panel ID="Panel1" runat="server" Height="300px" Width="150" ScrollBars="Both">
+   
+    
+    
+<div id="my_menu" class="sdmenu">  
+  <div>
+<span id="span2" runat="server" >Procurement</span>
+    
+    <asp:HyperLink ID="HyperLink2" runat="server" Width="170px"  NavigateUrl="~/mpproc/State/allocationEstimatedToAgency.aspx">Estimated Allocation To Agency</asp:HyperLink>
+   
+    
+  </div>
+  <div>
+<span id="span1" runat="server" >Reports</span>
+    
+   <asp:HyperLink ID="HL_DistWiseAgProc" runat="server" Width="170px"  NavigateUrl="~/mpproc/State/frmStateReports.aspx">Procurement Report</asp:HyperLink>
+    
+    
+  </div>
+  
+  
+
+
+  </div>
+    
+    
+    
+    </asp:Panel>
+    
+ 
+   
+   </td>
+   
+   <td >
+   <center>
+   <asp:Panel ID="Panel2" runat="server" Height="600px" Width="850px" ScrollBars="Auto">
+      <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </asp:Panel>
+       
+   </center>
+   </td>
+   </tr>
+   <tr>
+    <td colspan="2" align="center" style="width:900px; height:9px; background-color:#cccc66">
+       
+    </td>
+   </tr>
+   <tr>
+   <td colspan="2" align="center" style="width:900px">
+   
+    <div >
+                     
+        <asp:Image ID="Image2" runat="server"  ImageUrl="~/Images/Nic-Logo_blue.gif" width="200" height="50" />
+     </div>      
+   </td>
+   </tr>
+   
+   </table>
+   </td>
+   </tr>
+  </table>
+
+    </form>
+</body>
+</html>

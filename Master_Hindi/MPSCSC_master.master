@@ -1,0 +1,119 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPSCSC_master.master.cs" Inherits="MasterPage_MPSCSC_master" %>
+<%@ Register TagPrefix="ucl" TagName="header" Src="~/Controls/header.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="leftpanel" Src="~/Controls/leftpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="rightpanel" Src="~/Controls/rightpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>MPSCSC Portal</title>
+     <link rel="Stylesheet" href="../MyCss/Comon.css" type="text/css" />
+    <link rel="stylesheet" href ="../MyCss/menu.css" type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+    <style type="text/css">
+
+#marqueecontainer{
+position:notset;
+width: 190px; /*marquee width */
+height: 200px; /*marquee height */
+background-color: white;
+overflow: hidden;
+border: 2px solid green;
+padding: 2px;
+padding-left: 4px;
+}
+
+</style>
+<script type="text/javascript">
+
+/***********************************************
+* Cross browser Marquee II- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+var delayb4scroll=2000 //Specify initial delay before marquee starts to scroll on page (2000=2 seconds)
+var marqueespeed=2 //Specify marquee scroll speed (larger is faster 1-10)
+var pauseit=1 //Pause marquee onMousever (0=no. 1=yes)?
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var copyspeed=marqueespeed
+var pausespeed=(pauseit==0)? copyspeed: 0
+var actualheight=''
+
+function scrollmarquee(){
+if (parseInt(cross_marquee.style.top)>(actualheight*(-1)+8))
+cross_marquee.style.top=parseInt(cross_marquee.style.top)-copyspeed+"px"
+else
+cross_marquee.style.top=parseInt(marqueeheight)+8+"px"
+}
+
+function initializemarquee(){
+cross_marquee=document.getElementById("vmarquee")
+cross_marquee.style.top=0
+marqueeheight=document.getElementById("marqueecontainer").offsetHeight
+actualheight=cross_marquee.offsetHeight
+if (window.opera || navigator.userAgent.indexOf("Netscape/7")!=-1){ //if Opera or Netscape 7x, add scrollbars to scroll and exit
+cross_marquee.style.height=marqueeheight+"px"
+cross_marquee.style.overflow="scroll"
+return
+}
+setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll)
+}
+
+if (window.addEventListener)
+window.addEventListener("load", initializemarquee, false)
+else if (window.attachEvent)
+window.attachEvent("onload", initializemarquee)
+else if (document.getElementById)
+window.onload=initializemarquee
+
+
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main">
+        <div id="header">
+        
+            <ucl:header ID="header1" runat="server"></ucl:header>
+            <div id="Div2">
+            For: MPSCSC</div>
+            <div id="Div1">
+                &nbsp;</div>
+        </div>
+        </div>
+     
+    <div id ="mastercontent1">
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class=".middleContainer">
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+            </td> 
+            </tr> 
+            </table>
+    </div>
+    
+    <div>
+        
+    </div>
+    
+      <div id="footernic">
+    
+        <table border="1" cellpadding="0" cellspacing="0" style="padding:1; BORDER-COLLAPSE: collapse; border-right: maroon 3px double; border-top: maroon 3px double; border-left: maroon 3px double; border-bottom: maroon 3px double; width: 696px; height: 90px;" id="">
+        <tr>
+                <td colspan="3" style="height: 24px; color: maroon; background-color: transparent; background-image: url(Images/imgg.jpg);" align="center">
+                    <asp:HyperLink ID="HyperLink1" runat="server" Width="305px" Font-Size="Small" ForeColor="Navy">National Informatics Centre, Madhya Pradesh
+Ministry of Communications and Information Technology
+Department of Information Technology</asp:HyperLink></td>
+            </tr>
+        </table> 
+        </div>
+        
+    
+    </form>
+</body>
+</html>

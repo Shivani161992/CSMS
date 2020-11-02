@@ -1,0 +1,635 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/PcGdn_Insp/InspMaster.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="PcGdn_Insp_Default" Title="Untitled Page" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+
+    <table style="width: 900px" >
+        <tr>
+            <td colspan="5" style="color: #000099">
+                <b>खरीफ विपणन वर्ष 2016-17 में समर्थन मूल्य पर खरीदी हेतु स्थापित खरीदी केन्द्रों 
+                का संयुक्त निरीक्षण प्रतिवेदन</b></td>
+        </tr>
+        <tr>
+            <td style="color: #CC3300">
+                <b>क्र</b></td>
+            <td style="width: 300px; color: #CC3300;">
+                <b>बिन्दु</b></td>
+            <td colspan="3" style="color: #CC3300">
+                <b>निरीक्षण में पाई गयी स्थिति</b></td>
+        </tr>
+        <tr>
+            <td style="color: #CC6600">
+                <b>1</b></td>
+            <td style="width: 300px; color: #CC6600;">
+                <b>निरीक्षण दल के अधिकारियो के नाम</b></td>
+            <td style="width: 131px; color: #CC6600;">
+                <b>पद</b></td>
+            <td colspan="2" style="color: #CC6600">
+                <b>मोबाइल नंबर</b></td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                <asp:TextBox ID="TextBox1" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox6" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td colspan="2" style="text-align: center">
+                <asp:TextBox ID="TextBox7" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                <asp:TextBox ID="TextBox2" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox5" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td colspan="2" style="text-align: center">
+                <asp:TextBox ID="TextBox8" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                <asp:TextBox ID="TextBox3" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox4" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td colspan="2" style="text-align: center">
+                <asp:TextBox ID="TextBox9" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                <asp:TextBox ID="TextBox10" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox12" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td colspan="2" style="text-align: center">
+                <asp:TextBox ID="TextBox14" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                <asp:TextBox ID="TextBox11" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox13" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td colspan="2" style="text-align: center">
+                <asp:TextBox ID="TextBox15" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2</td>
+            <td style="text-align: left; width: 300px">
+                निरीक्षण की दिनाँक</td>
+            <td colspan="2" style="text-align: left">
+                <asp:TextBox ID="TextBox16" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                3</td>
+            <td style="text-align: left; width: 300px">
+                जिले का नाम</td>
+            <td colspan="2" style="text-align: left">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                3.1</td>
+            <td style="text-align: left; width: 300px">
+                तहसील का नाम</td>
+            <td colspan="2" style="text-align: left">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                4</td>
+            <td style="text-align: left; width: 300px">
+                खरीदी केंद्र का नाम</td>
+            <td colspan="2">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                5</td>
+            <td style="text-align: left; width: 300px">
+                समिति प्रबंधक का नाम</td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox19" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="text-align: left; width: 179px">
+                प्रबंधक का मोबाइल</td>
+            <td>
+                <asp:TextBox ID="TextBox20" runat="server" Height="33px" Width="175px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6</td>
+            <td colspan="2" style="text-align: left; background-color: #CCFFCC;">
+                कलेक्टर द्वारा नामित नोडल अधिकारी का नाम </td>
+            <td style="background-color: #CCFFCC;" colspan="2">
+                <asp:TextBox ID="TextBox29" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="text-align: left; width: 300px; background-color: #CCFFCC;">
+                पद</td>
+            <td style="width: 131px; background-color: #CCFFCC;">
+                <asp:TextBox ID="TextBox21" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 179px; background-color: #CCFFCC;">
+                &nbsp;</td>
+            <td style="background-color: #CCFFCC">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="text-align: left; width: 300px; background-color: #CCFFCC;">
+                मोबाइल</td>
+            <td style="width: 131px; background-color: #CCFFCC;">
+                <asp:TextBox ID="TextBox22" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 179px; background-color: #CCFFCC;">
+                &nbsp;</td>
+            <td style="background-color: #CCFFCC">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                7</td>
+            <td style="text-align: left; width: 300px">
+                पंजीकृत किसानो की संख्या</td>
+            <td style="width: 131px">
+                <asp:TextBox ID="TextBox23" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                8</td>
+            <td colspan="2" style="text-align: left">
+                समर्थन मूल्य योजनान्तर्गत खरीदी प्रारंभ होने की दिनाँक</td>
+            <td colspan="2" style="text-align: left">
+                <asp:TextBox ID="TextBox24" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9</td>
+            <td style="text-align: left; width: 300px">
+                खरीदी विवरण</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                9.1</td>
+            <td colspan="2" style="text-align: left">
+                निरीक्षण के दिन की गई खरीदी(में टन )</td>
+            <td colspan="2" style="text-align: left">
+                <asp:TextBox ID="TextBox25" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9.2</td>
+            <td style="text-align: left; width: 300px">
+                प्रगतिशील खरीदी (में टन)</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td colspan="2" style="text-align: left">
+                <asp:TextBox ID="TextBox26" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9.3</td>
+            <td style="text-align: left; width: 300px">
+                प्रगतिशील परिवहन (में टन )</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td colspan="2" style="text-align: left">
+                <asp:TextBox ID="TextBox27" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 32px">
+                9.4</td>
+            <td style="text-align: left; width: 300px; height: 32px;">
+                खरीदी केंद्र पर परिवहन हेतु शेष स्कंध</td>
+            <td style="width: 131px; height: 32px;">
+                </td>
+            <td colspan="2" style="text-align: left; height: 32px;">
+                <asp:TextBox ID="TextBox28" runat="server" Height="33px" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                10</td>
+            <td colspan="2" style="text-align: left">
+                क्या खरीदी केंद्र पर FAQ सेम्पल रखा गया है ?</td>
+            <td colspan="2">
+                <asp:DropDownList ID="DropDownList9" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 41px">
+                11</td>
+            <td colspan="4" 
+                style="text-align: left; height: 41px; background-color: #FFFFCC;">
+                विश्लेषण के लिए अवश्यक निम्न तकनीक उपकरण की उपलब्द्ता होने पर सही का निशान लगाये 
+                तथा ना होने पर क्रास का निशान लगाये |</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px; background-color: #FFFFCC;">
+                परखी</td>
+            <td style="width: 131px; background-color: #FFFFCC;">
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td style="width: 179px; background-color: #FFFFCC;">
+                इलेक्ट्रोनिक बैलेंस</td>
+            <td style="background-color: #FFFFCC">
+                <asp:DropDownList ID="DropDownList2" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px; background-color: #FFFFCC;">
+                प्लास्टिक कपडे की सेम्पल थेलिया</td>
+            <td style="width: 131px; background-color: #FFFFCC;">
+                <asp:DropDownList ID="DropDownList3" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td style="width: 179px; background-color: #FFFFCC;">
+                एजेंसी की पीतल की सील</td>
+            <td style="background-color: #FFFFCC">
+                <asp:DropDownList ID="DropDownList4" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px; background-color: #FFFFCC;">
+                नमी मापक यन्त्र</td>
+            <td style="width: 131px; background-color: #FFFFCC;">
+                <asp:DropDownList ID="DropDownList5" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td style="width: 179px; background-color: #FFFFCC;">
+                एनेमल प्लेट</td>
+            <td style="background-color: #FFFFCC">
+                <asp:DropDownList ID="DropDownList6" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12</td>
+            <td style="width: 300px">
+                क्या खरीदी केंद्र पर छन्ना उपलब्ध है ?</td>
+            <td style="width: 131px">
+                <asp:DropDownList ID="DropDownList7" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                13</td>
+            <td colspan="2" style="text-align: left">
+                क्या खरीदी केंद्र पर थ्रेसर में उपयोग होने वाला ब्लोअर उपलब्ध है ?</td>
+            <td style="width: 179px">
+                <asp:DropDownList ID="DropDownList8" runat="server">
+                    <asp:ListItem Value="Y">हैं</asp:ListItem>
+                    <asp:ListItem Value="N">नहीं</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                14</td>
+            <td style="width: 300px">
+                तिरपाल एवं सिलाई मशीनों की पर्याप्त उपलब्धता है अथवा नहीं</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या क्रय स्कंध के बोरो की डबल सिलाई की जा रही है?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                &nbsp;डबल सिलाई न होने से कितने ट्रक गोदाम से रिजेक्ट हुए |</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या बोरो पर स्टेंसिल एवं टैग लगाये जा रहे है?&nbsp; </td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                स्टेंसिल एवं टैग ना होने से कितने ट्रक गोदाम से रिजेक्ट हुए |</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या संस्था द्वारा कृषको के रिजेक्ट स्कंध के सेम्पल सुरक्षित रखे गए है तथा पंजी 
+                में विवरण दर्ज किया गया है |</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या खरीदी केंद्र पर वांछित अभिलेखों का संधारण किया जा रहा है ? यदि नहीं तो नीचे 
+                विवरण लिखे</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                निरीक्षण के दौरान खरीदी केंद्र पर गुणवत्ता में कमी के कारण रिजेक्ट किये गए स्टॉक 
+                की मात्रा तथा रिजेक्सन का कारण (एनालिसिस रिपोर्ट संलग्न करें)</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                वाररदाना गठानो की संख्या व गुणवत्ता | </td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                &nbsp;</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                &nbsp;</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                &nbsp;</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या ख़रीदे स्टॉक का वजन मानक भर्ती का है ? यदि वजन में अंतर है तो कारण सहित 
+                विवरण</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                कृषको को भुगतान किस दिनाँक तक का किया गया है ?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या 3 दिन से अधिक विलम्ब हो रहा है ?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                क्या इलेक्ट्रोनिक तौल काँटा तथा समीपस्थ धर्मकांटा का सत्यापन किया गया है ?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                धान उपार्जन की स्थिति में क्या बोरो को पलटकर धान की भर्ती की जा रही है ?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                निरीक्षण दिनाँक तक गोदाम से कितने ट्रक एवं मात्रा के अस्वीकृति पत्रक जारी किये 
+                गए ?</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                किस दिनाँक तक के स्वीकृति पत्रक प्राप्त किये गए है |</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                खरीदी केंद्र पर डबल सिलाई किये, स्टेंसिल एवं टैग लगे बोरे की संख्या जो परिवहन के 
+                लिए तैयार है |</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td style="width: 300px">
+                अन्य कोई महत्वपूर्ण बिन्दु</td>
+            <td style="width: 131px">
+                &nbsp;</td>
+            <td style="width: 179px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    
+
+
+</asp:Content>
+

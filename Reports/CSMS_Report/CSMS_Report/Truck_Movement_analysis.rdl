@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="csms">
+      <DataSourceReference>csms</DataSourceReference>
+      <rd:DataSourceID>21c41d26-c612-4cc1-9123-80c25e3d8f01</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>0.5in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="Transporter">
+      <DataType>String</DataType>
+      <Prompt>Transporter</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Dist_Id">
+      <DataType>String</DataType>
+      <Prompt>Dist_Id</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Month">
+      <DataType>String</DataType>
+      <Prompt>Month</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Transporter_Name">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Transporter_Name</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox2">
+        <Left>5.625in</Left>
+        <ZIndex>4</ZIndex>
+        <Width>2.125in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>= "Transporter Name: " &amp; Parameters!Transporter_Name.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox9">
+        <Left>2.375in</Left>
+        <ZIndex>3</ZIndex>
+        <Width>1.125in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Year: " &amp; Parameters!Year.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox1">
+        <Left>1.25in</Left>
+        <ZIndex>2</ZIndex>
+        <Width>1.125in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Month: " &amp; MonthName(Parameters!Month.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <Left>3.5in</Left>
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <ZIndex>1</ZIndex>
+        <Width>2.125in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="District: " &amp; Fields!district_name.Value</Value>
+      </Textbox>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>TopCenter</Position>
+          <Layout>Row</Layout>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title />
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Truck Number</Caption>
+              <Style>
+                <FontWeight>700</FontWeight>
+                <FontSize>8pt</FontSize>
+                <FontStyle>Italic</FontStyle>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <Left>0.125in</Left>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>ds_tmanal</DataSetName>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Alloted Qty. </Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Deposited Qty.</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>0.375in</Top>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>LightGrey</BackgroundColor>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Qty. in Qtls.</Caption>
+              <Style>
+                <FontWeight>700</FontWeight>
+                <FontSize>8pt</FontSize>
+                <FontStyle>Italic</FontStyle>
+              </Style>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Column</Type>
+        <Width>8.5in</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Vehicle_No.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!Vehicle_No.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Round(Fields!Qty_send.Value,5)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!Qty_send.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Round(Fields!Recd_Qty.Value,5)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!Recd_Qty.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>Purple</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+    </ReportItems>
+    <Height>2.625in</Height>
+  </Body>
+  <PageHeader>
+    <ReportItems>
+      <Textbox Name="textbox8">
+        <Left>2.75in</Left>
+        <Top>0.25in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>2.0625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Value>Truck Movement Details</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.46875in</Left>
+        <Width>4.78125in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Madhya Pradesh State Civil Supplies Corporation "</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.5in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+  </PageHeader>
+  <rd:ReportID>a5ab09eb-e02d-4188-99ba-fd579c265a64</rd:ReportID>
+  <LeftMargin>0.5in</LeftMargin>
+  <DataSets>
+    <DataSet Name="ds_tmanal">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT        Lift_A_RO.*, tbl_MetaData_STORAGE_COMMODITY .Commodity_Name AS Commodity_Name, tbl_MetaData_DEPOT.DepotName AS DepotName, 
+
+                         districtsmp.district_name AS district_name, DepoCode.DepoName AS DepoName,Transport_Order_againstRo.TO_Date,Transport_Order_againstRo.Quantity, 
+
+tbl_Receipt_Details.Arrival_time,tbl_Receipt_Details.Recd_Qty,tbl_Receipt_Details.arrival_date
+
+FROM            dbo.Lift_A_RO LEFT JOIN
+                         dbo.tbl_MetaData_STORAGE_COMMODITY ON Lift_A_RO.Commodity = tbl_MetaData_STORAGE_COMMODITY .Commodity_ID LEFT JOIN
+                         dbo.tbl_MetaData_DEPOT ON Lift_A_RO.Issue_center = tbl_MetaData_DEPOT.DepotID LEFT JOIN
+                         pds.districtsmp ON Lift_A_RO.Dist_Id = districtsmp.district_code
+ LEFT JOIN
+                         DepoCode ON Lift_A_RO.FCIdepo = DepoCode.DepoCode
+                     left join dbo.Transport_Order_againstRo on  Lift_A_RO.TO_Number= Transport_Order_againstRo.TO_Number  and Lift_A_RO.Send_District= Transport_Order_againstRo.toDistrict  and Lift_A_RO.Issue_center=Transport_Order_againstRo.toIssueCenter
+ and Transport_Order_againstRo.Transporter_Name=@Transporter
+
+left join  dbo.tbl_Receipt_Details on Lift_A_RO.TO_Number= tbl_Receipt_Details.TO_Number and tbl_Receipt_Details.Transporter=@Transporter and  Lift_A_RO.Challan_No=tbl_Receipt_Details.challan_no
+
+where Lift_A_RO.Month =@Month  and Lift_A_RO.Year=@Year  and Lift_A_RO.Dist_Id=@Dist_Id and Lift_A_RO.Transporter=@Transporter
+
+order by  Lift_A_RO.RO_NO</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Transporter">
+            <Value>=Parameters!Transporter.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Month">
+            <Value>=Parameters!Month.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Dist_Id">
+            <Value>=Parameters!Dist_Id.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>csms</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Dist_Id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Dist_Id</DataField>
+        </Field>
+        <Field Name="RO_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RO_No</DataField>
+        </Field>
+        <Field Name="RO_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>RO_Date</DataField>
+        </Field>
+        <Field Name="RO_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>RO_Qty</DataField>
+        </Field>
+        <Field Name="Commodity">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity</DataField>
+        </Field>
+        <Field Name="Scheme">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Scheme</DataField>
+        </Field>
+        <Field Name="Balance_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Balance_Qty</DataField>
+        </Field>
+        <Field Name="FCIdistrict">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdistrict</DataField>
+        </Field>
+        <Field Name="FCIdepo">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdepo</DataField>
+        </Field>
+        <Field Name="FCIdepotype">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FCIdepotype</DataField>
+        </Field>
+        <Field Name="TO_Number">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TO_Number</DataField>
+        </Field>
+        <Field Name="Transporter">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Transporter</DataField>
+        </Field>
+        <Field Name="Vehicle_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Vehicle_No</DataField>
+        </Field>
+        <Field Name="Challan_No">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Challan_No</DataField>
+        </Field>
+        <Field Name="Challan_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Challan_Date</DataField>
+        </Field>
+        <Field Name="Qty_send">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Qty_send</DataField>
+        </Field>
+        <Field Name="Category">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Category</DataField>
+        </Field>
+        <Field Name="Crop_year">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Crop_year</DataField>
+        </Field>
+        <Field Name="Godown">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Godown</DataField>
+        </Field>
+        <Field Name="Gunny_type">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Gunny_type</DataField>
+        </Field>
+        <Field Name="No_of_Bags">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>No_of_Bags</DataField>
+        </Field>
+        <Field Name="Send_District">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Send_District</DataField>
+        </Field>
+        <Field Name="Issue_center">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Issue_center</DataField>
+        </Field>
+        <Field Name="GatePass_id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>GatePass_id</DataField>
+        </Field>
+        <Field Name="Dispatch_Time">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Dispatch_Time</DataField>
+        </Field>
+        <Field Name="Moisture">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Moisture</DataField>
+        </Field>
+        <Field Name="Month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Month</DataField>
+        </Field>
+        <Field Name="Year">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Year</DataField>
+        </Field>
+        <Field Name="Created_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Created_Date</DataField>
+        </Field>
+        <Field Name="Updated_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Updated_date</DataField>
+        </Field>
+        <Field Name="Deleted_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>Deleted_date</DataField>
+        </Field>
+        <Field Name="IsRecieved">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>IsRecieved</DataField>
+        </Field>
+        <Field Name="IP_Address">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>IP_Address</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+        <Field Name="DepotName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepotName</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="DepoName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepoName</DataField>
+        </Field>
+        <Field Name="TO_Date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>TO_Date</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="Arrival_time">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Arrival_time</DataField>
+        </Field>
+        <Field Name="Recd_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Recd_Qty</DataField>
+        </Field>
+        <Field Name="arrival_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>arrival_date</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>9in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

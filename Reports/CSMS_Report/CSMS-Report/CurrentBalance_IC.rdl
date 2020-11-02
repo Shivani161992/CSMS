@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="dsform13">
+      <DataSourceReference>dsform13</DataSourceReference>
+      <rd:DataSourceID>e833c830-71a1-4d56-90cc-5e3ebe080b43</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>0.5in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="DistID">
+      <DataType>String</DataType>
+      <Prompt>DistID</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="DepotID">
+      <DataType>String</DataType>
+      <Prompt>DepotID</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Left>3.625in</Left>
+        <Top>0.875in</Top>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <ZIndex>10</ZIndex>
+        <Width>1.625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="IssueCenter: " &amp;First(Fields!DepotName.Value)</Value>
+      </Textbox>
+      <Textbox Name="textbox13">
+        <Left>0.875in</Left>
+        <Top>1.125in</Top>
+        <ZIndex>9</ZIndex>
+        <Width>0.875in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>MONTH</Value>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <Left>0.875in</Left>
+        <Top>0.875in</Top>
+        <ZIndex>8</ZIndex>
+        <Width>2.375in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Stock Position As On : " &amp; Day(Today()) &amp;"-" &amp; Month(Today()) &amp;"-" &amp; Year(Today())</Value>
+      </Textbox>
+      <Textbox Name="textbox8">
+        <Left>3.5625in</Left>
+        <Top>0.375in</Top>
+        <ZIndex>7</ZIndex>
+        <Width>1.875in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>Current Stock Balance</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.9375in</Left>
+        <ZIndex>6</ZIndex>
+        <Width>5.5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>M.P. STATE CIVIL SUPPLIES CORPORATION LIMITED</Value>
+      </Textbox>
+      <Textbox Name="textbox19">
+        <Left>2.625in</Left>
+        <Top>1.125in</Top>
+        <ZIndex>5</ZIndex>
+        <Width>0.625in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>SCHEME</Value>
+      </Textbox>
+      <Textbox Name="textbox28">
+        <Left>3.25in</Left>
+        <Top>1.125in</Top>
+        <ZIndex>4</ZIndex>
+        <Width>0.875in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>OPENING           Qty in Qtls.</Value>
+      </Textbox>
+      <Textbox Name="textbox20">
+        <Left>1.75in</Left>
+        <Top>1.125in</Top>
+        <ZIndex>3</ZIndex>
+        <Width>0.875in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>COMMODITY</Value>
+      </Textbox>
+      <Textbox Name="textbox26">
+        <Left>4.125in</Left>
+        <Top>1.125in</Top>
+        <ZIndex>2</ZIndex>
+        <Width>1.25in</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>CURRENT BALANCE   Qty in Qtls.</Value>
+      </Textbox>
+      <Textbox Name="textbox12">
+        <Left>3.625in</Left>
+        <Top>0.625in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>2.875in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="District : " &amp; Fields!district_name.Value</Value>
+      </Textbox>
+      <Table Name="table1">
+        <Left>0.875in</Left>
+        <DataSetName>CSIC</DataSetName>
+        <Top>1.5in</Top>
+        <TableGroups>
+          <TableGroup>
+            <Grouping Name="IC">
+              <GroupExpressions>
+                <GroupExpression>=Fields!DepotName.Value</GroupExpression>
+                <GroupExpression>=Fields!Month.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+          </TableGroup>
+          <TableGroup>
+            <Footer>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox17">
+                          <ZIndex>9</ZIndex>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontStyle>Italic</FontStyle>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox18">
+                          <ZIndex>8</ZIndex>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox21">
+                          <ZIndex>7</ZIndex>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox23">
+                          <ZIndex>6</ZIndex>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox24">
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <FontWeight>700</FontWeight>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Round(Sum(Fields!Balance.Value),2)</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.25in</Height>
+                </TableRow>
+              </TableRows>
+            </Footer>
+            <Grouping Name="Commodity">
+              <GroupExpressions>
+                <GroupExpression>=Fields!Commodity_Id.Value</GroupExpression>
+                <GroupExpression>=Fields!Month.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+          </TableGroup>
+        </TableGroups>
+        <Width>4.5in</Width>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox27">
+                      <HideDuplicates>IC</HideDuplicates>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(MonthName(Fields!Month.Value).ToString()&lt;&gt;"NULL",MonthName(Fields!Month.Value),0)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox29">
+                      <HideDuplicates>IC</HideDuplicates>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Commodity_Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox30">
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Scheme_Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox32">
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Fields!Quantity.Value=0,0,Fields!Quantity.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox33">
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Round(Fields!Balance.Value,2)=0,0,Round(Fields!Balance.Value,2))</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.25in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>0.5in</Height>
+      </Table>
+    </ReportItems>
+    <Height>2.875in</Height>
+  </Body>
+  <rd:ReportID>2a8a63ef-d242-4723-9d2f-67b79ed67214</rd:ReportID>
+  <LeftMargin>0.5in</LeftMargin>
+  <DataSets>
+    <DataSet Name="CSIC">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>select  dbo.tbl_MetaData_DEPOT.DepotName,tbl_MetaData_DEPOT.DepotID,tbl_MetaData_STORAGE_COMMODITY . Commodity_Name,issue_opening_balance.Commodity_Id,districtsmp .district_name,tbl_MetaData_DCP_S.Scheme_Name, issue_opening_balance.Quantity, Sum
+
+(issue_opening_balance.Current_Balance)   as Balance,issue_opening_balance.Month  from dbo.tbl_MetaData_DEPOT
+
+left Join dbo.issue_opening_balance on tbl_MetaData_DEPOT .DepotID= issue_opening_balance.Depotid  
+
+left join dbo.tbl_MetaData_STORAGE_COMMODITY on tbl_MetaData_STORAGE_COMMODITY . Commodity_Id=issue_opening_balance.Commodity_Id
+
+left join dbo.tbl_MetaData_DCP_S on tbl_MetaData_DCP_S.Scheme_Id=issue_opening_balance.Scheme_Id
+
+left join pds.districtsmp on districtsmp .district_code=Substring(@DistID,3,2)
+
+
+where  tbl_MetaData_DEPOT.DepotID=@DepotID
+
+group by tbl_MetaData_DEPOT.DepotName,tbl_MetaData_STORAGE_COMMODITY . Commodity_Name,tbl_MetaData_DCP_S.Scheme_Name,districtsmp .district_name,issue_opening_balance.Quantity,issue_opening_balance.Commodity_Id,issue_opening_balance.Month,tbl_MetaData_DEPOT.DepotID
+
+order by issue_opening_balance.Month</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@DistID">
+            <Value>=Parameters!DistID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DepotID">
+            <Value>=Parameters!DepotID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>dsform13</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="DepotName">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepotName</DataField>
+        </Field>
+        <Field Name="DepotID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DepotID</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+        <Field Name="Commodity_Id">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Id</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="Scheme_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Scheme_Name</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="Balance">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Balance</DataField>
+        </Field>
+        <Field Name="Month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Month</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>9in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

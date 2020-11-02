@@ -1,0 +1,26 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class mpproc_MasterPage_AdminMasterPage : System.Web.UI.MasterPage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["admin"].ToString() == "admin")
+        {
+            lbl_logInfo.Text = " Admin";
+        }
+        else {
+
+            Response.Redirect("../sessionexpired.aspx");
+        
+        }
+    }
+}

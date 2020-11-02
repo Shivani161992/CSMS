@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="IssueMaster.master.cs" Inherits="MasterPage2" Debug ="true" %>
+ 
+<%@ Register Assembly="CustomControlFreak" Namespace="CustomControlFreak" TagPrefix="cc1" %>
+<%@ Register TagPrefix="ucl" TagName="header" Src="~/Controls/header.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="rightpanel" Src="~/Controls/rightpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Wel Come Issue Center</title>
+    <link rel="Stylesheet" href="../MyCss/Comon.css" type="text/css" />
+    <link rel="stylesheet" href ="../MyCss/menu.css"  type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+
+    
+    
+    <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+    
+    
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main">
+        <div id="header">
+            <asp:Image ID="Image1" runat="server" ImageUrl ="~/Images/scsc.jpg" />
+        </div>
+        <div id="divwel" style="width: 780px">
+            Welcome :<asp:Label ID="Label1" runat="server" Text="" Font-Italic ="true" Font-Bold ="true"  ></asp:Label>|Issue Center |<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/IssueCenter/FrmLogOut.aspx">SignOut</asp:LinkButton>
+        </div>
+        <div id="divwelTitle">
+            <asp:Label ID="lblissutitle" runat="server" Font-Italic ="True" Font-Bold ="True" ForeColor="#404000"  ></asp:Label> 
+        </div>
+    </div>
+    
+        
+      <div id="menumargin">
+       <table border="0" cellpadding="0" cellspacing="0" class ="menumargin1">
+        <tr>
+        <td rowspan ="3" class ="menumargin" valign ="top" style="height: 399px">
+         <asp:Panel ID="Panel1" runat="server" Height="380px" Width="150px" ScrollBars="Auto">
+        <div id="my_menu" class="sdmenu">
+
+
+<div>
+<span>आरंभीकरण</span>
+
+    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/IssueCenter/Opening_Balances_Hindi.aspx">प्ररंभिक अवशेष </asp:HyperLink> 
+        
+</div>
+<div>
+<span>प्राप्ति विवरण</span>
+
+<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/IssueCenter/mpsc_move_challan.aspx">प्राप्ति विवरण </asp:HyperLink>
+<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl ="~/IssueCenter/mpsc_gatepass_page.aspx">सम्पादित प्राप्ति विवरण</asp:HyperLink>
+<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/IssueCenter/EditMovement_page.aspx">प्राप्ति विवरण सुधारे </asp:HyperLink>
+<asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/IssueCenter/RR_Entry.aspx">आर. आर. विवरण</asp:HyperLink>
+
+
+
+</div>
+
+<div>
+<span>डिस्पैच विवरण</span>
+<asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/IssueCenter/mpscsc_TruckChallan.aspx">ट्रक चालान </asp:HyperLink>
+    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/IssueCenter/delivery.aspx">डिलेवरी  विवरण</asp:HyperLink> 
+    <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/IssueCenter/Edit_delivery.aspx">डिलेवरी  विवरण  सुधारे</asp:HyperLink> 
+    <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/IssueCenter/Pending_Do_Print.aspx">डिलेवरी का  विचाराधीन विवरण</asp:HyperLink> 
+    <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/IssueCenter/Pending_TruckChallan.aspx">ट्रक चालान का विचाराधीन विवरण </asp:HyperLink> 
+</div>
+<div>
+<span>मास्टर</span>
+<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/IssueCenter/Scheme_Transfer.aspx">योजना स्थानांतरित </asp:HyperLink>
+<asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/IssueCenter/leadsoc_creat.aspx">लीड संस्था मास्टर </asp:HyperLink>
+<asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/IssueCenter/Bank_Master.aspx">बैंक मास्टर </asp:HyperLink>
+<asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/IssueCenter/issueagainst_do.aspx" >इशू अगेंस्ट डिलेवरी आर्डर </asp:HyperLink>
+</div>
+<div>
+<span>रिपोर्टस</span>  
+  <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/IssueCenter/Truck_Movement_Details.aspx" >ट्रक मूवमेंट विवरण</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/IssueCenter/frmReports.aspx" >रिपोर्टस देंखे  </asp:HyperLink>
+</div>
+<div>
+<span>पासवर्ड बद्ले </span>  
+  <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/IssueCenter/ChangePassword_Issue.aspx" >पासवर्ड बद्ले </asp:HyperLink>
+    
+</div>
+</div></asp:Panel> 
+        </td>
+       
+            <td class="middleContainer" valign="top" style="height: 399px">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table> 
+    </div>
+    <div id="footer" style="width: 792px">
+    
+          <div id="footerarea">
+            <ucl:footer ID="foot" runat="server" />
+        </div>        
+        
+    </div>
+   
+    </form>    
+</body>
+</html>
+

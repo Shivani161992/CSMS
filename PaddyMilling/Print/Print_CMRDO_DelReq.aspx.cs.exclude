@@ -1,0 +1,126 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
+public partial class PaddyMilling_Print_Print_CMRDO_DelReq : System.Web.UI.Page
+{
+    SqlConnection con, con_MPStorage;
+    SqlCommand cmd;
+    SqlDataAdapter da;
+    DataSet ds;
+
+    string strcon = ConfigurationManager.ConnectionStrings["constr"].ConnectionString; //CSMS
+    string strcon_MPStorage = ConfigurationManager.ConnectionStrings["connstorage"].ConnectionString; //Integrated_MP_Storage
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["dist_id"] != null)
+        {
+            if (!IsPostBack)
+            {
+                lblDelReqNo.Text = Session["DelReq_CMRDO"].ToString();
+                GetDepositNOData();
+            }
+        }
+        else
+        {
+            Response.Redirect("~/MainLogin.aspx");
+        }
+    }
+
+    public void GetDepositNOData()
+    {
+        using (con = new SqlConnection(strcon))
+        {
+            try
+            {
+                con.Open();
+
+                string select = "Select CreatedDate,GETDATE() As CurrentDateTime,Del.CMR_DO, Dist.district_name,Del.CropYear,MR.Mill_Name,Del.Agreement_ID,Del.Lot_No,Del.IssueCenter,Del.Godown_id From CMR_DepositOrder_DelReq As Del Left Join pds.districtsmp As Dist ON(Dist.district_code=Del.District) Left Join Miller_Registration As MR ON(MR.Registration_ID=Del.Mill_ID and MR.CropYear=Del.CropYear) where Del.DelReq_No='" + lblDelReqNo.Text + "'";
+                da = new SqlDataAdapter(select, con);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    lblDistManagerName.Text = ds.Tables[0].Rows[0]["district_name"].ToString();
+
+                    DateTime CretedDateDate = DateTime.Parse(ds.Tables[0].Rows[0]["CreatedDate"].ToString());
+                    lblChallanDate.Text = CretedDateDate.ToString("dd/MMM/yyyy");
+
+                    lblCropYear.Text = ds.Tables[0].Rows[0]["CropYear"].ToString();
+                    lblCMRDO.Text = ds.Tables[0].Rows[0]["CMR_DO"].ToString();
+                    lblMillName.Text = ds.Tables[0].Rows[0]["Mill_Name"].ToString();
+                    lblAgrmtID.Text = ds.Tables[0].Rows[0]["Agreement_ID"].ToString();
+                    lblLotNo.Text = "Lot" + ds.Tables[0].Rows[0]["Lot_No"].ToString();
+                    lblIC.Text = ds.Tables[0].Rows[0]["IssueCenter"].ToString();
+                    lblGodown.Text = ds.Tables[0].Rows[0]["Godown_id"].ToString();
+
+                    GetGodownName();
+
+                    string QRGridDetails = "";
+
+                    QRGridDetails = "CMR_Rec_Dist=" + lblDistManagerName.Text + ", Deposit_No=" + lblDepositNo.Text + ", CropYear=" + lblCropYear.Text + ", Agrmt_No=" + lblAgrmtNo.Text + ", Lot_NO=" + lblLotNo.Text + ",DO_NO='" + lblDoNO.Text + "',Paddy_Agrmt_Dist='" + lblAgrmtDist.Text + "'  ";
+                    ImgQRCode.ImageUrl = ImgQRCode.ImageUrl = "https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=" + QRGridDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                Page.RegisterClientScriptBlock("mymsg1", "<script language=javascript> alert('" + ex.Message + "'); </script> ");
+            }
+
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+        }
+    }
+
+    public void GetGodownName()
+    {
+        using (con_MPStorage = new SqlConnection(strcon_MPStorage))
+        {
+            try
+            {
+                con_MPStorage.Open();
+                string select = string.Format("select (select DepotName from tbl_MetaData_DEPOT where DepotId='" + lblIC.Text + "') As ICName,(select Godown_Name from tbl_MetaData_GODOWN where Godown_ID='" + lblGodown.Text + "') As Godown_Name");
+                da = new SqlDataAdapter(select, con_MPStorage);
+
+                ds = new DataSet();
+                da.Fill(ds);
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        lblIC.Text = ds.Tables[0].Rows[0]["ICName"].ToString();
+                        lblGodown.Text = ds.Tables[0].Rows[0]["Godown_Name"].ToString();
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Page.RegisterClientScriptBlock("mymsg1", "<script language=javascript> alert('" + ex.Message + "'); </script> ");
+            }
+
+            finally
+            {
+                if (con_MPStorage.State != ConnectionState.Closed)
+                {
+                    con_MPStorage.Close();
+                }
+            }
+        }
+    }
+}

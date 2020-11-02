@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="dsform13">
+      <DataSourceReference>dsform13</DataSourceReference>
+      <rd:DataSourceID>2334b529-3827-4638-a359-95590d887ddd</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>0.5in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="Month">
+      <DataType>String</DataType>
+      <Prompt>Month</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Division">
+      <DataType>String</DataType>
+      <Prompt>Division</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="DistName">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>DistName</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontSize>8pt</FontSize>
+          </Style>
+          <Position>TopCenter</Position>
+          <Layout>Row</Layout>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title />
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>District Name</Caption>
+            </Title>
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>ds_lift_sa</DataSetName>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>Allotment Qty</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>Lifted Qty</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>0.25in</Top>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>LightGrey</BackgroundColor>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Quantity In Qtls.</Caption>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <ZIndex>2</ZIndex>
+        <Type>Column</Type>
+        <Width>8.75in</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!district_name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!district_name.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Allotment_Qty.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Arial Narrow</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!Allotment_Qty.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>#8080ff</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!Lifted_Qty.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>.</Format>
+                  </Style>
+                  <Value>=Sum(Fields!Lifted_Qty.Value)</Value>
+                  <Position>Top</Position>
+                  <Rotation>-90</Rotation>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Style>
+                  <BackgroundColor>SteelBlue</BackgroundColor>
+                </Style>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+      <Textbox Name="textbox1">
+        <Left>4.5in</Left>
+        <ZIndex>1</ZIndex>
+        <Width>2.375in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Division: " &amp; Parameters!DistName.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Left>1.25in</Left>
+        <rd:DefaultName>textbox5</rd:DefaultName>
+        <Width>3.25in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Year : " &amp; Parameters!Year.Value &amp; "    Month  :" &amp; MonthName (Parameters!Month.Value)</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>2.875in</Height>
+  </Body>
+  <PageHeader>
+    <ReportItems>
+      <Textbox Name="textbox25">
+        <Left>3.125in</Left>
+        <Top>0.375in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>2.40625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontWeight>700</FontWeight>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Value>Lifting Against State Allocation</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <Left>1.46875in</Left>
+        <Width>6.0625in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontSize>14pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.375in</Height>
+        <Value>Madhya Pradesh State Civil Supplies Corporation Limited</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.625in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+  </PageHeader>
+  <rd:ReportID>ad8faba4-295e-456a-bd49-ead54a7b3117</rd:ReportID>
+  <LeftMargin>0.5in</LeftMargin>
+  <DataSets>
+    <DataSet Name="ds_lift_sa">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT       division.Division_code,division.Division,districtsmp.district_name AS district_name,districtsmp.district_code,District_Alloc.*,tbl_MetaData_STORAGE_COMMODITY .Commodity_Name,tbl_MetaData_SCHEME.Scheme_Name
+
+
+        FROM dbo.division LEFT JOIN  pds.districtsmp ON division.Division_code=districtsmp.Division_code
+ Left Join 
+
+dbo.District_Alloc on districtsmp.district_code=District_Alloc.district_code and   District_Alloc.month =@Month and District_Alloc.year=@Year
+
+left join dbo.tbl_MetaData_STORAGE_COMMODITY on  District_Alloc.Commodity_ID=tbl_MetaData_STORAGE_COMMODITY .Commodity_ID
+left join dbo.tbl_MetaData_SCHEME on District_Alloc.Scheme_ID=tbl_MetaData_SCHEME.Scheme_ID
+ where  pds.districtsmp. Division_code= @Division
+
+order by districtsmp.district_name</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@Month">
+            <Value>=Parameters!Month.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Division">
+            <Value>=Parameters!Division.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <DataSourceName>dsform13</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="Division_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division_code</DataField>
+        </Field>
+        <Field Name="Division">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Division</DataField>
+        </Field>
+        <Field Name="district_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_name</DataField>
+        </Field>
+        <Field Name="district_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="district_code_1">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>district_code</DataField>
+        </Field>
+        <Field Name="Month">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Month</DataField>
+        </Field>
+        <Field Name="Year">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>Year</DataField>
+        </Field>
+        <Field Name="Commodity_ID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_ID</DataField>
+        </Field>
+        <Field Name="Scheme_ID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Scheme_ID</DataField>
+        </Field>
+        <Field Name="Allotment_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Allotment_Qty</DataField>
+        </Field>
+        <Field Name="Balance_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Balance_Qty</DataField>
+        </Field>
+        <Field Name="Lifted_Qty">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Lifted_Qty</DataField>
+        </Field>
+        <Field Name="Commodity_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Commodity_Name</DataField>
+        </Field>
+        <Field Name="Scheme_Name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Scheme_Name</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>8.875in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>

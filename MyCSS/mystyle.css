@@ -1,0 +1,294 @@
+﻿body 
+{
+	font-family :Verdana ;
+	font-size:10px; 
+
+margin :0px 0px 0px 0px;
+padding :0;
+
+}
+
+.tblmain
+{
+	width:900px;
+	margin-left :30px;
+	text-align :center ;
+}
+.contentbody
+{
+height:280px;	
+}
+.footer
+{
+	background:url(../images/footer_bg.gif) repeat-x 0 0 #2F2F1B; 
+	color:#C3C491; 
+	width:900px;
+	margin-left :0px;
+	margin-right :0px;
+	text-align :center;
+	text-decoration :none;
+	padding :10px 0px 10px 0px;
+	}
+	
+	
+.footermenu a
+{
+	
+	font-family :Verdana ;
+	font-size:10px; 
+	font-weight :bold ;
+	text-decoration :none;
+	color:White;
+	padding-right :5px;
+	padding-left :5px;
+	border-right :solid 1px white;
+	}
+.footermenu a:hover
+{
+	color:#C3C491;
+}
+.footer p{
+	text-align:center; 
+	margin:4px 0 0 0;
+	font-size:13px;
+	 line-height:16px;
+	}
+.footer p a{
+	color:#FFFFFF; 
+	text-decoration:none;
+	background-color:inherit;
+	}
+.footer p a:hover{
+	color:#C3C491;
+	background-color:inherit;
+	}
+
+.gridmain
+{
+	
+	background-color :white ;
+	width:900px;
+	
+}
+.gridtable
+{
+	width:700px;
+	border :solid 1px gray;
+}
+.gridtable td
+{
+	line-height :25px;
+	
+}
+.gridhead
+{
+	color :White ;
+	border :solid 1px red;
+	line-height :30px;
+	background-color :Gray ;
+	font-family :Verdana ;
+	font-size :16px;
+	font-weight :bold ;
+	text-align :center ;
+}
+.gridlabel
+{
+	font-family :Verdana ;
+	font-size :12px;
+	font-weight :bold ;
+	text-align :right ;
+	padding-right :12px;
+	border-bottom  :solid 1px gray;
+	
+}
+.gridvalue
+{
+	text-align :left ;
+	font-family :Verdana ;
+	font-size :12px;
+	border-bottom  :solid 1px gray;
+}
+
+
+#welcome
+{
+	font-size :14px;
+	color:Red;
+}
+#welcome b
+{
+	font-size :16px;
+	color:gray;
+} 
+#welcome h2
+{
+	color:Red;
+}
+#welcome h3
+{
+	color:black;
+}
+
+#topHead
+{
+	line-height:50px;
+	background-color :Gray;
+	color:White;
+	font-family :Verdana ;
+	font-size :12px;
+	font-weight :bold;
+	width:900px;
+	padding-left :20px;
+}
+#topHead td
+{
+	padding :5px 5px 5px 5px;
+}
+#topHead li
+{
+	
+}
+#topHead a
+{
+	color:Maroon  ;
+	text-decoration :none;
+}
+#topHead a:hover
+{
+	color:White   ;
+}
+
+.gridheader
+{
+	background-color :#A6A0A0 ;
+	height :30px;
+	text-align :center ;
+	font-family :Verdana ;
+	font-size :12px;
+	font-weight :bold ;
+	color:#0E4761;
+}
+.griditem
+{
+font-family :Verdana ;
+font-size :12px;
+line-height:22px;
+text-align :center ;
+background-color :#F9EBEB ;
+
+}
+
+.gridfooter
+{
+width :900px;
+background-color:Gray ;	
+text-align :center ;
+padding :10px 0px 10px 0px;
+border :solid 1px black;
+}
+
+.treetable
+{
+text-align :center ;
+
+font-size :14px;
+font-weight :bold ;
+}
+
+.treetable a
+{
+	text-decoration :none;
+	color:Black;
+	border :0;
+	border :solid 0px red;
+
+}
+.treetable a:hover
+{
+	color:red;
+	
+}
+#tree
+{
+padding :20px 0px 20px 0px;	
+}
+
+.TopComment
+{
+font-family :Verdana;
+font-size :12px;
+color :Maroon ;	
+}
+
+.boxbody
+{
+	text-align :center ;
+	width :900px;
+}
+.boxbody td
+{
+line-height:30px;
+}
+
+.regtable
+{
+	width:600px;
+	color :White ;
+	border :solid 1px black;
+	line-height :30px;
+	background-color :#665b96 ;
+	font-family :Verdana ;
+	font-size :12px;
+	font-weight :bold ;
+	text-align :center ;
+	
+}
+.reglabel
+{
+	font-family :Verdana ;
+	font-size :11px;
+	font-weight :bold ;
+	text-align :left ;
+	padding-right :12px;
+	padding-left :10px;
+	padding-top :10px;
+	padding-bottom :5px;
+	
+}
+.regdata
+{
+	font-family :Verdana ;
+	font-size :11px;
+	font-weight :bold ;
+	text-align :left ;
+	padding-right :12px;
+	padding-left :10px;
+	padding-top :10px;
+	padding-bottom :5px;
+	width :50%;
+}
+.reglabletd
+{
+	
+	background-color :ActiveCaption ;
+}
+#gridlayout
+{	
+	background-color:White ;
+	width:900px;
+	border :solid 1px gray
+	
+}
+#regtablec
+{
+	width:900px;
+	color :White ;
+	border :solid 1px black;
+	line-height :30px;
+	background-color :Gray ;
+	font-family :Verdana ;
+	font-size :16px;
+	font-weight :bold ;
+	text-align :left ;
+	
+}

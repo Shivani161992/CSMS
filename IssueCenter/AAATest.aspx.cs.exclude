@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Text.RegularExpressions;
+
+public partial class IssueCenter_AAATest : System.Web.UI.Page
+{
+    SqlConnection con;
+    SqlCommand cmd;
+
+    string IC_Id = "", Dist_Id = "";
+
+    string Con_CSMS = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;      //CSMS
+    string Con_Paddy = ConfigurationManager.AppSettings["Appconstr_PPMS2016"].ToString(); //PPMS 2016
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        using (TransactionScope scope = new TransactionScope())
+        {
+            using (con = new SqlConnection(Con_CSMS))
+            {
+                try
+                {
+                    Dist_Id = Session["dist_id"].ToString();
+                    con.Open();
+
+                    string instr = "Insert Into aaaa(d,n) Values('1',2)";
+                    cmd = new SqlCommand(instr, con);
+                    int count = cmd.ExecuteNonQuery();
+
+                    if (count > 0)
+                    {
+                        Page.RegisterClientScriptBlock("mymsg2", "<script language=javascript> alert('Data Inserted Successfully....'); </script> ");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Page.RegisterClientScriptBlock("mymsg1", "<script language=javascript> alert('" + ex.Message + "'); </script> ");
+                    return;
+                }
+
+                finally
+                {
+                    if (con.State != ConnectionState.Closed)
+                    {
+                        con.Close();
+                    }
+                }
+            }
+
+            scope.Complete();
+        }
+    }
+}

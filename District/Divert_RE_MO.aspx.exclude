@@ -1,0 +1,169 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/SCSC_master.master" AutoEventWireup="true" CodeFile="Divert_RE_MO.aspx.cs" Inherits="District_Divert_RE_MO" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <script type="text/javascript" lang="javascript" src="../PaddyMilling/Scripts/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../PaddyMilling/Scripts/jquery-ui.js"></script>
+
+    <%--For Calendar Controls--%>
+    <link href="../PaddyMilling/calendar/calendar_orange.css" rel="stylesheet" title="Calendar" />
+    <script type="text/javascript" lang="" src="../PaddyMilling/calendar/calendar.js"></script>
+
+    <%--Allow Only 2 Digit After Decimal--%>
+    <script type="text/javascript" lang="javascript" src="../PaddyMilling/Scripts/Number2D.js"></script>
+
+    <%--Script For Help Option Only Set Background--%>
+    <link href="../PaddyMilling/Scripts/jquery-ui.css" rel="stylesheet" />
+
+    <%--Script For Help Option on Mouse Over--%>
+    <script>
+        $(function () {
+            $(document).tooltip({
+                track: true
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        .ButtonClass {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <table align="center" style="width: 740px; border-style: solid; border-width: 1px; text-align: left" border="1" cellspacing="0" cellpadding="6">
+        <tr>
+            <td colspan="6" style="text-align: center; font-size: large; color: #CC6600"><span style="vertical-align: top; font-weight: bold; text-decoration: underline">Divert Receipt Entry To Other Issue Centre</span>&nbsp;&nbsp;<asp:Image ID="Image3" runat="server" Width="22px" Height="20px" CssClass="ButtonClass" ImageUrl="~/Images/HELP.png" title="प्रेक्षणकर्ता जिले द्वारा जिस प्रदाय केंद्र के लिए डिलीवरी आर्डर जारी किया गया है,यदि प्राप्तकर्ता जिले द्वारा उस डिलीवरी आर्डर के प्रदाय केंद्र में कोई बदलाव किया जाना है,तब इस स्क्रीन का उपयोग करें|" />
+            </td>
+
+        </tr>
+
+        <tr>
+            <td rowspan="9"></td>
+            <td colspan="4" style="text-align: center; background-color: #CCCCCC">
+                <asp:Label ID="Label2" runat="server" Style="text-align: center; color: #FF3300; font-weight: 700;" Text="Label" Visible="False"></asp:Label>
+            </td>
+            <td rowspan="9"></td>
+        </tr>
+
+        <tr>
+            <td>MO Number</td>
+            <td>
+                <asp:DropDownList ID="ddlMONumber" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlMONumber_SelectedIndexChanged">
+                </asp:DropDownList>
+
+            </td>
+            <td>Commodity</td>
+            <td>
+                <asp:TextBox ID="txtComdty" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtComdty" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Crop-Year</td>
+            <td>
+                <asp:TextBox ID="txtCropYear" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="txtCropYear" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+            <td>Mode of Dispatch</td>
+            <td>
+                <asp:TextBox ID="txtDispatch" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtDispatch" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Date of MO</td>
+            <td>
+                <asp:TextBox ID="txtDateMo" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtDateMo" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+            <td>End Date of&nbsp; Transportation</td>
+            <td>
+                <asp:TextBox ID="txtEndDate" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtEndDate" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>From District</td>
+            <td>
+                <asp:TextBox ID="txtFrmDist" runat="server" Width="146px" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtFrmDist" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+            <td>Quantity
+                <asp:Label ID="lblMT" runat="server" Text="" Style="font-weight: 700"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtQuantity" runat="server" Width="146px" ReadOnly="True" Style="text-align: right" Enabled="False"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtQuantity" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True" Display="Dynamic">**</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="4" style="background-color: #CCCCCC">
+
+                <input id="hdfComdtyValue" type="hidden" runat="server" />
+                <input id="hdfDispatchModeValue" type="hidden" runat="server" />
+                <input id="hdfFrmDistValue" type="hidden" runat="server" />
+                <input id="hdfQuantityValue" type="hidden" runat="server" />
+                <input id="hdfModeofDist" type="hidden" runat="server" />
+                <input id="hdfSMOSMO" type="hidden" runat="server" />
+                <input id="hdfCommodity25" type="hidden" runat="server" />
+            </td>
+
+        </tr>
+
+
+        <tr>
+            <td>Issue Center</td>
+            <td>
+                <asp:DropDownList ID="ddlIssueCentre" runat="server" Width="150px" OnSelectedIndexChanged="ddlIssueCentre_SelectedIndexChanged" AutoPostBack="True">
+                </asp:DropDownList>
+            </td>
+            <td>Branch Name</td>
+            <td>
+                <asp:DropDownList ID="ddlBranch" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlBranch_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Godown</td>
+            <td>
+                <asp:DropDownList ID="ddlGodown" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlGodown_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+            <td></td>
+            <td>
+                
+            </td>
+        </tr>
+
+
+        <tr style="background-color: #CCCCCC">
+            <td colspan="4" align="center"></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="6" style="text-align: center; font-size: large;">
+                <asp:Button ID="btnRecptNew" runat="server" BackColor="Silver" BorderColor="#333300" BorderStyle="Solid" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Height="30px" Text="New" Width="115px" CssClass="ButtonClass" CausesValidation="False" OnClick="btnRecptNew_Click" />
+
+                <asp:Button ID="btnRecptSubmit" runat="server" BackColor="Silver" BorderColor="#333300" BorderStyle="Solid" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Height="30px" Text="Submit" Width="115px" CssClass="ButtonClass" Enabled="False" Style="margin-left: 10px" OnClick="btnRecptSubmit_Click" CausesValidation="False" />
+
+                <asp:Button ID="btnPrint" runat="server" BackColor="Silver" BorderColor="#333300" BorderStyle="Solid" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Height="30px" Text="Print" Width="115px" CssClass="ButtonClass" Style="margin-left: 10px" Enabled="False" CausesValidation="False" OnClick="btnPrint_Click" />
+
+                <asp:Button ID="btnRecptClose" runat="server" BackColor="Silver" BorderColor="#333300" BorderStyle="Solid" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Height="30px" Text="Close" Width="115px" CssClass="ButtonClass" CausesValidation="False" Style="margin-left: 10px" OnClick="btnRecptClose_Click" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+</asp:Content>
+

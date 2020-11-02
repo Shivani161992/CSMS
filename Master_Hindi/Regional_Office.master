@@ -1,0 +1,88 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Regional_Office.master.cs" Inherits="MasterPage_Regional_Office" %>
+
+ 
+<%@ Register Assembly="CustomControlFreak" Namespace="CustomControlFreak" TagPrefix="cc1" %>
+<%@ Register TagPrefix="ucl" TagName="header" Src="~/Controls/header.ascx" %>
+
+<%@ Register TagPrefix="ucl" TagName="rightpanel" Src="~/Controls/rightpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Wel Come Regional Office </title>
+    <link rel="Stylesheet" href="../MyCss/Comon.css" type="text/css" />
+    <link rel="stylesheet" href ="../MyCss/menu.css"  type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+
+    
+    
+    <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+    
+    
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main">
+        <div id="header">
+            <asp:Image ID="Image1" runat="server" ImageUrl ="~/Images/scsc.jpg" />
+        </div>
+        <div id="divwelR">
+            Welcome :<asp:Label ID="Label1" runat="server" Text="" Font-Italic ="true" Font-Bold ="true"  ></asp:Label> |<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/FrmLogOut.aspx">SignOut</asp:LinkButton>
+        </div>
+    </div>
+    
+    
+        
+      <div id="menumargin">
+       <table border="0" cellpadding="0" cellspacing="0" class ="menumargin1">
+        <tr>
+        <td rowspan ="10" class ="menumargin" valign ="top">
+        
+        
+<div id="my_menu" class="sdmenu">
+<div>
+<span>Reports</span>  
+<asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/Regional_Office/frmReports.aspx">View Report </asp:HyperLink>
+</div>
+<div>
+<span>Change Password</span>  
+<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Regional_Office/ChangePassword_Region.aspx">Change Password </asp:HyperLink>
+</div>
+</div>
+        </td>
+       
+            <td class="middleContainer" valign="top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table> 
+    </div>
+    <div id="footer">
+    
+          <div id="footerarea">
+            <ucl:footer ID="foot" runat="server" />
+        </div>        
+        
+    </div>
+   
+    </form>    
+</body>
+</html>

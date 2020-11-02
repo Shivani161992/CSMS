@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ProcurementMaster.master.cs" Inherits="WHP14_Master_ProcurementMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Wheat Procurement Monitoring System 2014</title>
+    <style type="text/css">
+    .modal
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 99;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+        -moz-opacity: 0.8;
+        min-height: 100%;
+        width: 100%;
+    }
+    .loading
+    {
+        font-family: Arial;
+        font-size: 10pt;
+        border: 5px solid #67CFF5;
+        width: 200px;
+        height: 100px;
+        display: none;
+        position: fixed;
+        background-color: White;
+        z-index: 999;
+    }
+</style>
+    <link href="../CSS/calendar.css" rel="stylesheet" type="text/css" />
+ 
+    <%--    <link rel="stylesheet" type="text/css" href="../../WPMS2014/CSS/background.css" />--%>
+    <link rel="stylesheet" type="text/css" href="../CSS/menu.css" />
+
+    <script type="text/javascript" language="javascript">
+        windows.histroy.forward(0);
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="maincontainer">
+            <center>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid">
+                    <tr>
+                        <td align="center" valign="middle" colspan="3" style="width: 1000px; height: 35px; font-size: 18px;">
+                            &nbsp;Weat Procurment Monitoring System (2014-15)</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 35px; width: 1000px; font-size: 18px;" colspan="3" align="center" valign="middle">
+                            खाद्य, नागरिक आपूर्ति एवं उपभोक्ता संरक्षण, मध्यप्रदेश</td>
+                    </tr>
+                    <tr runat="server" id="trow" style="background-image: url(../Images/brown.gif);">
+                        <td align="left" style="width: 200px; border-bottom: gray 1px solid;">
+                        </td>
+                        <td style="width: 600px; border-bottom: gray 1px solid; height: 35px;" align="center" valign="middle">
+                            <strong style="font-weight: bold; color: white">Welcome :<asp:Label ID="Label1" runat="server" Font-Italic="False" Font-Bold="True" ForeColor="Maroon"></asp:Label></strong>
+                        </td>
+                        <td align="right" style="width: 200px; border-bottom: gray 1px solid;">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" runat="server" id="conph_1" valign="top" style="width: 200px;">
+                            <div id="leftcolumn" runat="server" style="width: 200px;">
+                                <div class="glossymenu">
+                                    <a class="menuitem submenuheader" id="A2" runat="server" visible="true">प्राप्ति</a>
+                                    <div class="submenu" id="Div2" runat="server" visible="true">
+                                        <ul>
+                                            <li>
+                                                <asp:LinkButton ID="Link_AnajPrapti" runat="server" OnClick="Link_AnajPrapti_Click">किसान से अनाज की प्राप्ति</asp:LinkButton>
+                                            </li>
+                                            <li>
+                                                <asp:LinkButton ID="LB_AnajPwati" runat="server" OnClick="LB_AnajPwati_Click">अनाज खरीदी पावती प्रिंट करे</asp:LinkButton>
+                                            </li>
+                                            <li>
+                                                <asp:LinkButton ID="btnsingout" runat="server" PostBackUrl="../Login1.aspx" ForeColor="#C00000">Signout</asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td align="left" runat="server" id="conph_2" colspan="2" valign="top" style="height: 500px; width: 800px;">
+                            <asp:ContentPlaceHolder runat="server" ID="MainContentPH">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </form>
+</body>
+</html>

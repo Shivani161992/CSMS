@@ -1,0 +1,33 @@
+  private void getTargetByDistrictsToPC()
+    {
+        string allTarId = Session["cropyear"].ToString() + Session["Markseas_id"].ToString() + DDL_Commodity.SelectedValue + Session["dist_id"].ToString() + Session["Ag_id"].ToString();
+        string strsql = " select distinct districtid,cropyearid from DistrictAllocationDetailsToPC where AllocationTargetId='"+allTarId+"'";
+        SqlObj = new SqlString(ComObj);
+        DataSet ds = SqlObj.selectAny(strsql);
+        if (ds.Tables[0].Rows.Count > 0 && ds != null)
+        {
+            string did = ds.Tables[0].Rows["districtid"].ToString();
+            string cropyearid = ds.Tables[0].Rows["cropyearid"].ToString();
+            ds = null; 
+        }
+        string strsql2 = "select distinct MarketingSeason,PCType,PCType_Id from DistrictAllocationTargetToPurchaseCenter  where AllocationTargetId='" + allTarId + "'";
+      
+        SqlObj = new SqlString(ComObj);
+        DataSet ds2 = SqlObj.selectAny(strsql2);
+        if (ds2.Tables[0].Rows.Count > 0 && ds2 != null)
+        {
+            string mktseason = ds2.Tables[0].Rows["MarketingSeason"].ToString();
+            string PCType = ds2.Tables[0].Rows["PCType"].ToString();
+            string PCType_Id = ds2.Tables[0].Rows["PCType_Id"].ToString();
+            ds2 = null;
+        }
+
+        if (cropyearid == "k" || cropyearid == "r")
+        { 
+        
+        
+        
+        }
+
+
+    }

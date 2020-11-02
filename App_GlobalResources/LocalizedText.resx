@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btn_new" xml:space="preserve">
+    <value>एड न्यू</value>
+  </data>
+  <data name="btn1" xml:space="preserve">
+    <value>FPS जोड़ें</value>
+  </data>
+  <data name="btnadd" xml:space="preserve">
+    <value>एड स्टैक</value>
+  </data>
+  <data name="btnaddnew" xml:space="preserve">
+    <value>एड न्यू</value>
+  </data>
+  <data name="btnaddRO" xml:space="preserve">
+    <value>एड रिलीस आर्डर</value>
+  </data>
+  <data name="btncancel" xml:space="preserve">
+    <value>निरस्त</value>
+  </data>
+  <data name="btncancle" xml:space="preserve">
+    <value>निरस्त</value>
+  </data>
+  <data name="btnclose" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="btnClose1" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="btnGPSearch" xml:space="preserve">
+    <value>गेटपास देखिये</value>
+  </data>
+  <data name="btninsert" xml:space="preserve">
+    <value>शामिल करना</value>
+  </data>
+  <data name="btnnew" xml:space="preserve">
+    <value>नया</value>
+  </data>
+  <data name="btnok" xml:space="preserve">
+    <value>ओ.के.</value>
+  </data>
+  <data name="btnreenter" xml:space="preserve">
+    <value>re-enter</value>
+  </data>
+  <data name="btnsave" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="btnsavePaddy" xml:space="preserve">
+    <value>सुरुक्षित करे</value>
+  </data>
+  <data name="btnsearch" xml:space="preserve">
+    <value>ढूँढना</value>
+  </data>
+  <data name="btnsubmit" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="btnupdate" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="btnupdateqty" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="btnviewdetails" xml:space="preserve">
+    <value>विवरण देखें </value>
+  </data>
+  <data name="btnWhrSearch" xml:space="preserve">
+    <value>डब्ल्यू एच आर</value>
+  </data>
+  <data name="Button1" xml:space="preserve">
+    <value>विवरण देखें</value>
+  </data>
+  <data name="DH1" xml:space="preserve">
+    <value>रिलीज आर्डर </value>
+  </data>
+  <data name="DH10" xml:space="preserve">
+    <value>रेल हेड मास्टर </value>
+  </data>
+  <data name="DH11" xml:space="preserve">
+    <value>आर. आर. की एंट्री </value>
+  </data>
+  <data name="DH12" xml:space="preserve">
+    <value>लीड सोसायटी मास्टर </value>
+  </data>
+  <data name="DH13" xml:space="preserve">
+    <value>रैक मास्टर </value>
+  </data>
+  <data name="DH14" xml:space="preserve">
+    <value>बैंक मास्टर</value>
+  </data>
+  <data name="DH15" xml:space="preserve">
+    <value>परिवाहन आदेश </value>
+  </data>
+  <data name="DH16" xml:space="preserve">
+    <value>रैक प्रेषण की एंट्री </value>
+  </data>
+  <data name="DH17" xml:space="preserve">
+    <value>रैक प्रप्ति की एंट्री </value>
+  </data>
+  <data name="DH18" xml:space="preserve">
+    <value>योजना स्थानांतरण</value>
+  </data>
+  <data name="DH19" xml:space="preserve">
+    <value>परिवाहन आदेश सुधारें</value>
+  </data>
+  <data name="DH2" xml:space="preserve">
+    <value>रिलीज आर्डर  सुधारें</value>
+  </data>
+  <data name="DH20" xml:space="preserve">
+    <value>अपडेट आर.ओ. वैलिडिटी</value>
+  </data>
+  <data name="DH21" xml:space="preserve">
+    <value>रैक प्रप्ति की एंट्री सुधारें </value>
+  </data>
+  <data name="DH22" xml:space="preserve">
+    <value>डिस्ट्रिक़ आवंटन  </value>
+  </data>
+  <data name="DH23" xml:space="preserve">
+    <value>खरीद दर मास्टर </value>
+  </data>
+  <data name="DH24" xml:space="preserve">
+    <value>इसू दर मास्टर </value>
+  </data>
+  <data name="DH25" xml:space="preserve">
+    <value>डिलीट ट्रक चालान </value>
+  </data>
+  <data name="DH26" xml:space="preserve">
+    <value>डिलेवरी आर्डर </value>
+  </data>
+  <data name="DH27" xml:space="preserve">
+    <value>डिलेवरी आर्डर सुधारें</value>
+  </data>
+  <data name="DH3" xml:space="preserve">
+    <value>मिलर मास्टर </value>
+  </data>
+  <data name="DH4" xml:space="preserve">
+    <value>आर.ओ.के विरुद्ध उठाव </value>
+  </data>
+  <data name="DH5" xml:space="preserve">
+    <value>परिवाहनकर्ता मास्टर </value>
+  </data>
+  <data name="DH6" xml:space="preserve">
+    <value>पासवर्ड बदले</value>
+  </data>
+  <data name="DH7" xml:space="preserve">
+    <value>डि.ओ. के खिलाफ जारी</value>
+  </data>
+  <data name="HPL_ShowDO" xml:space="preserve">
+    <value>डिलेवरी आर्डर देखिये</value>
+  </data>
+  <data name="hypdelopningbalance" xml:space="preserve">
+    <value>डिलीट ओपनिंग बैलेंस</value>
+  </data>
+  <data name="HyperLink1" xml:space="preserve">
+    <value>प्राप्ति का विवरण</value>
+  </data>
+  <data name="HyperLink10" xml:space="preserve">
+    <value>बैंक मासटर</value>
+  </data>
+  <data name="HyperLink11" xml:space="preserve">
+    <value>ट्र्क चालान का विवरण </value>
+  </data>
+  <data name="HyperLink12" xml:space="preserve">
+    <value>सम्पादित डिलेवरी आर्डर</value>
+  </data>
+  <data name="HyperLink13" xml:space="preserve">
+    <value>डिलेवरी आर्डर सुधारें</value>
+  </data>
+  <data name="HyperLink14" xml:space="preserve">
+    <value>ट्र्क चालान सुधारें</value>
+  </data>
+  <data name="HyperLink15" xml:space="preserve">
+    <value>लीड समिति मास्टर </value>
+  </data>
+  <data name="HyperLink16" xml:space="preserve">
+    <value>सम्पादित ट्र्क चालान</value>
+  </data>
+  <data name="HyperLink17" xml:space="preserve">
+    <value>ट्रक चालान (जारी की स्थिति)</value>
+  </data>
+  <data name="HyperLink18" xml:space="preserve">
+    <value>स्टैक की गोदामवार स्थिति रिपोर्ट </value>
+  </data>
+  <data name="HyperLink19" xml:space="preserve">
+    <value>ट्र्क चालान </value>
+  </data>
+  <data name="HyperLink2" xml:space="preserve">
+    <value>सम्पादित प्राप्ति का विवरण </value>
+  </data>
+  <data name="HyperLink20" xml:space="preserve">
+    <value>गोदाम मासटर</value>
+  </data>
+  <data name="HyperLink21" xml:space="preserve">
+    <value>प्रारंभिक अवशेष सुधारें</value>
+  </data>
+  <data name="HyperLink22" xml:space="preserve">
+    <value>डिलेवरी आर्डर(लीड समिति)</value>
+  </data>
+  <data name="HyperLink3" xml:space="preserve">
+    <value>प्राप्ति विवरण सुधारें </value>
+  </data>
+  <data name="HyperLink4" xml:space="preserve">
+    <value>पासवर्ड बदलें </value>
+  </data>
+  <data name="HyperLink5" xml:space="preserve">
+    <value>स्कीम परिवर्तन</value>
+  </data>
+  <data name="HyperLink6" xml:space="preserve">
+    <value>डिलेवरी आर्डर</value>
+  </data>
+  <data name="HyperLink7" xml:space="preserve">
+    <value>स्टैकवाइज कण्डीशन रिपोर्ट रजिस्टर</value>
+  </data>
+  <data name="HyperLink8" xml:space="preserve">
+    <value>स्वीक्रत नं जारी कारें</value>
+  </data>
+  <data name="HyperLink9" xml:space="preserve">
+    <value>प्रारंभिक अवशेष</value>
+  </data>
+  <data name="Label10" xml:space="preserve">
+    <value>प्रदाय केंद्र में शेष</value>
+  </data>
+  <data name="Label11" xml:space="preserve">
+    <value>दर / क्विंटल</value>
+  </data>
+  <data name="Label12" xml:space="preserve">
+    <value>मात्रा</value>
+  </data>
+  <data name="Label13" xml:space="preserve">
+    <value>कुल मात्रा</value>
+  </data>
+  <data name="Label14" xml:space="preserve">
+    <value>कुल राशि</value>
+  </data>
+  <data name="Label15" xml:space="preserve">
+    <value>आबंटन महीना</value>
+  </data>
+  <data name="Label16" xml:space="preserve">
+    <value>आबंटन वर्ष</value>
+  </data>
+  <data name="Label17" xml:space="preserve">
+    <value>प्रदाय केन्द्र </value>
+  </data>
+  <data name="Label18" xml:space="preserve">
+    <value>वस्तु</value>
+  </data>
+  <data name="Label2" xml:space="preserve">
+    <value>उपार्जन केन्द्र</value>
+  </data>
+  <data name="Label20" xml:space="preserve">
+    <value>स्कीम </value>
+  </data>
+  <data name="Label5" xml:space="preserve">
+    <value>एफपीएस ब्लॉक</value>
+  </data>
+  <data name="Label6" xml:space="preserve">
+    <value>एफपीएस का नाम</value>
+  </data>
+  <data name="Label7" xml:space="preserve">
+    <value>आबंटन मात्रा</value>
+  </data>
+  <data name="Label8" xml:space="preserve">
+    <value>पहले से जारी मात्रा</value>
+  </data>
+  <data name="Label9" xml:space="preserve">
+    <value>शेष मात्रा</value>
+  </data>
+  <data name="lbl_alloc" xml:space="preserve">
+    <value>आवंटन की मात्रा </value>
+  </data>
+  <data name="lbl_allotqty" xml:space="preserve">
+    <value>आवंटन की मात्रा </value>
+  </data>
+  <data name="lbl_balqty" xml:space="preserve">
+    <value>शेष मात्रा </value>
+  </data>
+  <data name="lbl_blk" xml:space="preserve">
+    <value>एफ.पी.एस.ब्लॉक </value>
+  </data>
+  <data name="lbl_curbal" xml:space="preserve">
+    <value>वर्तमान शेष पात्रता </value>
+  </data>
+  <data name="lbl_fps" xml:space="preserve">
+    <value>एफ.पी.एस. का नाम </value>
+  </data>
+  <data name="lbl_gunnybag_type_category" xml:space="preserve">
+    <value>बोरों की किस्म/ श्रेणी</value>
+  </data>
+  <data name="lbl_issue" xml:space="preserve">
+    <value>जारी की गयी मात्रा  </value>
+  </data>
+  <data name="lbl_issueqty" xml:space="preserve">
+    <value>जारी की गयी मात्रा  </value>
+  </data>
+  <data name="lbl_lead" xml:space="preserve">
+    <value>नाम </value>
+  </data>
+  <data name="lbl_stock" xml:space="preserve">
+    <value>योजना मे शेष मात्रा </value>
+  </data>
+  <data name="lblAck" xml:space="preserve">
+    <value>पावती</value>
+  </data>
+  <data name="lblacno" xml:space="preserve">
+    <value>स्वीकृत पत्रक नं. </value>
+  </data>
+  <data name="lblActQuanRec" xml:space="preserve">
+    <value>प्राप्त की गयी वास्तविक मात्रा</value>
+  </data>
+  <data name="lblAdditionalInfo" xml:space="preserve">
+    <value>अन्य सूचना</value>
+  </data>
+  <data name="lblAddress" xml:space="preserve">
+    <value>पता</value>
+  </data>
+  <data name="lblAddStackBtnForStkInfo" xml:space="preserve">
+    <value>* स्टैक विवरण को शामिल करने के लिए एड स्टैक बटन को क्लिक करें</value>
+  </data>
+  <data name="lblagenttype" xml:space="preserve">
+    <value>एजेंट प्रकार </value>
+  </data>
+  <data name="lblallotm" xml:space="preserve">
+    <value>आवॅंटन माह</value>
+  </data>
+  <data name="lblallotmonth" xml:space="preserve">
+    <value>आवंटन माह</value>
+  </data>
+  <data name="lblallotyear" xml:space="preserve">
+    <value>आवंटन वर्ष</value>
+  </data>
+  <data name="lblamount" xml:space="preserve">
+    <value>मूल्य</value>
+  </data>
+  <data name="lblamountdd" xml:space="preserve">
+    <value>मूल्य</value>
+  </data>
+  <data name="lblamtb" xml:space="preserve">
+    <value>राशि</value>
+  </data>
+  <data name="lblArrivalDepTime" xml:space="preserve">
+    <value>वाहन आवक</value>
+  </data>
+  <data name="lblArrivalPurposeScheme" xml:space="preserve">
+    <value>आवक की गयी प्रासंगिक योजना</value>
+  </data>
+  <data name="lblArrivalTime" xml:space="preserve">
+    <value>वाहन आवक का समय</value>
+  </data>
+  <data name="lblAvailable" xml:space="preserve">
+    <value>उपलब्ध क्षमता </value>
+  </data>
+  <data name="lblAvailPapers" xml:space="preserve">
+    <value>ट्रक में उपलब्ध गेट पास के कागजात
+</value>
+  </data>
+  <data name="lblAvgMoisture" xml:space="preserve">
+    <value>औसत नमी </value>
+  </data>
+  <data name="lblAvgMoistureContent" xml:space="preserve">
+    <value>औसत नमी की मात्रा (%)</value>
+  </data>
+  <data name="lblAvilableStock" xml:space="preserve">
+    <value>उपलब्ध स्टॉक </value>
+  </data>
+  <data name="lblBagNumber" xml:space="preserve">
+    <value>बोरो की संख्या</value>
+  </data>
+  <data name="lblBagSize" xml:space="preserve">
+    <value>बोरों का आकार </value>
+  </data>
+  <data name="lblbalcomdty" xml:space="preserve">
+    <value>वस्तु की शेष मात्रा</value>
+  </data>
+  <data name="lblbalqty" xml:space="preserve">
+    <value>शेष मात्रा </value>
+  </data>
+  <data name="lblbalqtyd" xml:space="preserve">
+    <value>शेष मात्रा </value>
+  </data>
+  <data name="lblBankMaster" xml:space="preserve">
+    <value>बैंक मास्टर</value>
+  </data>
+  <data name="lblBankName" xml:space="preserve">
+    <value>बैंक का नाम</value>
+  </data>
+  <data name="lblBiltyDate1" xml:space="preserve">
+    <value>बिल्टी दिनांक</value>
+  </data>
+  <data name="lblBiltyNo1" xml:space="preserve">
+    <value>बिल्टी नं0</value>
+  </data>
+  <data name="lblbnknm" xml:space="preserve">
+    <value>बैंक का नाम</value>
+  </data>
+  <data name="lblBoredDamage" xml:space="preserve">
+    <value>खराब या क्षतिग्रस्त</value>
+  </data>
+  <data name="lblCancelGPReasonsForCancelation" xml:space="preserve">
+    <value>गेट पास निरस्त करने हेतु निरस्तीकरण का कारण भरें और जमा करें
+</value>
+  </data>
+  <data name="lblCapacity" xml:space="preserve">
+    <value>क्षमता </value>
+  </data>
+  <data name="lblCategory" xml:space="preserve">
+    <value>श्रेणी </value>
+  </data>
+  <data name="lblCategoryA" xml:space="preserve">
+    <value>श्रेणी-ए</value>
+  </data>
+  <data name="lblCategoryB" xml:space="preserve">
+    <value>श्रेणी-बी</value>
+  </data>
+  <data name="lblCategoryC" xml:space="preserve">
+    <value>श्रेणी-सी</value>
+  </data>
+  <data name="lblCategoryD" xml:space="preserve">
+    <value>श्रेणी-डी</value>
+  </data>
+  <data name="lblCategoryDef" xml:space="preserve">
+    <value>श्रेणी </value>
+  </data>
+  <data name="lblCategry" xml:space="preserve">
+    <value>श्रेणी</value>
+  </data>
+  <data name="lblCatgryOfStock" xml:space="preserve">
+    <value>स्टाक का श्रेणी के आधार पर मात्रा का विवरण</value>
+  </data>
+  <data name="lblCatgyMaster" xml:space="preserve">
+    <value>श्रेणी मास्टर</value>
+  </data>
+  <data name="lblCenterOrDepot" xml:space="preserve">
+    <value>केन्द/गोदाम</value>
+  </data>
+  <data name="lblCGSWC" xml:space="preserve">
+    <value>छत्तीसगढ़ राज्य भंडारगृह निगम </value>
+  </data>
+  <data name="lblChalky" xml:space="preserve">
+    <value>चाकी</value>
+  </data>
+  <data name="lblchallandate" xml:space="preserve">
+    <value>चालान की तारीख</value>
+  </data>
+  <data name="lblchallandetails" xml:space="preserve">
+    <value>ट्र्क चालान का विवरण </value>
+  </data>
+  <data name="lblChallanNumber" xml:space="preserve">
+    <value>चालान नम्बर</value>
+  </data>
+  <data name="lblChallanNumber1" xml:space="preserve">
+    <value>चालान नम्बर</value>
+  </data>
+  <data name="lblChangePassword" xml:space="preserve">
+    <value>पासवर्ड बदलना</value>
+  </data>
+  <data name="lblChemicalName" xml:space="preserve">
+    <value>रसायनों का नाम</value>
+  </data>
+  <data name="lblClassOfStock" xml:space="preserve">
+    <value>स्टाक का वर्गीकरण</value>
+  </data>
+  <data name="lblClear" xml:space="preserve">
+    <value>क्लीयर</value>
+  </data>
+  <data name="lblClickAddStackInstrt" xml:space="preserve">
+    <value>* स्टैक विवरण को शामिल करने के लिए एड स्टैक बटन को क्लिक करें</value>
+  </data>
+  <data name="lblCollectionDate" xml:space="preserve">
+    <value>इकट्ठा करने की तारीख</value>
+  </data>
+  <data name="lblCommodity" xml:space="preserve">
+    <value>वस्तु </value>
+  </data>
+  <data name="lblCommodity1" xml:space="preserve">
+    <value>वस्तु </value>
+  </data>
+  <data name="lblCommodityMas" xml:space="preserve">
+    <value>वस्तु मासटर</value>
+  </data>
+  <data name="lblCommodityName" xml:space="preserve">
+    <value>वस्तु का नाम</value>
+  </data>
+  <data name="lblCommoditySampleNo" xml:space="preserve">
+    <value>वस्तु सेम्पल संख्या</value>
+  </data>
+  <data name="lblConfirmPassword" xml:space="preserve">
+    <value>पासवर्ड सुनिश्चित करे</value>
+  </data>
+  <data name="lblCropYear" xml:space="preserve">
+    <value>फसल वर्ष</value>
+  </data>
+  <data name="lblCurStackCap" xml:space="preserve">
+    <value>वर्त्तमान क्षमता </value>
+  </data>
+  <data name="lblDate" xml:space="preserve">
+    <value>दिनांक</value>
+  </data>
+  <data name="lblDate_GP" xml:space="preserve">
+    <value>दिनांक</value>
+  </data>
+  <data name="lblDateOfChallan" xml:space="preserve">
+    <value>चालान की तारीख</value>
+  </data>
+  <data name="lblDateOfDeposit" xml:space="preserve">
+    <value>जमा करने की तारीख</value>
+  </data>
+  <data name="lblDateOfDepositP" xml:space="preserve">
+    <value>जमा करने की तारीख</value>
+  </data>
+  <data name="lblDateOfTreatment" xml:space="preserve">
+    <value>उपचार की तारीख</value>
+  </data>
+  <data name="lblddchekdate" xml:space="preserve">
+    <value>डी.डी./चेक दिनाँक </value>
+  </data>
+  <data name="lblddchekno" xml:space="preserve">
+    <value>डी.डी./चेक नं.</value>
+  </data>
+  <data name="lblddchkdt" xml:space="preserve">
+    <value>डीडी /चैक दिनांक</value>
+  </data>
+  <data name="lblddchkn" xml:space="preserve">
+    <value>डीडी /चैक न.</value>
+  </data>
+  <data name="lblDeliveredTo" xml:space="preserve">
+    <value>को डिलीवर करना</value>
+  </data>
+  <data name="lblDeliveryOrderCSC" xml:space="preserve">
+    <value>डिलेवरी आर्डर (सी एस सी)</value>
+  </data>
+  <data name="lblDeliveryOrderDate" xml:space="preserve">
+    <value>डिलेवरी आर्डर दिनांक</value>
+  </data>
+  <data name="lblDeliveryOrderNumber" xml:space="preserve">
+    <value>डिलेवरी आर्डर क्रमांक</value>
+  </data>
+  <data name="lblDeliveryOrderOfStock" xml:space="preserve">
+    <value>डिलीवर आदेश</value>
+  </data>
+  <data name="lblDeparture" xml:space="preserve">
+    <value>वाहन जावक </value>
+  </data>
+  <data name="lbldepofci" xml:space="preserve">
+    <value>डिपो का नाम</value>
+  </data>
+  <data name="lblDepositDate" xml:space="preserve">
+    <value>जमा करने की तारीख</value>
+  </data>
+  <data name="lblDepositor" xml:space="preserve">
+    <value>जमाकर्ता का नाम</value>
+  </data>
+  <data name="lblDepositorFormhead" xml:space="preserve">
+    <value>जमाकर्ता फार्म</value>
+  </data>
+  <data name="lblDepositorMasterEntry" xml:space="preserve">
+    <value>जमाकर्ता मास्टर </value>
+  </data>
+  <data name="lblDepositorName" xml:space="preserve">
+    <value>जमाकर्ता का नाम</value>
+  </data>
+  <data name="lblDepositorRDD" xml:space="preserve">
+    <value>डिपो</value>
+  </data>
+  <data name="lblDepositorReceiverName" xml:space="preserve">
+    <value>जमाकर्ता/ प्राप्तकर्ता का नाम</value>
+  </data>
+  <data name="lblDepositorType" xml:space="preserve">
+    <value>जमाकर्ता का प्रकार</value>
+  </data>
+  <data name="lbldepositstock" xml:space="preserve">
+    <value>स्कन्ध प्राप्ति का विवरण</value>
+  </data>
+  <data name="lblDepot" xml:space="preserve">
+    <value>डिपो</value>
+  </data>
+  <data name="lblDesc" xml:space="preserve">
+    <value>प्रेषित स्कंध के ट्रक में उपलब्ध कागजात का विवरण</value>
+  </data>
+  <data name="lblDetailsofDD" xml:space="preserve">
+    <value>डी.डी. का विवरण</value>
+  </data>
+  <data name="lblDetailsOfPayment" xml:space="preserve">
+    <value>भुगतान का विवरण
+</value>
+  </data>
+  <data name="lblDetailsofRO" xml:space="preserve">
+    <value>आर.ओ. का विवरण</value>
+  </data>
+  <data name="lbldisdate" xml:space="preserve">
+    <value>स्कन्ध भेजने कि तारीख </value>
+  </data>
+  <data name="lblDispatchQty" xml:space="preserve">
+    <value>प्रेषण मात्रा</value>
+  </data>
+  <data name="lbldispdetails" xml:space="preserve">
+    <value>डिस्पैच का विवरण</value>
+  </data>
+  <data name="lbldispprocure" xml:space="preserve">
+    <value>उपार्जन से भेजे गये स्कन्ध  का विवरण</value>
+  </data>
+  <data name="lbldispsource" xml:space="preserve">
+    <value>जारी करने का स्त्रोत </value>
+  </data>
+  <data name="lbldistime" xml:space="preserve">
+    <value>स्कन्ध भेजने का समय </value>
+  </data>
+  <data name="lblDistrict" xml:space="preserve">
+    <value>जिला</value>
+  </data>
+  <data name="lblDistrictName" xml:space="preserve">
+    <value>जिले का नाम</value>
+  </data>
+  <data name="lblDistrictName1" xml:space="preserve">
+    <value>जिले का नाम</value>
+  </data>
+  <data name="lbldo" xml:space="preserve">
+    <value>डिलेवरी आर्डर </value>
+  </data>
+  <data name="lbldodate" xml:space="preserve">
+    <value>डि.ओ.दिनाँक</value>
+  </data>
+  <data name="lbldodetails" xml:space="preserve">
+    <value>डिलेवरी आर्डर का विवरण</value>
+  </data>
+  <data name="lbldodetailsfps" xml:space="preserve">
+    <value>डिलेवरी आर्डर का विवरण- एफ.पी.एस. अनुशार</value>
+  </data>
+  <data name="lblDOinspect" xml:space="preserve">
+    <value>निरीक्षण की तारीख</value>
+  </data>
+  <data name="lbldono" xml:space="preserve">
+    <value>डि.ओ. नं.</value>
+  </data>
+  <data name="lbldoselect" xml:space="preserve">
+    <value>डि.ओ. का प्रकार</value>
+  </data>
+  <data name="lbldotype" xml:space="preserve">
+    <value>कृपया डि.ओ. का प्रकार चुने</value>
+  </data>
+  <data name="lbldovalidity" xml:space="preserve">
+    <value>वैध्यता</value>
+  </data>
+  <data name="lbldpo" xml:space="preserve">
+    <value>डिपो</value>
+  </data>
+  <data name="lblDriverName" xml:space="preserve">
+    <value>वाहन चालक का नाम</value>
+  </data>
+  <data name="lbldys" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="lblEditMovementChallan" xml:space="preserve">
+    <value>मूवमेंट चालान को संपादित करना</value>
+  </data>
+  <data name="lblfcdist" xml:space="preserve">
+    <value>एफ.सी.आई. ए.म.ऑफिस </value>
+  </data>
+  <data name="lblFew" xml:space="preserve">
+    <value>फयू</value>
+  </data>
+  <data name="lblforDist" xml:space="preserve">
+    <value>जिले के लिये</value>
+  </data>
+  <data name="lblFortQulRept" xml:space="preserve">
+    <value>स्टैकवाईज पाक्षिक गुणवत्ता नियन्त्रण रिपोर्ट
+
+</value>
+  </data>
+  <data name="lblFpsBlock" xml:space="preserve">
+    <value>एफपीएस ब्लाक </value>
+  </data>
+  <data name="lblFpsDist" xml:space="preserve">
+    <value>एफपीएस जिला</value>
+  </data>
+  <data name="lblfpsname" xml:space="preserve">
+    <value>एफपीएस का नाम</value>
+  </data>
+  <data name="lblFrom" xml:space="preserve">
+    <value>कब से </value>
+  </data>
+  <data name="lblfromPurchaseCentre" xml:space="preserve">
+    <value>खरीद केन्द्र (कि0मी0) से दूरी</value>
+  </data>
+  <data name="lblFumigatedDetails" xml:space="preserve">
+    <value>धूमित करने का विवरण</value>
+  </data>
+  <data name="lblGatePass" xml:space="preserve">
+    <value>गेटपास</value>
+  </data>
+  <data name="lblGatePassNumber" xml:space="preserve">
+    <value>गेटपास नम्बर</value>
+  </data>
+  <data name="lblGermiDiscolor" xml:space="preserve">
+    <value>अंकुरित या बदरंग</value>
+  </data>
+  <data name="lblGodown" xml:space="preserve">
+    <value>गोदाम </value>
+  </data>
+  <data name="lblGodownDelivery" xml:space="preserve">
+    <value>गोदाम डिलीवरी नं0</value>
+  </data>
+  <data name="lblGodownMaster" xml:space="preserve">
+    <value>गोदाम मास्टर</value>
+  </data>
+  <data name="lblGodownNo" xml:space="preserve">
+    <value>गोदाम नं0</value>
+  </data>
+  <data name="lblgunnybagsdetails" xml:space="preserve">
+    <value>बोरों का विवरण</value>
+  </data>
+  <data name="lblGunnyBagsEntry" xml:space="preserve">
+    <value>बोरो का विवरण </value>
+  </data>
+  <data name="lblGunnyBagsMaster" xml:space="preserve">
+    <value>बोरों मास्टर फॉर्म </value>
+  </data>
+  <data name="lblGunnyCategory" xml:space="preserve">
+    <value>बोरों की श्रेणी </value>
+  </data>
+  <data name="lblgunnySupply" xml:space="preserve">
+    <value>बोरों की पूर्ति</value>
+  </data>
+  <data name="lblGunnyType" xml:space="preserve">
+    <value>बोरों का प्रकार </value>
+  </data>
+  <data name="lblHeavy" xml:space="preserve">
+    <value>हैवी</value>
+  </data>
+  <data name="lblhirty" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="lblHOorDONo" xml:space="preserve">
+    <value>ट्रांसपोर्ट नं0</value>
+  </data>
+  <data name="lblHOorDOTransDate" xml:space="preserve">
+    <value>ट्रांसपोर्ट दिनांक</value>
+  </data>
+  <data name="lblIdentifiedmark" xml:space="preserve">
+    <value>पहचान चिन्ह</value>
+  </data>
+  <data name="lblInstruction" xml:space="preserve">
+    <value>* अनिवार्य क्षेत्र (क्विंटलों.किलो. ग्राम में मात्रा और रुपयों में मूल्य)</value>
+  </data>
+  <data name="lblissdat" xml:space="preserve">
+    <value>दिनांक</value>
+  </data>
+  <data name="lblissid" xml:space="preserve">
+    <value>प्राप्ति क्र./ट्रक चालान न.</value>
+  </data>
+  <data name="lblissto" xml:space="preserve">
+    <value> प्रकार</value>
+  </data>
+  <data name="lblissueacno" xml:space="preserve">
+    <value>स्वीकृत पत्रक नं. जारी करें </value>
+  </data>
+  <data name="lblissuecenter" xml:space="preserve">
+    <value>प्रदाय केन्द्र</value>
+  </data>
+  <data name="lblissuedate" xml:space="preserve">
+    <value>जारी करने का दिनाँक </value>
+  </data>
+  <data name="lblIssuedBags" xml:space="preserve">
+    <value>जारी किये गये बोरे</value>
+  </data>
+  <data name="lblIssuedPurposeScheme" xml:space="preserve">
+    <value>जारी की गयी प्रासंगिक योजना</value>
+  </data>
+  <data name="lblIssuedTo" xml:space="preserve">
+    <value>दिया गया </value>
+  </data>
+  <data name="lblIssuedweight" xml:space="preserve">
+    <value>जारी वजन</value>
+  </data>
+  <data name="lblKgs" xml:space="preserve">
+    <value>किग्रा</value>
+  </data>
+  <data name="lblKgsgms" xml:space="preserve">
+    <value>किग्रा.ग्रा
+</value>
+  </data>
+  <data name="lblLicenseNo" xml:space="preserve">
+    <value>लाईसेन्स क्रमाँक</value>
+  </data>
+  <data name="lblLotNo" xml:space="preserve">
+    <value>लाट न॰</value>
+  </data>
+  <data name="lblMadeForDo" xml:space="preserve">
+    <value>डिलिवरी के लिए</value>
+  </data>
+  <data name="lblmadeupBagsNo" xml:space="preserve">
+    <value>मेड अप बोरों की संख्या</value>
+  </data>
+  <data name="lblMadeupheader" xml:space="preserve">
+    <value>मेड अप बैगस फार्म</value>
+  </data>
+  <data name="lblMarketValue" xml:space="preserve">
+    <value>बाजार मूल्य (प्रति क्विंटल)</value>
+  </data>
+  <data name="lblMaxCap" xml:space="preserve">
+    <value>अधिक्तम क्षमता </value>
+  </data>
+  <data name="lblmesg" xml:space="preserve">
+    <value>स्टेक्स के चयन के लिए चैकबॉक्स को चिन्हित करें </value>
+  </data>
+  <data name="lblMilerMaster" xml:space="preserve">
+    <value>मिलर मास्टर </value>
+  </data>
+  <data name="lblMillersName" xml:space="preserve">
+    <value>मिलर का नाम</value>
+  </data>
+  <data name="lblMktValComRQtl" xml:space="preserve">
+    <value>वस्तु का बाजार मूलय  (प्रति क्विंटल)</value>
+  </data>
+  <data name="lblMktValOfCommQtl" xml:space="preserve">
+    <value>वस्तु का बाजार मूल्य  (प्रति क्विंटल)</value>
+  </data>
+  <data name="lblMoisture" xml:space="preserve">
+    <value>नमी </value>
+  </data>
+  <data name="lblmono" xml:space="preserve">
+    <value>परिवाहन आदेश नं.</value>
+  </data>
+  <data name="lblmonth" xml:space="preserve">
+    <value>आवॅंटन माह</value>
+  </data>
+  <data name="lblMovementChallan" xml:space="preserve">
+    <value>मूवमेंट  चालान</value>
+  </data>
+  <data name="lblNameChemicalUsed" xml:space="preserve">
+    <value>प्रयोग किये गये रसायन का नाम</value>
+  </data>
+  <data name="lblNameDepositor" xml:space="preserve">
+    <value>जमाकर्ता का नाम</value>
+  </data>
+  <data name="lblNameDepot" xml:space="preserve">
+    <value>डिपो का नाम</value>
+  </data>
+  <data name="lblNameDepot1" xml:space="preserve">
+    <value>डिपो का नाम</value>
+  </data>
+  <data name="lblNameofDriver" xml:space="preserve">
+    <value>ड्राइवर का नाम</value>
+  </data>
+  <data name="lblNatureofInfest" xml:space="preserve">
+    <value>कीटग्रस्तता की प्रकृति</value>
+  </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>नया</value>
+  </data>
+  <data name="lblNewPassword" xml:space="preserve">
+    <value>नया पासवर्ड </value>
+  </data>
+  <data name="lblNoofBags" xml:space="preserve">
+    <value>बोरो की संख्या</value>
+  </data>
+  <data name="lblNoOfBook" xml:space="preserve">
+    <value>बुक नम्बर</value>
+  </data>
+  <data name="lblnumber" xml:space="preserve">
+    <value>डी.डी. सं0</value>
+  </data>
+  <data name="lblOld" xml:space="preserve">
+    <value>पुराना</value>
+  </data>
+  <data name="lblOldPassword" xml:space="preserve">
+    <value>पुराना पासवर्ड</value>
+  </data>
+  <data name="lblopendate" xml:space="preserve">
+    <value>प्रारंभिक अवशेष का दिनाँक</value>
+  </data>
+  <data name="lblopendetails" xml:space="preserve">
+    <value>प्रारंभिक अवशेष का विवरण </value>
+  </data>
+  <data name="lblOrgname" xml:space="preserve">
+    <value>संस्था का नाम</value>
+  </data>
+  <data name="lblparty" xml:space="preserve">
+    <value>प्रेषक का नाम</value>
+  </data>
+  <data name="lblPaymentMode" xml:space="preserve">
+    <value>भुगतान करने का तरीका</value>
+  </data>
+  <data name="lblpcname" xml:space="preserve">
+    <value>खरीद केन्द्र का नाम</value>
+  </data>
+  <data name="lblpcnameP" xml:space="preserve">
+    <value>जिले से प्राप्त</value>
+  </data>
+  <data name="lblPendingGatePAssList" xml:space="preserve">
+    <value>लम्बित गेटपास सूचि </value>
+  </data>
+  <data name="lblPercentMoisture" xml:space="preserve">
+    <value>औसत नमी (%)</value>
+  </data>
+  <data name="lblPercentOfWeevilledGrains" xml:space="preserve">
+    <value>घुन लगे हुए दानों का प्रतिशत</value>
+  </data>
+  <data name="lblpermitdate" xml:space="preserve">
+    <value>परमिट दिनाँक </value>
+  </data>
+  <data name="lblpermitno" xml:space="preserve">
+    <value>परमिट नं.</value>
+  </data>
+  <data name="lblpermitno1" xml:space="preserve">
+    <value>परमिट नं.</value>
+  </data>
+  <data name="lblprd" xml:space="preserve">
+    <value>परमिट आदेश विवरण</value>
+  </data>
+  <data name="lblprmtdt" xml:space="preserve">
+    <value>परमिट दिनांक</value>
+  </data>
+  <data name="lblprmtn" xml:space="preserve">
+    <value>परमिट न.</value>
+  </data>
+  <data name="lblprmtrlzod" xml:space="preserve">
+    <value>परमिट / रिलीज आदेश विवरण</value>
+  </data>
+  <data name="lblProgress" xml:space="preserve">
+    <value>कीटमुक्तता के कार्य की प्रगति</value>
+  </data>
+  <data name="lblpymtdtl" xml:space="preserve">
+    <value>भुगतान विवरण</value>
+  </data>
+  <data name="lblpymtmd" xml:space="preserve">
+    <value>भुगतान प्रकार</value>
+  </data>
+  <data name="lblQltsKgsgms" xml:space="preserve">
+    <value>क्विंटलों.किलो. ग्राम</value>
+  </data>
+  <data name="lblqtls" xml:space="preserve">
+    <value>क्विंटल</value>
+  </data>
+  <data name="lblqtls1" xml:space="preserve">
+    <value>क्विंटल</value>
+  </data>
+  <data name="lblqty" xml:space="preserve">
+    <value>आवंटन की मात्रा </value>
+  </data>
+  <data name="lblQualityResult" xml:space="preserve">
+    <value>गुणवत्ता परिणाम</value>
+  </data>
+  <data name="lblQuantity" xml:space="preserve">
+    <value>मात्रा</value>
+  </data>
+  <data name="lblrackno" xml:space="preserve">
+    <value>रैक नम्बर </value>
+  </data>
+  <data name="lblrackno1" xml:space="preserve">
+    <value>रैक नम्बर </value>
+  </data>
+  <data name="lblrailhead" xml:space="preserve">
+    <value>रेल हेड का नाम</value>
+  </data>
+  <data name="lblRateQuintal" xml:space="preserve">
+    <value>रेट/क्विंटल</value>
+  </data>
+  <data name="lblratetype" xml:space="preserve">
+    <value>मूल्य का प्रकार</value>
+  </data>
+  <data name="lblReasonforCancelation" xml:space="preserve">
+    <value>निरस्तीकरण का कारण</value>
+  </data>
+  <data name="lblrecddist" xml:space="preserve">
+    <value>जिले को प्राप्त </value>
+  </data>
+  <data name="lblrecdepo" xml:space="preserve">
+    <value>डिपो को प्राप्त </value>
+  </data>
+  <data name="lblreceipt" xml:space="preserve">
+    <value>प्राप्ति विवरण सुधारें</value>
+  </data>
+  <data name="lblReceiptDate" xml:space="preserve">
+    <value>प्राप्ति की तारीख</value>
+  </data>
+  <data name="lblRecepDetail" xml:space="preserve">
+    <value>प्राप्ति विवरण</value>
+  </data>
+  <data name="lblRecFromDist" xml:space="preserve">
+    <value>जिले से प्राप्त</value>
+  </data>
+  <data name="lblrecvRentalamount" xml:space="preserve">
+    <value>प्राप्त हुई किराये की राशि</value>
+  </data>
+  <data name="lblReleaseOrder" xml:space="preserve">
+    <value>रिलीस आर्डर नं0 </value>
+  </data>
+  <data name="lblReleaseOrderDate" xml:space="preserve">
+    <value>आर्डर रिलीस करने की तारीख</value>
+  </data>
+  <data name="lblRemark" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="lblRetrieveStackInfo" xml:space="preserve">
+    <value>* स्टैक सूचना को प्राप्त करने के लिए क्लिंक करें</value>
+  </data>
+  <data name="lblRetrieveWHRDetails" xml:space="preserve">
+    <value>* डब्ल्यू एच आर के विवरण को प्राप्त करने के लिए क्लिक करें</value>
+  </data>
+  <data name="lblSampleSlip" xml:space="preserve">
+    <value>सैम्पल स्लिप नं0</value>
+  </data>
+  <data name="lblSchemaMaster" xml:space="preserve">
+    <value>योजना मासटर</value>
+  </data>
+  <data name="lblScheme" xml:space="preserve">
+    <value>स्कीम </value>
+  </data>
+  <data name="lblScheme1" xml:space="preserve">
+    <value>स्कीम </value>
+  </data>
+  <data name="lblSchemeName" xml:space="preserve">
+    <value>स्कीम का नाम</value>
+  </data>
+  <data name="lblschemet" xml:space="preserve">
+    <value>स्कीम परिवर्तन </value>
+  </data>
+  <data name="lblSender" xml:space="preserve">
+    <value>प्रेषक</value>
+  </data>
+  <data name="lblSerialNo" xml:space="preserve">
+    <value>क्रमाँक</value>
+  </data>
+  <data name="lblsesn" xml:space="preserve">
+    <value>फसल</value>
+  </data>
+  <data name="lblSignBranchManager" xml:space="preserve">
+    <value>हस्ताक्षर शाखा प्रबंधक </value>
+  </data>
+  <data name="lblSignGodwnIncharge" xml:space="preserve">
+    <value>हस्ताक्षर शेड प्रभारी </value>
+  </data>
+  <data name="lblSignTruckDriver" xml:space="preserve">
+    <value>हस्ताक्षर ट्रक ड्राईवर </value>
+  </data>
+  <data name="lblSorcePfArrival" xml:space="preserve">
+    <value>आगमन का स्त्रोत</value>
+  </data>
+  <data name="lblSource" xml:space="preserve">
+    <value>स्त्रोत</value>
+  </data>
+  <data name="lblsourcefrom" xml:space="preserve">
+    <value>परिवर्तन का स्त्रोत</value>
+  </data>
+  <data name="lblsourceto" xml:space="preserve">
+    <value>परिवर्तन का स्त्रोत</value>
+  </data>
+  <data name="lblSprayedDetail" xml:space="preserve">
+    <value>छिड़काव का विवरण</value>
+  </data>
+  <data name="lblStackingInfor" xml:space="preserve">
+    <value>स्टैकिंग सूचना</value>
+  </data>
+  <data name="lblStackingInform" xml:space="preserve">
+    <value>* (स्टैकिंग सूचना को संचित करने के लिए ऐड स्टैक बटन क्लिक करें)</value>
+  </data>
+  <data name="lblStackMaster" xml:space="preserve">
+    <value>स्टैक मास्टर</value>
+  </data>
+  <data name="lblStackNo" xml:space="preserve">
+    <value>स्टैक संखया</value>
+  </data>
+  <data name="lblStockforIssue" xml:space="preserve">
+    <value>जारी करने हेतु  स्टॉक </value>
+  </data>
+  <data name="lblStorageReports" xml:space="preserve">
+    <value>संचयन  रिपोर्ट्स</value>
+  </data>
+  <data name="lblTime" xml:space="preserve">
+    <value>का समय</value>
+  </data>
+  <data name="lblTimeOfGoods" xml:space="preserve">
+    <value>माल जारी करने की तारीख</value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>कब तक  </value>
+  </data>
+  <data name="lbltoissue" xml:space="preserve">
+    <value>के पक्ष मे </value>
+  </data>
+  <data name="lbltono" xml:space="preserve">
+    <value>परिवाहन आदेश नं.</value>
+  </data>
+  <data name="lblTotalQuantityReceived" xml:space="preserve">
+    <value>प्राप्त की गयी कुल मात्रा</value>
+  </data>
+  <data name="lbltotalReceivedBags" xml:space="preserve">
+    <value>प्राप्त कुल बोरे</value>
+  </data>
+  <data name="lbltotamt" xml:space="preserve">
+    <value>कुल मूल्य </value>
+  </data>
+  <data name="lblTrans" xml:space="preserve">
+    <value>ट्रासपोटॅर का नाम</value>
+  </data>
+  <data name="lbltransfer" xml:space="preserve">
+    <value>ट्र्क चालान का विवरण (दूसरे डिपो को स्थानांतरित हेतु) </value>
+  </data>
+  <data name="lbltransferdepot" xml:space="preserve">
+    <value>भेजने वाले डिपो द्वारा भरा जावे </value>
+  </data>
+  <data name="lblTransporterMaster" xml:space="preserve">
+    <value>ट्रांसपोर्टर मासटर</value>
+  </data>
+  <data name="lblTransporterName" xml:space="preserve">
+    <value>ट्रासपोटॅर का नाम</value>
+  </data>
+  <data name="lbltransrailhead" xml:space="preserve">
+    <value>ट्र्क चालान का विवरण (रेल हेड को स्थानांतरित हेतु) </value>
+  </data>
+  <data name="lbltreatDate" xml:space="preserve">
+    <value>उपचार की तारीख</value>
+  </data>
+  <data name="lbltreatRecomd" xml:space="preserve">
+    <value>संस्तुत उपचार</value>
+  </data>
+  <data name="lblTreatType" xml:space="preserve">
+    <value>उपचार का तरीका</value>
+  </data>
+  <data name="lblTruckDetails" xml:space="preserve">
+    <value>ट्रक का विवरण</value>
+  </data>
+  <data name="lblTruckInfo" xml:space="preserve">
+    <value>ट्रंक की सूचना</value>
+  </data>
+  <data name="lblTruckNumber" xml:space="preserve">
+    <value>वाहन संख्या</value>
+  </data>
+  <data name="lbltypacc" xml:space="preserve">
+    <value>आगमन का स्त्रोत</value>
+  </data>
+  <data name="lblType" xml:space="preserve">
+    <value>किस्म</value>
+  </data>
+  <data name="lblTypeOfTreatment" xml:space="preserve">
+    <value>उपचार का तरीका</value>
+  </data>
+  <data name="lblTypeVehicle" xml:space="preserve">
+    <value>वाहन का प्रकार  </value>
+  </data>
+  <data name="lblValidity" xml:space="preserve">
+    <value>मान्यता</value>
+  </data>
+  <data name="lblValidUpto" xml:space="preserve">
+    <value>वैधता की दिनांक</value>
+  </data>
+  <data name="lblValueofStockDelivered" xml:space="preserve">
+    <value>स्टॉक का मूल्य</value>
+  </data>
+  <data name="lblVehicleNO" xml:space="preserve">
+    <value>वाहन संख्या</value>
+  </data>
+  <data name="lblVikasKhand" xml:space="preserve">
+    <value>विकास खण्ड</value>
+  </data>
+  <data name="lblvlty" xml:space="preserve">
+    <value>वैधता</value>
+  </data>
+  <data name="lblWCMNo" xml:space="preserve">
+    <value>डब्ल्यू सी ऍम नं0</value>
+  </data>
+  <data name="lblWeighmentMode" xml:space="preserve">
+    <value>वजन करने का तरीका</value>
+  </data>
+  <data name="lblWeight" xml:space="preserve">
+    <value>वजन</value>
+  </data>
+  <data name="lblWeightmentOn" xml:space="preserve">
+    <value>वजन तौलने के लिए</value>
+  </data>
+  <data name="lblwelcome" xml:space="preserve">
+    <value>वेलकॅम</value>
+  </data>
+  <data name="lblWHRDate" xml:space="preserve">
+    <value>डब्ल्यू एच आर दिनांक</value>
+  </data>
+  <data name="lblWHRDetailStackingInfo" xml:space="preserve">
+    <value>स्टैकिंग सूचना के साथ डब्ल्यू एच आर का विवरण</value>
+  </data>
+  <data name="lblWHRNumber" xml:space="preserve">
+    <value>डब्ल्यू एच आर नं0</value>
+  </data>
+  <data name="lblwt" xml:space="preserve">
+    <value>वजन</value>
+  </data>
+  <data name="lblyear" xml:space="preserve">
+    <value>आवॅंटन वर्ष </value>
+  </data>
+  <data name="LinkButton1" xml:space="preserve">
+    <value>लाग आउट</value>
+  </data>
+  <data name="lnkStock_Rice_DM" xml:space="preserve">
+    <value>चावल स्टॉक की जानकारी भरें</value>
+  </data>
+  <data name="lnkStock_Wheat_DM" xml:space="preserve">
+    <value>गेहूँ स्टॉक की जानकारी भरें</value>
+  </data>
+  <data name="Msg1" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="span1" xml:space="preserve">
+    <value>आरंभीकरण</value>
+  </data>
+  <data name="span2" xml:space="preserve">
+    <value>प्राप्ति विवरण </value>
+  </data>
+  <data name="span3" xml:space="preserve">
+    <value>डिस्पैच का विवरण</value>
+  </data>
+  <data name="span4" xml:space="preserve">
+    <value>डिस्पैच(रेल हेड)</value>
+  </data>
+  <data name="span5" xml:space="preserve">
+    <value>मास्टर</value>
+  </data>
+  <data name="span6" xml:space="preserve">
+    <value>जारी </value>
+  </data>
+  <data name="span7" xml:space="preserve">
+    <value>रिपोर्ट</value>
+  </data>
+  <data name="span8" xml:space="preserve">
+    <value>पासवर्ड बदलें </value>
+  </data>
+  <data name="span9" xml:space="preserve">
+    <value>मैंटेनेअंस</value>
+  </data>
+  <data name="spandeliveryorder" xml:space="preserve">
+    <value>डिलीवरी ऑर्डर</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>जिले का नाम </value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>ओ.के</value>
+  </data>
+  <data name="totaldoqty" xml:space="preserve">
+    <value>डि.ओ.की कुल मात्रा </value>
+  </data>
+  <data name="Uxchange" xml:space="preserve">
+    <value>बदले</value>
+  </data>
+</root>

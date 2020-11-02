@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAdd_FPS" xml:space="preserve">
+    <value>FPS जोड़ें</value>
+  </data>
+  <data name="btnaddnew" xml:space="preserve">
+    <value>एड न्यू</value>
+  </data>
+  <data name="btnclose" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="btnsave" xml:space="preserve">
+    <value>सुरक्षित करें</value>
+  </data>
+  <data name="lbl_allotqty" xml:space="preserve">
+    <value>आवंटन की मात्रा </value>
+  </data>
+  <data name="lbl_Avail_Head" xml:space="preserve">
+    <value>शेष स्कंध का विवरण</value>
+  </data>
+  <data name="lbl_Avail_Head1" xml:space="preserve">
+    <value>शेष स्कंध का विवरण</value>
+  </data>
+  <data name="lbl_balqty" xml:space="preserve">
+    <value>शेष मात्रा </value>
+  </data>
+  <data name="lbl_blk" xml:space="preserve">
+    <value>एफ.पी.एस.ब्लॉक </value>
+  </data>
+  <data name="lbl_Block" xml:space="preserve">
+    <value>ब्लाक</value>
+  </data>
+  <data name="lbl_Bookno" xml:space="preserve">
+    <value>बुक क्रमांक</value>
+  </data>
+  <data name="lbl_comm_scheme" xml:space="preserve">
+    <value>स्कंध एवं स्कीम</value>
+  </data>
+  <data name="lbl_comm_scheme1" xml:space="preserve">
+    <value>स्कंध एवं स्कीम</value>
+  </data>
+  <data name="lbl_cur_bags" xml:space="preserve">
+    <value>बोरी में</value>
+  </data>
+  <data name="lbl_Dispatch_Details" xml:space="preserve">
+    <value>प्रेषणकर्ता खरीदी केंद्र / बेस पॉइंट</value>
+  </data>
+  <data name="lbl_Driver_Name" xml:space="preserve">
+    <value>ट्रक ड्राईवर का नाम</value>
+  </data>
+  <data name="lbl_fps" xml:space="preserve">
+    <value>एफ.पी.एस. का नाम </value>
+  </data>
+  <data name="lbl_FPS_Details" xml:space="preserve">
+    <value>जोड़े गए उ.मूल्य.दुकान का विवरण</value>
+  </data>
+  <data name="lbl_fpsname" xml:space="preserve">
+    <value>उ.मूल्य.दूकान</value>
+  </data>
+  <data name="lbl_Head_Transport" xml:space="preserve">
+    <value>परिवहनकर्ता का विवरण</value>
+  </data>
+  <data name="lbl_issueqty" xml:space="preserve">
+    <value>जारी की गयी मात्रा  </value>
+  </data>
+  <data name="lbl_Receive_Details" xml:space="preserve">
+    <value>गंतव्य संग्रहण केंद्र / रैक पॉइंट</value>
+  </data>
+  <data name="lbl_Saralno" xml:space="preserve">
+    <value>सरल क्रमांक</value>
+  </data>
+  <data name="lblallotmonth" xml:space="preserve">
+    <value>आवंटन माह</value>
+  </data>
+  <data name="lblallotyear" xml:space="preserve">
+    <value>आवंटन वर्ष</value>
+  </data>
+  <data name="lblamount" xml:space="preserve">
+    <value>मूल्य</value>
+  </data>
+  <data name="lblBagNumber" xml:space="preserve">
+    <value>बोरो की संख्या</value>
+  </data>
+  <data name="lblbalcomdty" xml:space="preserve">
+    <value>वस्तु की शेष मात्रा</value>
+  </data>
+  <data name="lblBankName" xml:space="preserve">
+    <value>बैंक का नाम</value>
+  </data>
+  <data name="lblbqty" xml:space="preserve">
+    <value>शेष स्कंध की मात्रा</value>
+  </data>
+  <data name="lblbuilty" xml:space="preserve">
+    <value>बिल्टी क्रमांक</value>
+  </data>
+  <data name="lblbuiltydate" xml:space="preserve">
+    <value>बिल्टी दिनांक</value>
+  </data>
+  <data name="lblChallanNumber" xml:space="preserve">
+    <value>चालान नम्बर</value>
+  </data>
+  <data name="lblCommodity" xml:space="preserve">
+    <value>वस्तु </value>
+  </data>
+  <data name="lblddchekdate" xml:space="preserve">
+    <value>डी.डी./चेक दिनाँक </value>
+  </data>
+  <data name="lblddchekno" xml:space="preserve">
+    <value>डी.डी./चेक नं.</value>
+  </data>
+  <data name="lbldisdate" xml:space="preserve">
+    <value>स्कन्ध भेजने कि तारीख </value>
+  </data>
+  <data name="lbldispsource" xml:space="preserve">
+    <value>जारी करने का स्त्रोत </value>
+  </data>
+  <data name="lbldistime" xml:space="preserve">
+    <value>स्कन्ध भेजने का समय </value>
+  </data>
+  <data name="lblDistrictName" xml:space="preserve">
+    <value>जिले का नाम</value>
+  </data>
+  <data name="lbldo" xml:space="preserve">
+    <value>डिलेवरी आर्डर </value>
+  </data>
+  <data name="lbldodate" xml:space="preserve">
+    <value>डि.ओ.दिनाँक</value>
+  </data>
+  <data name="lbldodetails" xml:space="preserve">
+    <value>डिलेवरी आर्डर का विवरण</value>
+  </data>
+  <data name="lbldodetailsfps" xml:space="preserve">
+    <value>डिलेवरी आर्डर का विवरण- एफ.पी.एस. अनुशार</value>
+  </data>
+  <data name="lbldono" xml:space="preserve">
+    <value>डि.ओ. नं.</value>
+  </data>
+  <data name="lbldovalidity" xml:space="preserve">
+    <value>वैध्यता</value>
+  </data>
+  <data name="lblGodownNo" xml:space="preserve">
+    <value>गोदाम नं0</value>
+  </data>
+  <data name="lblmonth" xml:space="preserve">
+    <value>आवॅंटन माह</value>
+  </data>
+  <data name="lblNameDepot" xml:space="preserve">
+    <value>डिपो का नाम</value>
+  </data>
+  <data name="lblpayment" xml:space="preserve">
+    <value>भुगतान का विवरण</value>
+  </data>
+  <data name="lblPaymentMode" xml:space="preserve">
+    <value>भुगतान करने का तरीका</value>
+  </data>
+  <data name="lblpermitdate" xml:space="preserve">
+    <value>परमिट दिनाँक </value>
+  </data>
+  <data name="lblpermitno" xml:space="preserve">
+    <value>परमिट नं.</value>
+  </data>
+  <data name="lblpermitno1" xml:space="preserve">
+    <value>परमिट नं.</value>
+  </data>
+  <data name="lblQuantity" xml:space="preserve">
+    <value>मात्रा</value>
+  </data>
+  <data name="lblRateQuintal" xml:space="preserve">
+    <value>रेट/क्विंटल</value>
+  </data>
+  <data name="lblratetype" xml:space="preserve">
+    <value>मूल्य का प्रकार</value>
+  </data>
+  <data name="lblrecddist" xml:space="preserve">
+    <value>जिले को प्राप्त </value>
+  </data>
+  <data name="lblrecdepo" xml:space="preserve">
+    <value>डिपो को प्राप्त </value>
+  </data>
+  <data name="lblRemark" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="lblScheme" xml:space="preserve">
+    <value>स्कीम </value>
+  </data>
+  <data name="lbltoissue" xml:space="preserve">
+    <value>के पक्ष मे </value>
+  </data>
+  <data name="lbltotamt" xml:space="preserve">
+    <value>कुल मूल्य </value>
+  </data>
+  <data name="lblTrans" xml:space="preserve">
+    <value>ट्रासपोटॅर का नाम</value>
+  </data>
+  <data name="lbltransfer" xml:space="preserve">
+    <value>ट्र्क चालान का विवरण (उ.मूल्य.दुकानवार भेजने हेतु) </value>
+  </data>
+  <data name="lbltransferdepot" xml:space="preserve">
+    <value>भेजने वाले डिपो द्वारा भरा जावे </value>
+  </data>
+  <data name="lblTruckNumber" xml:space="preserve">
+    <value>वाहन संख्या</value>
+  </data>
+  <data name="lblyear" xml:space="preserve">
+    <value>आवॅंटन वर्ष </value>
+  </data>
+  <data name="lnk_Truckchalan_fps" xml:space="preserve">
+    <value>ट्रक चालान (दुकानवार)</value>
+  </data>
+  <data name="lnkpds_delivery" xml:space="preserve">
+    <value>डिलेवरी ऑडर (दुकानवार)</value>
+  </data>
+  <data name="spsn_fps" xml:space="preserve">
+    <value>डिस्पेच(उ.मूल्य.दुकान)</value>
+  </data>
+  <data name="totaldoqty" xml:space="preserve">
+    <value>डि.ओ.की कुल मात्रा </value>
+  </data>
+</root>

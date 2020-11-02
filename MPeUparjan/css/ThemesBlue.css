@@ -1,0 +1,28 @@
+
+/* CSS Document */
+html, body
+{
+	margin: 0px 0px;
+	padding: 0px 0px; /*font-family:"Lucida Sans";
+	font-size:12px;
+	color:Navy;*/
+	background-repeat: repeat-x;
+	background-image: url(../Images/Blue_bg.jpg);
+}
+
+.box{
+ 
+  -webkit-transition:0.3s;
+  transition:0.3s;
+}
+.box img{
+  width:10px;
+}
+
+.box:hover{
+   box-shadow: 0 1px 10px #200;
+ 
+   -webkit-transform: scale(0.3s);
+   transform: scale(0.3s);
+   opacity:1;
+}

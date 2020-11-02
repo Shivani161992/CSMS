@@ -1,0 +1,212 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SCSC_master.master.cs" Inherits="MasterPage_SCSC_master"  %>
+
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Portal for MPSCSC</title>
+     <link rel="stylesheet" href ="../MyCss/comon.css" type ="text/css" />   
+    <link rel="stylesheet" href ="../MyCss/xp_comon.css" type ="text/css"  />    
+    <link rel="stylesheet" href ="../MyCss/menu.css" type ="text/css" />
+    <link rel="stylesheet" href ="../MyCss/xp_menu.css" type ="text/css" />
+    <link rel="stylesheet" type="text/css" href="../sdmenu/sdmenu.css" />
+   <script type = "text/javascript" src="../calendar_eu.js"></script>  
+	<link rel="stylesheet" href="../CSS/calendar.css" />
+	<script type="text/javascript" src ="../js/chksql.js"></script>
+       <script type="text/javascript" src="../js/md5.js"></script>
+    <script type="text/javascript">
+    //var browser=navigator.appName;
+    //var b_version=navigator.userAgent.toLowerCase();
+    //var version=parseFloat(b_version);
+//alert(navigator.javascriptEnabled);
+//var str =document.getElementById('HyperLink1').id ;
+//alert( b_version);
+//str.blink();
+//var uri="my test.asp?name=ståle&car=saab";
+//document.write(encodeURI(uri)+ "<br />");
+//document.write(decodeURI(uri));
+//document.write("Java enabled: " + navigator.javaEnabled());
+
+    var sheets = document.styleSheets ;   
+    sheets[0].disabled = true ; 
+    sheets[1].disabled = true ;   
+    sheets[2].disabled = true ; 
+    sheets[3].disabled = true ;       
+        var windt=navigator.userAgent.toLowerCase();
+        var winindx='null';
+        var win_xp='null';
+        winindx=windt.match('win');        
+        win_xp=windt.match('nt 5.1');           
+        if(win_xp == 'nt 5.1' && winindx=='win')
+        {
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }
+        else
+        {           
+             sheets[0].disabled = false;
+             sheets[2].disabled = false;             
+        }    
+    
+    </script> 
+<script type="text/javascript">
+function CheckCalDate(tx){
+var AsciiCode = event.keyCode;
+var txt=tx.value;
+var txt2 = String.fromCharCode(AsciiCode);
+var txt3=txt2*1;
+if ((AsciiCode > 0))
+{
+alert('Please Click on Calander Controll to Enter Date');
+event.cancelBubble = true;
+event.returnValue = false;
+}
+}
+</script>
+     <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript">
+window.history.forward(); 
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+ 
+</head>
+<body leftmargin=0 topmargin=0 bgcolor="#ffffff"> 
+
+    <form id="form2" runat="server">
+   
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+	<td width="50%" background="../images/bg.gif"><img src="../images/px1.gif" width="1" height="1" alt="" border="0"></td>
+	<td valign="bottom" background="../images/bg_left.gif"><img src="../images/bg_left.gif" alt="" width="17" height="16" border="0"></td>
+	<td>
+	<table width="780" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><asp:Image ID="Image2" runat="server" ImageUrl ="~/Images/scsc.jpg" /></td>
+        </tr>
+        <tr>
+          <td style="background-image: url(../Images/tittle.jpg); color: white; height: 19px; background-color: transparent" align="center"> Welcome :<asp:Label ID="Label1" runat="server" Font-Italic ="True" Font-Bold ="True"  ></asp:Label>||<asp:Label
+              ID="Label2" runat="server" Font-Bold="True" Font-Italic="True">DMMPSCSC</asp:Label>|<asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/District/FrmLogOut.aspx">SignOut</asp:LinkButton>
+     </td>
+        </tr>
+      </table>
+     
+
+      
+       <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+    <td rowspan ="10" valign="top">
+      <asp:Panel ID="Panel1" runat="server" Height="380px" Width="150px" ScrollBars="Auto">
+    <div id="my_menu" class="sdmenu">
+<div>
+<span id="span1" runat="server">Release Order</span>
+<asp:HyperLink ID="DH1" runat="server" NavigateUrl="~/District/mpscsc_RO_New.aspx">Release Order(FCI)</asp:HyperLink>
+<asp:HyperLink ID="DH2" runat="server" NavigateUrl="~/District/RO_Edit_Page.aspx">Edit Release Order </asp:HyperLink>
+<asp:HyperLink ID="DH20" runat="server" NavigateUrl="~/District/Expire_RO_Details.aspx">Update RO Validity </asp:HyperLink>
+<asp:HyperLink ID="DH26" runat="server" NavigateUrl="~/District/DeliveryOrder_FCI.aspx">Delivery Order </asp:HyperLink>
+<asp:HyperLink ID="DH27" runat="server" NavigateUrl="~/District/Edit_delivery.aspx">Edit Delivery Order </asp:HyperLink>
+</div>
+<div>
+<span id="span2" runat="server">Lifting</span>
+<asp:HyperLink ID="DH15" runat="server" NavigateUrl="~/District/TransportOrder_Type.aspx">Generate Transport Order</asp:HyperLink>
+<asp:HyperLink ID="DH19" runat="server" NavigateUrl="~/District/Edit_Transport_Order_Page.aspx">Edit Transport Order</asp:HyperLink>
+<asp:HyperLink ID="DH4" runat="server" NavigateUrl="~/District/mpscsc_LARO.aspx">Lifting Against RO</asp:HyperLink>
+<asp:HyperLink ID="DH25" runat="server" NavigateUrl="~/District/Delete_ mpscsc_LARO.aspx">Delete Truck Challan</asp:HyperLink>
+<asp:HyperLink ID="DH7" runat="server" NavigateUrl="~/District/issueagainst_do.aspx">Issue Against DO</asp:HyperLink>
+</div>
+<div>
+<span id="span3" runat="server">Scheme Transfer</span>
+<asp:HyperLink ID="DH18" runat="server" NavigateUrl="~/District/Scheme_Transfer.aspx">Scheme Transfer</asp:HyperLink>
+</div>
+<div>
+<span id="span4" runat="server">R.R. Details</span>
+<asp:HyperLink ID="DH11" runat="server" NavigateUrl="~/District/RR_Entry.aspx">R.R. Entry</asp:HyperLink>
+<asp:HyperLink ID="DH17" runat="server" NavigateUrl="~/District/RakeReceiptType.aspx">Rack Receipt Entry</asp:HyperLink>
+<asp:HyperLink ID="DH21" runat="server" NavigateUrl="~/District/Edit_Rack_Receipt_page.aspx"> Edit Rack Receipt Details</asp:HyperLink>
+<asp:HyperLink ID="DH16" runat="server" NavigateUrl="~/District/Rack_Dispatch_Detail.aspx">Rack Dispatch Entry </asp:HyperLink>
+</div>
+<div>
+<span id="span5" runat="server">Masters</span>
+<asp:HyperLink ID="DH23" runat="server" NavigateUrl="~/District/Rate_master.aspx">Purchase Rate Master</asp:HyperLink>
+<asp:HyperLink ID="DH24" runat="server" NavigateUrl="~/District/Ratemaster_Purchase.aspx">Issue Rate Master</asp:HyperLink>
+<asp:HyperLink ID="DH12" runat="server" NavigateUrl="~/District/leadsoc_creat.aspx">Lead Society Master</asp:HyperLink>
+<asp:HyperLink ID="DH5" runat="server" NavigateUrl="~/District/mpscsc_transporter.aspx">Transporter Master</asp:HyperLink>
+<asp:HyperLink ID="DH14" runat="server" NavigateUrl ="~/District/Bank_Master.aspx">Bank Master</asp:HyperLink>
+<asp:HyperLink ID="DH10" runat="server" NavigateUrl="~/District/RailHead_Entry.aspx">Rail Head Master</asp:HyperLink>
+<asp:HyperLink ID="DH13" runat="server" NavigateUrl ="~/District/Rack_master.aspx">Rack Master</asp:HyperLink>
+<asp:HyperLink ID="DH3" runat="server" NavigateUrl="~/District/Millermaster.aspx">Miller Master</asp:HyperLink>
+<asp:HyperLink ID="DH22" runat="server" NavigateUrl="~/District/dist_alloc_mpscsc.aspx">District Allocation</asp:HyperLink>
+
+</div>
+<div>
+<span>Reports</span>
+<asp:HyperLink ID="DH8" runat="server" NavigateUrl="~/District/Truck_Movement_Details.aspx">Truck Movement Details</asp:HyperLink>
+<asp:HyperLink ID="DH9" runat="server" NavigateUrl="~/District/frmReports.aspx">View Report</asp:HyperLink>
+</div>
+<div>
+<span id="span6" runat="server">Change Password</span>
+<asp:HyperLink ID="DH6" runat="server" NavigateUrl="~/District/Change_Password_Dist.aspx">Change Password</asp:HyperLink>
+</div>
+
+
+
+</div>
+    </asp:Panel> 
+        <asp:Panel ID="Panel2" runat="server" Height="90px" ScrollBars="Both" Width="150px">
+            <ucl:footer ID="foot" runat="server" />
+        </asp:Panel>
+    </td>
+    <td class="middleContainer" valign="top">
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </td>
+    </tr>
+    
+    </table>
+    
+  
+          
+<div class="px" align="center"><img src="../images/bot01.jpg" width="780" height="9" alt="" border="0"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="780" align="center" style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid">
+    <tr>
+        <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">
+             Site Designed and Hosted By:</td>
+        <td style="height: 10px; font-weight: bold; font-size: 12px; color: green;" align="center">
+           Contents Provided By:</td>
+    </tr>
+<tr>
+	<td><p>
+        <asp:HyperLink ID="HyperLink49" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+            ForeColor="Navy" Height="50px" Width="310px" Font-Bold="True">National Informatics Centre, Madhya Pradesh
+Ministry of Communications and Information Technology
+Department of Information Technology</asp:HyperLink>&nbsp;</p></td>
+	      <td height="50"> 
+            <p class="bot"><b> <a href="">
+                <asp:HyperLink ID="HyperLink50" runat="server" Font-Names="Arial Narrow" Font-Size="12px"
+                    ForeColor="Navy" Height="40px" Width="338px">Madhya Pradesh State Civil Supplies Corporation Ltd. Block-1, 3rd Floor, Paryavas Bhavan, Jail Road, Bhopal- 462011 India  Phones : 91-755-2551539, Fax :91-755-2551289 Email : mpscsc@sancharnet.in </asp:HyperLink></a></b></p>
+	</td>
+</tr>
+</table>
+	<td valign="bottom" background="../images/bg_right.gif"><img src="../images/bg_right.gif" alt="" width="17" height="16" border="0"></td>
+	<td width="50%" background="../images/bg.gif"><img src="../images/px1.gif" width="1" height="1" alt="" border="0"></td>
+          </tr> 
+          </table>  
+    
+    </form>
+
+	
+</body>
+</html>

@@ -1,0 +1,99 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DF_MPSCSC.master.cs" Inherits="MasterPage_DF_MPSCSC" %>
+
+<%@ Register TagPrefix="ucl" TagName="header" Src="~/Controls/header.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="leftpanel" Src="~/Controls/leftpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="rightpanel" Src="~/Controls/rightpanel.ascx" %>
+<%@ Register TagPrefix="ucl" TagName="footer" Src="~/Controls/footer.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Portal for MPSCSC</title>
+     <link rel="Stylesheet" href="../MyCss/Comon.css" type="text/css" />
+     <link rel="stylesheet" href ="../MyCss/menu.css" type ="text/css" />
+    <link rel="stylesheet"  href="../sdmenu/sdmenu.css" type="text/css"/>
+   <script type="text/javascript" src="../sdmenu/sdmenu.js">
+/***********************************************
+* Slashdot Menu script- By DimX
+* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var myMenu;
+window.onload = function() {
+myMenu = new SDMenu("my_menu");
+myMenu.init();
+};
+// ]]>
+</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="main" >
+        <div id="header">
+            <asp:Image ID="Image1" runat="server" ImageUrl ="~/Images/scsc.jpg" />
+        </div>
+        <div id="divwel">
+            Welcome :<asp:Label ID="Label1" runat="server" Text="" Font-Italic ="true" Font-Bold ="true"  ></asp:Label> |<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="False" ForeColor="White" PostBackUrl ="~/FrmLogOut.aspx">SignOut</asp:LinkButton>
+        </div>
+    </div>
+    <table border="0" cellpadding="0" cellspacing="0" class ="menumargin1">
+    <tr>
+    <td rowspan ="10" valign="top">
+    <div id="my_menu" class="sdmenu">
+<div>
+<span>Masters</span>
+<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/DistrictFood/RailHead_Entry.aspx">Rail Head Entry</asp:HyperLink>
+<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/DistrictFood/Rack_master.aspx">Rack Entry</asp:HyperLink>
+
+
+</div>
+<div>
+<span>Receipt Details</span>
+<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/DistrictFood/Rack_Receipt_Dtl.aspx">Rack Receipt Entry </asp:HyperLink>
+<asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/DistrictFood/Rack_Dispatch_Detail.aspx">Rack Receipt Edit</asp:HyperLink>
+
+</div>
+<div>
+<span>Dispatch Details</span>
+<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/DistrictFood/Rack_Dispatch_Detail.aspx">Rack Dispatch Entry</asp:HyperLink>
+<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/DistrictFood/Rack_Dispatch_Detail.aspx">Rack Dispatch Edit</asp:HyperLink>
+
+</div>
+<div>
+<span>Reports</span>
+<asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/DistrictFood/frmReports.aspx">View Report</asp:HyperLink>
+
+
+</div>
+<div>
+<span>Change Password</span>
+<asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/DistrictFood/Change_Password_Dist.aspx">Change Password</asp:HyperLink>
+</div>
+   </div>  
+    </td>
+    <td class="middleContainer" valign="top">
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </td>
+    </tr>
+    
+    </table>
+    
+    <div>
+    <table>
+    <tr>
+    
+    </tr>
+    </table>
+        
+    </div>
+     <div id="footerarea">
+            <ucl:footer ID="foot" runat="server" />
+        
+        </div>   
+    </form>
+</body>
+</html>

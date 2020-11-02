@@ -1,0 +1,17 @@
+﻿body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family:verdana Tahoma Sans-Serif Arial Times New Roman;
+	font-size:14px;
+	color:Navy;
+	background-color: #666666;
+}
+.divFooter
+{
+	font-size:12px;color:#663300; height:80px;margin-left:10px;
+	text-align:center;
+	 background-color:#F8F6F7;
+
+}
